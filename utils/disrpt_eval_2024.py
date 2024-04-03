@@ -67,33 +67,46 @@ __license__ = "Apache 2.0"
 __version__ = "2.0.0"
 
 import io, os, sys, argparse
-from sklearn.metrics import accuracy_score 
+import json
+from sklearn.metrics import accuracy_score, classification_report
 
 # MWE and ellips : no lab or "_"
+# TODO :
+# print scores *100: 0.6825 => 68.25
+# documentation (automatic generation ?)
+# testunitaire
+# option print result in terminal or generate a/several json file
 
 class Evaluation:
 	"""
 	Generic class for evalution between 2 files.
 	:load data, basic check, basic metrics, print results.
 	"""
-	def __init__(self, name):
+	def __init__(self, name:str) -> None:
 		self.output = dict()
 		self.name = name
 		self.report = ""
+		self.fill_output('doc_name', self.name)
 
-		self.output['doc_name'] = self.name
-
-	def get_data(self, infile, str_i=False):
+	def get_data(self, infile:str, str_i=False) -> str:
+		"""
+		Stock data from file or stream.
+		"""
 		if str_i==False:
 			data = io.open(infile, encoding="utf-8").read().strip().replace("\r", "")
 		else:
 			data = infile.strip()
-
 		return data
 
-	def check_tokens_number(self, g, p):
+	def fill_output(self, key:str, value) -> None:
 		"""
-		Check same number of tokens in both files
+		Fill results dict that will be printed.
+		"""
+		self.output[key] = value
+
+	def check_tokens_number(self, g:list, p:list) -> None:
+		"""
+		Check same number of tokens/labels in both files.
 		"""
 		if len(g) != len(p):
 			self.report += "\nFATAL: different number of tokens detected in gold and pred:\n"
@@ -101,9 +114,9 @@ class Evaluation:
 			sys.stderr.write(self.report)
 			sys.exit(0)
 
-	def check_identical_tokens(self, g, p):
+	def check_identical_tokens(self, g:list, p:list) -> None:
 		"""
-		Check tokens are identical
+		Check tokens/features are identical.
 		"""
 		for i, tok in enumerate(g):
 			if tok != p[i]:
@@ -113,8 +126,11 @@ class Evaluation:
 				sys.stderr.write(self.report)
 				break
 
-	def compute_PRF_metrics(self, tp, fp, fn):
-
+	def compute_PRF_metrics(self, tp:int, fp:int, fn:int) -> None:
+		"""
+		Compute Precision, Recall, F-score from True Positive, False Positive and False Negative counts.
+		Save result in dict.
+		"""
 		try:
 			precision = tp / (float(tp) + fp)
 		except Exception as e:
@@ -130,25 +146,38 @@ class Evaluation:
 		except:
 			f_score = 0
 		
-		self.output["gold_count"] = tp + fn
-		self.output["pred_count"] = tp + fp
-		self.output["prec"] = precision
-		self.output["rec"] = recall
-		self.output["f_score"] = f_score
+		self.fill_output("gold_count", tp + fn )
+		self.fill_output("pred_count", tp + fp )
+		self.fill_output("precision", precision)
+		self.fill_output("recall", recall)
+		self.fill_output("f_score", f_score)
 
-	def compute_accuracy(self, g, p):
+	def compute_accuracy(self, g:list, p:list, k:str) -> None: 
 		"""
 		Compute accuracy of predictions list of items, againtst gold list of items.
+		:g: gold list
+		:p: predicted list
+		:k: name detail of accuracy
 		"""
-		self.output["accuracy"] = accuracy_score(g, p)
-		self.output["gold_count"] = len(g)
-		self.output["pred_count"] = len(p)
+		self.fill_output("{k}_accuracy", accuracy_score(g, p) )
+		self.fill_output("{k}_gold_count", len(g) )
+		self.fill_output("{k}_pred_count", len(p) )
+		
+	def classif_report(self, g:list, p:list, key:str) -> None:
+		"""
+		Compute Precision, Recall and f-score for each instances of gold list.
+		"""
+		stats_dict = classification_report(g, p, labels=sorted(set(g)), zero_division=0, output_dict=True)
+		self.fill_output(f'{key}_classification_report', stats_dict )
 
-	 ###### acc classification report ????
+	def print_results(self) -> None:
+		"""
+		Print dict of saved results.
+		"""
+		#for k in self.output.keys():
+		#	print(f">> {k} : {self.output[k]}")
 
-	def print_results(self):
-		for k in self.output.keys():
-			print(f">> {k} : {self.output[k]}")
+		print(json.dumps(self.output, indent=4))
 
 
 class RelationsEvaluation(Evaluation):
@@ -166,16 +195,18 @@ class RelationsEvaluation(Evaluation):
 	TYPE_ID = -3
 	DISRPT_TYPES = ['Implicit', 'Explicit', 'AltLex', 'AltLexC', 'Hypophora']
 
-	def __init__(self, name, gold_path, pred_path, str_i=False, rel_type=False):
-		super().__init__(name)
+	def __init__(self, name:str, gold_path:str, pred_path:str, str_i=False, rel_type=False) -> None:
+		super().__init__(name:str)
 		self.mode = "rel"
 		self.g_path = gold_path
 		self.p_path = pred_path
 		self.opt_str_i = str_i
 		self.opt_rel_t = rel_type
+		self.key = "labels" if rel_type==False else "types"
 
+		self.fill_output("options", {"s": self.opt_str_i, "rt": self.opt_rel_t})
 
-	def compute_scores(self):
+	def compute_scores(self) -> None:
 		"""
 		:param gold_file: Gold shared task file
 		:param pred_file: File with predictions
@@ -185,17 +216,16 @@ class RelationsEvaluation(Evaluation):
 
 		gold_units, gold_labels = self.parse_rels_data(self.g_path, self.opt_str_i, self.opt_rel_t)
 		pred_units, pred_labels = self.parse_rels_data(self.p_path, self.opt_str_i, self.opt_rel_t)
-
 		self.check_tokens_number(gold_labels, pred_labels)
 		self.check_identical_tokens(gold_units, pred_units)
 
-
-		self.compute_accuracy(gold_labels, pred_labels)
+		self.compute_accuracy(gold_labels, pred_labels, self.key)
+		self.classif_report(gold_labels, pred_labels, self.key)
 
 		if self.opt_rel_t == True:
 			self.get_types_scores(gold_labels, pred_labels)
 
-	def get_types_scores(self, g, p):
+	def get_types_scores(self, g:list, p:list) -> None:
 		"""
 		This fonction is to obtain scores of predictions against gold labels, by types of relations.
 		"""
@@ -210,12 +240,9 @@ class RelationsEvaluation(Evaluation):
 					gold_t.append(g[i])
 					pred_t.append(p[i])
 
-			self.output[f'gold_{t}'] = len(gold_t)
-			self.output[f'{t}_accuracy'] = accuracy_score(gold_t, pred_t)
+			self.compute_accuracy(gold_t, pred_t, f"types_{t}")
 
-
-
-	def parse_rels_data(self, path, str_i, rel_t):
+	def parse_rels_data(self, path:str, str_i:bool, rel_t:bool) -> tuple[list[str], list[str]]:
 		"""
 		Rels format from DISRPT = header, then one relation classification instance per line. 
 		:LREC_2024_header = 15 columns.
@@ -227,7 +254,7 @@ class RelationsEvaluation(Evaluation):
 
 
 		rels = data.split("\n")[1:]
-		labels = [line.split("\t")[column_ID] for line in rels] ######## .lower()
+		labels = [line.split("\t")[column_ID].lower() for line in rels] ######## .lower()
 		units = [" ".join(line.split("\t")[:3]) for line in rels]
 
 		return units, labels
@@ -239,21 +266,22 @@ class ConnectivesEvaluation(Evaluation):
 	:parse conllu-style data
 	:eval upon strict connectives spans
 	"""
-	LAB_CONN_B = "Conn=B-conn"		#"Seg=B-Conn" 	#
-	LAB_CONN_I = "Conn=I-conn"		#"Seg=I-Conn" 	#
-	LAB_CONN_O = "Conn=O"			#"_"			
+	LAB_CONN_B = "Seg=B-Conn" 	#"Conn=B-conn"		#
+	LAB_CONN_I = "Seg=I-Conn" 	#"Conn=I-conn"		#
+	LAB_CONN_O = "_"	#"Conn=O"			#		
 
-	def __init__(self, name, gold_path, pred_path, str_i=False):
-		super().__init__(name)
+	def __init__(self, name:str, gold_path:str, pred_path:str, str_i=False) -> None:
+		super().__init__(name:str)
 		self.mode = "conn"
 		self.seg_type = "connective spans"
 		self.g_path = gold_path
 		self.p_path = pred_path
 		self.opt_str_i = str_i
 
-		self.output['seg_type'] = self.seg_type
+		self.fill_output('seg_type', self.seg_type)
+		self.fill_output("options", {"s": self.opt_str_i})
 
-	def compute_scores(self):
+	def compute_scores(self) -> None:
 		"""
 		:param gold_file: Gold shared task file
 		:param pred_file: File with predictions
@@ -270,7 +298,7 @@ class ConnectivesEvaluation(Evaluation):
 		tp, fp, fn = self.compare_spans(gold_spans, pred_spans)
 		self.compute_PRF_metrics(tp, fp, fn)
 
-	def compare_spans(self, gold_spans, pred_spans):
+	def compare_spans(self, gold_spans:tuple, pred_spans:tuple)  -> tuple[int, int, int]:
 		"""
 		Compare exact spans.
 		"""
@@ -290,7 +318,7 @@ class ConnectivesEvaluation(Evaluation):
 
 		return true_positive, false_positive, false_negative
 
-	def parse_conn_data(self, path, str_i): 
+	def parse_conn_data(self, path:str, str_i:bool) -> tuple[list, list, list]: 
 		"""
 		LABEL = in last column
 		"""
@@ -342,7 +370,7 @@ class ConnectivesEvaluation(Evaluation):
 		return tokens, labels, spans
 
 
-class EDUsEvaluation(Evaluation):
+class SegmentationEvaluation(Evaluation):
 	"""
 	Specific evaluation class for EDUs segmentation.
 	:parse conllu-style data
@@ -351,7 +379,7 @@ class EDUsEvaluation(Evaluation):
 	LAB_SEG_B = "Seg=B-seg"		#"BeginSeg=Yes"
 	LAB_SEG_I = "Seg=O"			#"_" 
 
-	def __init__(self, name, gold_path, pred_path, str_i=False, no_b=False):
+	def __init__(self, name:str, gold_path:str, pred_path:str, str_i=False, no_b=False) -> None:
 		super().__init__(name)
 		self.mode = "edu"
 		self.seg_type = "EDUs"
@@ -360,9 +388,10 @@ class EDUsEvaluation(Evaluation):
 		self.opt_str_i = str_i
 		self.no_b = True if "conllu" in gold_path.split(os.sep)[-1] and no_b==True else False # relevant only in conllu
 
-		self.output['seg_type'] = self.seg_type
+		self.fill_output('seg_type', self.seg_type)
+		self.fill_output("options", {"s": self.opt_str_i})
 
-	def compute_scores(self):
+	def compute_scores(self) -> None:
 		"""
 		:param gold_file: Gold shared task file
 		:param pred_file: File with predictions
@@ -380,8 +409,10 @@ class EDUsEvaluation(Evaluation):
 		tp, fp, fn = self.compare_labels(gold_labels, pred_labels)
 		self.compute_PRF_metrics(tp, fp, fn)
 
-	def compare_labels(self, gold_labels, pred_labels):
-
+	def compare_labels(self, gold_labels:list, pred_labels:list) -> tuple[int, int, int]:
+		"""
+		
+		"""
 		true_positive = 0
 		false_positive = 0
 		false_negative = 0
@@ -404,7 +435,7 @@ class EDUsEvaluation(Evaluation):
 			
 		return true_positive, false_positive, false_negative
 
-	def parse_edu_data(self, path, str_i, no_b):
+	def parse_edu_data(self, path:str, str_i:bool, no_b:bool) -> tuple[list, list, list]:
 		"""
 		LABEL = in last column
 		"""
@@ -453,26 +484,27 @@ class EDUsEvaluation(Evaluation):
 if __name__ == "__main__":
 
 	p = argparse.ArgumentParser()
-	p.add_argument("-g", "--goldfile",help="Shared task gold file in .tok or .conll format.")
-	p.add_argument("-p", "--predfile",help="Corresponding file with system predictions.")
+	p.add_argument("-g", "--goldfile", required=True, help="Shared task gold file in .tok or .conll or .rels format.")
+	p.add_argument("-p", "--predfile", required=True, help="Corresponding file with system predictions.")
+	p.add_argument("-t", "--task", required=True, choices=['S', 'C', 'R'], help="Choose one of the three options: S (EDUs Segmentation), C (Connectives Detection), R (Relations Classification)")
 	p.add_argument("-s","--string_input",action="store_true",help="Whether inputs are file names or strings.")
 	p.add_argument("-nb", "--no_boundary_edu", default=False, action='store_true', help="Does not count EDU that starts at beginning of sentence.")
 	p.add_argument("-rt", "--rel_type", default=False, action='store_true', help="Eval relations types instead of label.")
+
 					
 
 
 	opts = p.parse_args()
 
-	name = opts.goldfile.split(os.sep)[-1] if os.path.isfile(opts.goldfile) else opts.goldfile[0:20] + "..."
+	name = opts.goldfile.split(os.sep)[-1] if os.path.isfile(opts.goldfile) else f"string_input: {opts.goldfile[0:20]}..."
 
 
-	if name.endswith(".rels"):
+	if opts.task == "R":
 		my_eval = RelationsEvaluation(name, opts.goldfile, opts.predfile, opts.string_input, opts.rel_type)
-	else:
-		if "pdtb" in name:
-			my_eval = ConnectivesEvaluation(name, opts.goldfile, opts.predfile, opts.string_input)
-		else:
-			my_eval = EDUsEvaluation(name, opts.goldfile, opts.predfile, opts.string_input, opts.no_boundary_edu)
+	elif opts.task == "C":
+		my_eval = ConnectivesEvaluation(name, opts.goldfile, opts.predfile, opts.string_input)
+	elif opts.task == "S":
+		my_eval = SegmentationEvaluation(name, opts.goldfile, opts.predfile, opts.string_input, opts.no_boundary_edu)
 
 	my_eval.compute_scores()
 	my_eval.print_results()
