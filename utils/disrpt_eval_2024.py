@@ -159,9 +159,9 @@ class Evaluation:
 		:p: predicted list
 		:k: name detail of accuracy
 		"""
-		self.fill_output("{k}_accuracy", accuracy_score(g, p) )
-		self.fill_output("{k}_gold_count", len(g) )
-		self.fill_output("{k}_pred_count", len(p) )
+		self.fill_output(f"{k}_accuracy", accuracy_score(g, p) )
+		self.fill_output(f"{k}_gold_count", len(g) )
+		self.fill_output(f"{k}_pred_count", len(p) )
 		
 	def classif_report(self, g:list, p:list, key:str) -> None:
 		"""
@@ -189,14 +189,15 @@ class RelationsEvaluation(Evaluation):
 	:option eval relation type (pdtb: implicit, explicit...) column "rel_type"
 	"""
 
-	HEADER_24 = "doc\tunit1_toks\tunit2_toks\tunit1_txt\tunit2_txt\tu1_raw\tu2_raw\ts1_toks\ts2_toks\tunit1_sent\tunit2_sent\tdir\trel_type\torig_label\tlabel"
-	HEADER = "doc\tunit1_toks\tunit2_toks\tunit1_txt\tunit2_txt\ts1_toks\ts2_toks\tunit1_sent\tunit2_sent\tdir\torig_label\tlabel"
+	HEADER = "doc\tunit1_toks\tunit2_toks\tunit1_txt\tunit2_txt\tu1_raw\tu2_raw\ts1_toks\ts2_toks\tunit1_sent\tunit2_sent\tdir\trel_type\torig_label\tlabel"
+	#HEADER_23 = "doc\tunit1_toks\tunit2_toks\tunit1_txt\tunit2_txt\ts1_toks\ts2_toks\tunit1_sent\tunit2_sent\tdir\torig_label\tlabel"
+
 	LABEL_ID = -1
 	TYPE_ID = -3
 	DISRPT_TYPES = ['Implicit', 'Explicit', 'AltLex', 'AltLexC', 'Hypophora']
 
 	def __init__(self, name:str, gold_path:str, pred_path:str, str_i=False, rel_type=False) -> None:
-		super().__init__(name:str)
+		super().__init__(name)
 		self.mode = "rel"
 		self.g_path = gold_path
 		self.p_path = pred_path
@@ -254,7 +255,7 @@ class RelationsEvaluation(Evaluation):
 
 
 		rels = data.split("\n")[1:]
-		labels = [line.split("\t")[column_ID].lower() for line in rels] ######## .lower()
+		labels = [line.split("\t")[column_ID] for line in rels] ######## .lower()
 		units = [" ".join(line.split("\t")[:3]) for line in rels]
 
 		return units, labels
@@ -266,12 +267,12 @@ class ConnectivesEvaluation(Evaluation):
 	:parse conllu-style data
 	:eval upon strict connectives spans
 	"""
-	LAB_CONN_B = "Seg=B-Conn" 	#"Conn=B-conn"		#
-	LAB_CONN_I = "Seg=I-Conn" 	#"Conn=I-conn"		#
-	LAB_CONN_O = "_"	#"Conn=O"			#		
+	LAB_CONN_B = "Conn=B-conn"		#"Seg=B-Conn" 	#
+	LAB_CONN_I = "Conn=I-conn"		#"Seg=I-Conn" 	#
+	LAB_CONN_O = "Conn=O"			#"_"	#
 
 	def __init__(self, name:str, gold_path:str, pred_path:str, str_i=False) -> None:
-		super().__init__(name:str)
+		super().__init__(name)
 		self.mode = "conn"
 		self.seg_type = "connective spans"
 		self.g_path = gold_path
