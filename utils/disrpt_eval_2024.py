@@ -75,7 +75,7 @@ from sklearn.metrics import accuracy_score, classification_report
 # print scores *100: 0.6825 => 68.25
 # documentation (automatic generation ?)
 # testunitaire
-# option print result in terminal or generate a/several json file
+
 
 class Evaluation:
 	"""
@@ -106,7 +106,7 @@ class Evaluation:
 
 	def check_tokens_number(self, g:list, p:list) -> None:
 		"""
-		Check same number of tokens/labels in both files.
+		Check same number of tokens/labels in both compared files.
 		"""
 		if len(g) != len(p):
 			self.report += "\nFATAL: different number of tokens detected in gold and pred:\n"
@@ -167,7 +167,7 @@ class Evaluation:
 		"""
 		Compute Precision, Recall and f-score for each instances of gold list.
 		"""
-		stats_dict = classification_report(g, p, labels=sorted(set(g)), zero_division=0, output_dict=True)
+		stats_dict = classification_report(g, p, labels=sorted(set(g)), zero_division=0.0, output_dict=True)
 		self.fill_output(f'{key}_classification_report', stats_dict )
 
 	def print_results(self) -> None:
@@ -198,6 +198,12 @@ class RelationsEvaluation(Evaluation):
 
 	def __init__(self, name:str, gold_path:str, pred_path:str, str_i=False, rel_type=False) -> None:
 		super().__init__(name)
+		"""
+		:param gold_file: Gold shared task file
+		:param pred_file: File with predictions
+		:param string_input: If True, files are replaced by strings with file contents (for import inside other scripts)
+		:param rel_type: If True, scores are computed on types column, not label (relevant for PDTB)
+		"""
 		self.mode = "rel"
 		self.g_path = gold_path
 		self.p_path = pred_path
@@ -209,12 +215,8 @@ class RelationsEvaluation(Evaluation):
 
 	def compute_scores(self) -> None:
 		"""
-		:param gold_file: Gold shared task file
-		:param pred_file: File with predictions
-		:param string_input: If True, files are replaced by strings with file contents (for import inside other scripts)
-		:output: dictionary of scores for printing
+		Get lists of data to compare, compute metrics.
 		"""
-
 		gold_units, gold_labels = self.parse_rels_data(self.g_path, self.opt_str_i, self.opt_rel_t)
 		pred_units, pred_labels = self.parse_rels_data(self.p_path, self.opt_str_i, self.opt_rel_t)
 		self.check_tokens_number(gold_labels, pred_labels)
@@ -236,7 +238,7 @@ class RelationsEvaluation(Evaluation):
 			pred_t = []
 			j = 0
 			for i, _ in enumerate(g):
-				if g[i] == t:
+				if g[i] == t.lower():
 					j += 1
 					gold_t.append(g[i])
 					pred_t.append(p[i])
@@ -273,6 +275,11 @@ class ConnectivesEvaluation(Evaluation):
 
 	def __init__(self, name:str, gold_path:str, pred_path:str, str_i=False) -> None:
 		super().__init__(name)
+		"""
+		:param gold_file: Gold shared task file
+		:param pred_file: File with predictions
+		:param string_input: If True, files are replaced by strings with file contents (for import inside other scripts)
+		"""
 		self.mode = "conn"
 		self.seg_type = "connective spans"
 		self.g_path = gold_path
@@ -284,10 +291,7 @@ class ConnectivesEvaluation(Evaluation):
 
 	def compute_scores(self) -> None:
 		"""
-		:param gold_file: Gold shared task file
-		:param pred_file: File with predictions
-		:param string_input: If True, files are replaced by strings with file contents (for import inside other scripts)
-		:output: dictionary of scores for printing
+		Get lists of data to compare, compute metrics.
 		"""
 		gold_tokens, gold_labels, gold_spans = self.parse_conn_data(self.g_path, self.opt_str_i)
 		pred_tokens, pred_labels, pred_spans = self.parse_conn_data(self.p_path, self.opt_str_i)
@@ -382,6 +386,11 @@ class SegmentationEvaluation(Evaluation):
 
 	def __init__(self, name:str, gold_path:str, pred_path:str, str_i=False, no_b=False) -> None:
 		super().__init__(name)
+		"""
+		:param gold_file: Gold shared task file
+		:param pred_file: File with predictions
+		:param string_input: If True, files are replaced by strings with file contents (for import inside other scripts)
+		"""
 		self.mode = "edu"
 		self.seg_type = "EDUs"
 		self.g_path = gold_path
@@ -394,11 +403,7 @@ class SegmentationEvaluation(Evaluation):
 
 	def compute_scores(self) -> None:
 		"""
-		:param gold_file: Gold shared task file
-		:param pred_file: File with predictions
-		:param string_input: If True, files are replaced by strings with file contents (for import inside other scripts)
-		:param no_b: If True, for conllu files, for EDU files, compute scores of edu_start only for edu_start != sentence_start
-		:return: dictionary of scores for printing
+		Get lists of data to compare, compute metrics.
 		"""
 		gold_tokens, gold_labels, gold_spans = self.parse_edu_data(self.g_path, self.opt_str_i, self.no_b)
 		pred_tokens, pred_labels, pred_spans = self.parse_edu_data(self.p_path, self.opt_str_i, self.no_b)
@@ -492,13 +497,15 @@ if __name__ == "__main__":
 	p.add_argument("-nb", "--no_boundary_edu", default=False, action='store_true', help="Does not count EDU that starts at beginning of sentence.")
 	p.add_argument("-rt", "--rel_type", default=False, action='store_true', help="Eval relations types instead of label.")
 
-					
+	#help(Evaluation)
+	#help(SegmentationEvaluation)
+	#help(ConnectivesEvaluation)
+	#help(RelationsEvaluation)
 
 
 	opts = p.parse_args()
 
 	name = opts.goldfile.split(os.sep)[-1] if os.path.isfile(opts.goldfile) else f"string_input: {opts.goldfile[0:20]}..."
-
 
 	if opts.task == "R":
 		my_eval = RelationsEvaluation(name, opts.goldfile, opts.predfile, opts.string_input, opts.rel_type)
@@ -506,7 +513,7 @@ if __name__ == "__main__":
 		my_eval = ConnectivesEvaluation(name, opts.goldfile, opts.predfile, opts.string_input)
 	elif opts.task == "S":
 		my_eval = SegmentationEvaluation(name, opts.goldfile, opts.predfile, opts.string_input, opts.no_boundary_edu)
-
+		
 	my_eval.compute_scores()
 	my_eval.print_results()
 
