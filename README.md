@@ -1,49 +1,63 @@
 # DISRPT/latest 
 ## Introduction
-### A Multilingual, multi-domain, Cross-framework Discourse Collection
+**A Multilingual, multi-domain, Cross-framework Discourse Collection**  
 Repository of the latest data for the multilingual DISRPT benchmark.  
 
 Data in this particular sub-repository of the DISRPT benchmark matches the following paper:  
 [TODO add link} Braud, C., Zeldes, A., Rivière, L., Liu, Y.J., Muller, P., Sileo, D., Aoyama, T., (2024), DISRPT: A Multilingual, Multi-domain, Cross-framework Benchmark for Discourse Processing, LREC.  
 
-### Shared Tasks on DIScourse Relation Parsing and Treebanking
+**Shared Tasks on DIScourse Relation Parsing and Treebanking**  
 **Discourse Unit Segmentation**, **Connective Detection**, and **Discourse Relation Classification** :  
 
 Objective is to provide training, development, and test datasets from all available languages and treebanks in the RST, SDRT, PDTB and dependency formalisms, using a uniform format.  
 Because different corpora, languages and frameworks use different guidelines, the shared task is meant to promote design of flexible methods for dealing with various guidelines, and help to push forward the discussion of standards for computational approaches to discourse relations. We include data for evaluation with and without gold syntax, or otherwise using provided automatic parses for comparison to gold syntax data.  
+In the following repositories one can find related papers references.
 
 https://github.com/disrpt/sharedtask2023  
 https://github.com/disrpt/sharedtask2021  
 https://github.com/disrpt/sharedtask2019  
  
-## Types of DATA, types of annotations
-lang.framework.name
-dep/sdrt/rst/pdtb
-tok/conllu/relstre 
+## Types of DATA
+The tasks are oriented towards finding the locus and type of discourse relations in texts, rather than predicting complete trees or graphs. For frameworks that segment text into non-overlapping spans covering each entire documents (RST and SDRT), the segmentation task corresponds to finding the **starting point of each discourse unit**. For PDTB-style datasets, the unit-identification task is to identify the **spans of discourse connectives** that explicitly identify the existence of a discourse relation. These tasks use the files ending in `.tok` and `.conllu` for the **plain** text and **parsed** scenarios respectively.  
 
-décrire précisement les OOD, les mwe+mwt/mwe/mwt, les raw_text/duplicate
+For relation classification, two discourse unit spans are given in text order together with the direction of the relation and context, using both plain text data and stand-off token index pointers to the treebanked files. Information is included for each corpus in the `.rels` file, with token indices pointing to the `.tok` file, though parse information may also be used for the task. The column to be predicted is the final label column; the penultimate `orig_label` column gives the original label from the source corpus, which may be different, for reference purposes only. This column may not be used. The relation direction column may be used for prediction and does not need to be predicted by systems (essentially, systems are labeling a kind of ready, unlabeled but directed dependency graph).  
 
-## Statistics : cp celles des repos ST => ben non, cf paper ou générer des nouvelles stats
+Note that some datasets contain **discontinuous** discourse units, which sometimes nest the second unit in a discourse relation. In such cases, the unit beginning first in the text is considered `unit1` and gaps in the discourse unit are given as `<*>` in the inline text representation. Token index spans point to the exact coverage of the unit either way, which in case of discontinuous units will contain multiple token spans.  
+
+**Multiword Expression: Syntactical Text vs. Natural (Raw) Text in .RELS**  
+Some corpora uses CoNLL-U Multiword Tokens with hyphen IDs for complex word forms (e.g. 1-2 don't ... 1 do ... 2 n't).  
+Not every language got this contraction possibility. For those that can, and for which tools exist, we provide in RELS files both what we call `syntactical text` (extended forms) and `natural or raw text` (contracted forms). Whwn it is not avalaible, we just duplicate the avalaible text,to avoid empty text. Here a recap of columns content:  
+
+`doc`: *reference of document*  
+`unit1_toks`: *tokens IDs span of unit1 (= first unit/argument of syntagmatical order)*  
+`unit2_toks`: *tokens IDs span of unit2 (= second unit/argument of syntagmatical order)*  
+`unit1_txt`: *syntactical text of unit1* (not available for : deu, eus, fra, nld, rus, spa, tha, zho)  
+`unit2_txt`: *syntactical text of unit2* (not available for : deu, eus, fra, nld, rus, spa, tha, zho)  
+`u1_raw`: *raw/natural text of unit1* (not available for : por{crpc,tedm})  
+`u2_raw`: *raw/natural text of unit2* (not available for : por{crpc,tedm})  
+`s1_toks`: *tokens IDs span of the sentence that contains unit1*  
+`s2_toks`: *tokens IDs span of the sentence that contains unit2*  
+`unit1_sent`: *syntactical text of sentence that contains unit1*  
+`unit2_sent`: *syntactical text of sentence that contains unit2*  
+`dir`: *directionality of relation adapted to units*  
+`rel_type`: *type of relation* (available only for PDTB framework)  
+`orig_label`: *original label(s)*  
+`label`: *DISRPT selected label to predict: first one/english traducted one/mispelled corrected one...*  
+
+*See paper for details.  
+
 
 ## Corpora
-nb of corpora, add definition of a corpus vs dataset sim. cf. paper
-<!--
- Regarding the number of datasets, we will make clearer the distinction between corpora (=one annotation project) and what is called here a dataset (=a combination of one language, one corpus, one framework). This distinction explains why the benchmark covers 24 corpora but 28 datasets (e.g. the TED Multilingual Discourse Bank (TED-MDB) is one original corpus, but covers several languages that are each regarded as a separate dataset for testing systems). 
--->
-24 corpora dont 4 corpora "multi" : gum {2:rst, pdtb}, tedm {3:eng, por, tur}, sctb {2:spa, zho} 
-28 datasets
-### Corpora Partitions
+Namely, we distinct `corpora` (= one annotation project) and `dataset` (= a combination of one language, one corpus, one framework).  
+There are 24 corpora, for 28 datasets : 
+* "2" GUM: RST/PDTB
+* "3" Tedm: eng, por, tur
+* "2" Sctb: spa, zho
+
+**Partitions**  
 The majority of datasets (23/28) are divided into 3 parts: training set, development set and test set.
 Four datasets are divided into 2 parts only (development and test sets): eng.dep.covdtb and {eng,por,tur}.pdtb.tedm.
 One dataset is only one part (test set): eng.rst.gentle.
-
-### Tasks
-
-### Multi-Word Expression: Syntactical Text vs. Raw Text
-def d'un MWE avec ex
-dans les rels : par defautl syntactial text 
-ajout de la colonne rw textqd c'était possible, sinon duplicate pour pas laisser des colonnes vides
-tableau recap pour chaque dataset : langue avec MWE ? process des MWE ? avec ou sans forme contrctées ? raw txt / duplicate
 
 
 ## Directories
@@ -96,4 +110,4 @@ See the README files in individual data directories for more details on each dat
         * For each file evaluated, results are print into a file following this name convention : .../OUTDIR/LANG.FRAMEWORK.CORPUS_DIV.EXTENSION_eval
 
 
-## TODO: ajouter tous les readme ?
+## TODO: ajouter tous les readme 

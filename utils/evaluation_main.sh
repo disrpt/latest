@@ -101,7 +101,7 @@ Evaluation()
 # RST, SDRT, DEP datasets.                                                     #
 ################################################################################
 
-for dataset in #deu.rst.pcc eng.dep.covdtb eng.dep.scidtb eng.rst.gum eng.rst.rstdt eng.sdrt.stac eus.rst.ert fas.rst.prstc fra.sdrt.annodis nld.rst.nldt por.rst.cstn rus.rst.rrt spa.rst.rststb spa.rst.sctb zho.dep.scidtb zho.rst.gcdt zho.rst.sctb 
+for dataset in deu.rst.pcc eng.dep.covdtb eng.dep.scidtb eng.rst.gum eng.rst.rstdt eng.sdrt.stac eus.rst.ert fas.rst.prstc fra.sdrt.annodis nld.rst.nldt por.rst.cstn rus.rst.rrt spa.rst.rststb spa.rst.sctb zho.dep.scidtb zho.rst.gcdt zho.rst.sctb 
 
 do
     DATASET_NAME=${dataset}
@@ -122,7 +122,7 @@ done
 # PDTB datasets                                                                #
 ################################################################################
 
-for dataset in #eng.pdtb.gum eng.pdtb.pdtb eng.pdtb.tedm ita.pdtb.luna por.pdtb.crpc por.pdtb.tedm tha.pdtb.tdtb tur.pdtb.tdb tur.pdtb.tedm zho.pdtb.cdtb
+for dataset in eng.pdtb.gum eng.pdtb.pdtb eng.pdtb.tedm ita.pdtb.luna por.pdtb.crpc por.pdtb.tedm tha.pdtb.tdtb tur.pdtb.tdb tur.pdtb.tedm zho.pdtb.cdtb
 
 do
     DATASET_NAME=${dataset}
