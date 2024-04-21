@@ -25,12 +25,14 @@ For relation classification, two discourse unit spans are given in text order to
 Note that some datasets contain **discontinuous** discourse units, which sometimes nest the second unit in a discourse relation. In such cases, the unit beginning first in the text is considered `unit1` and gaps in the discourse unit are given as `<*>` in the inline text representation. Token index spans point to the exact coverage of the unit either way, which in case of discontinuous units will contain multiple token spans.  
 
 **Multiword Expression: Syntactical Text vs. Natural (Raw) Text in .RELS**  
-Some corpora uses CoNLL-U Multiword Tokens with hyphen IDs for complex word forms (e.g. 1-2 don't ... 1 do ... 2 n't).  
-Not every language got this contraction possibility. For those that can, and for which tools exist, we provide in RELS files both what we call `syntactical text` (extended forms) and `natural or raw text` (contracted forms). Whwn it is not avalaible, we just duplicate the avalaible text,to avoid empty text. Here a recap of columns content:  
+Some corpora use CoNLL-U Multiword Tokens with hyphen IDs for complex word forms (e.g. 1-2 don't ... 1 do ... 2 n't).  
+Not every language has this contraction possibility. For those that can, and for which tools exist, 
+we provide in RELS files both what we call `syntactical text` (extended forms) and `natural or raw text` (contracted forms). 
+When it is not available, we just duplicate the available text, to avoid empty fields. Below is a recap of columns content: 
 
 `doc`: *reference of document*  
-`unit1_toks`: *tokens IDs span of unit1 (= first unit/argument of syntagmatical order)*  
-`unit2_toks`: *tokens IDs span of unit2 (= second unit/argument of syntagmatical order)*  
+`unit1_toks`: *tokens IDs span of unit1 (= first unit/argument of syntagmatic order)*  
+`unit2_toks`: *tokens IDs span of unit2 (= second unit/argument of syntagmatic order)*  
 `unit1_txt`: *syntactical text of unit1* (not available for : deu, eus, fra, nld, rus, spa, tha, zho)  
 `unit2_txt`: *syntactical text of unit2* (not available for : deu, eus, fra, nld, rus, spa, tha, zho)  
 `u1_raw`: *raw/natural text of unit1* (not available for : por{crpc,tedm})  
@@ -42,7 +44,7 @@ Not every language got this contraction possibility. For those that can, and for
 `dir`: *directionality of relation adapted to units*  
 `rel_type`: *type of relation* (available only for PDTB framework)  
 `orig_label`: *original label(s)*  
-`label`: *DISRPT selected label to predict: first one/english traducted one/mispelled corrected one...*  
+`label`: *DISRPT selected label to predict: first one/english truncated one/misspelled corrected one...*  
 
 *See paper for details.  
 
@@ -84,12 +86,12 @@ See the README files in individual data directories for more details on each dat
     * Usage: `python disrpt_eval_2024.py [-h] -g GOLDFILE -p PREDFILE -t {S,C,R} [-s] [-nb] [-rt]`
     * Arguments required: 
         * -g/--goldfile GOLDFILE ................. Path to gold file
-        * -p/--predfile PREDFILE ................. Path to predicitons file
+        * -p/--predfile PREDFILE ................. Path to predictions file
         * -t/--task {S,C,R} ...................... Task to evaluate. S = "Discourse Unit Segmentation", C = "Connectives Identification", R = "Relations Classification"
     * Options:
         * -s/--string_input ...................... If inputs are strings instead of file path
-        * -nb/--no_boudary_edu ................... Does not count EDU that starts at beginning of sentence, relevant for task S and format CONLLU only
-        * -rt/--rel_type ......................... Evaluate relation type instead of label, relavant for task R only
+        * -nb/--no_boundary_edu ................... Does not count EDU that starts at beginning of sentence, relevant for task S and format CONLLU only
+        * -rt/--rel_type ......................... Evaluate relation type instead of label, relevant for task R only
     * Output:
         * Results are print directly as STDout.
 
@@ -103,7 +105,7 @@ See the README files in individual data directories for more details on each dat
         * -o/--out_eval_dir OUTDIR ................ Path to output directory to print results files.
     * Options:
         * -d/--division_set ....................... Datasets division to evaluate to 'dev. Default='test' (DIV).
-        * -b/--no_boudary_edu ..................... Option for TASK-1/.conllu. Evaluate only intra-sentential EDUs.
+        * -b/--no_boundary_edu ..................... Option for TASK-1/.conllu. Evaluate only intra-sentential EDUs.
         * -y/--rel_type ........................... Option for TASK-3. Evaluate TYPES instead of LABELS (cf.PDTB) plus metrics for each type.
         * -s, --string_input ...................... Whether inputs are strings instead of file names.
     * Output:

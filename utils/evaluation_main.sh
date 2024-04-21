@@ -29,7 +29,7 @@ Help()
     echo -e "-p, --pred_dir \e[4mPATH\e[0m          Path to parent predictions directory (.../data)."
     echo -e "-o, --out_eval_dir \e[4mPATH\e[0m      Path to output directory to print results files."
     echo "-d, --division_set                     Datasets division to evaluate to 'dev. Default='test'."
-    echo "-b, --no_boudary_edu                   Option for TASK-1/.conllu. Evaluate only intra-sentential EDUs."
+    echo "-b, --no_boundary_edu                   Option for TASK-1/.conllu. Evaluate only intra-sentential EDUs."
     echo "-y, --rel_type                         Option for TASK-3. Evaluate TYPES instead of LABELS (cf.PDTB) plus metrics for each type."
     echo "-s, --string_input                     Whether inputs are strings instead of file names."
     echo "-h, --help)                            Print help."

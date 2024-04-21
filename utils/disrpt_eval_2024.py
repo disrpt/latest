@@ -79,32 +79,32 @@ from sklearn.metrics import accuracy_score, classification_report
 
 class Evaluation:
 	"""
-	Generic class for evalution between 2 files.
+	Generic class for evaluation between 2 files.
 	:load data, basic check, basic metrics, print results.
 	"""
-	def __init__(self, name:str) -> None:
+	def __init__(self, name: str) -> None:
 		self.output = dict()
 		self.name = name
 		self.report = ""
 		self.fill_output('doc_name', self.name)
 
-	def get_data(self, infile:str, str_i=False) -> str:
+	def get_data(self, infile: str, str_i=False) -> str:
 		"""
 		Stock data from file or stream.
 		"""
-		if str_i==False:
+		if str_i == False:
 			data = io.open(infile, encoding="utf-8").read().strip().replace("\r", "")
 		else:
 			data = infile.strip()
 		return data
 
-	def fill_output(self, key:str, value) -> None:
+	def fill_output(self, key: str, value) -> None:
 		"""
 		Fill results dict that will be printed.
 		"""
 		self.output[key] = value
 
-	def check_tokens_number(self, g:list, p:list) -> None:
+	def check_tokens_number(self, g: list, p: list) -> None:
 		"""
 		Check same number of tokens/labels in both compared files.
 		"""
@@ -114,7 +114,7 @@ class Evaluation:
 			sys.stderr.write(self.report)
 			sys.exit(0)
 
-	def check_identical_tokens(self, g:list, p:list) -> None:
+	def check_identical_tokens(self, g: list, p: list) -> None:
 		"""
 		Check tokens/features are identical.
 		"""
@@ -126,7 +126,7 @@ class Evaluation:
 				sys.stderr.write(self.report)
 				break
 
-	def compute_PRF_metrics(self, tp:int, fp:int, fn:int) -> None:
+	def compute_PRF_metrics(self, tp: int, fp: int, fn: int) -> None:
 		"""
 		Compute Precision, Recall, F-score from True Positive, False Positive and False Negative counts.
 		Save result in dict.
@@ -145,16 +145,16 @@ class Evaluation:
 			f_score = 2 * (precision * recall) / (precision + recall)
 		except:
 			f_score = 0
-		
+
 		self.fill_output("gold_count", tp + fn )
 		self.fill_output("pred_count", tp + fp )
 		self.fill_output("precision", precision)
 		self.fill_output("recall", recall)
 		self.fill_output("f_score", f_score)
 
-	def compute_accuracy(self, g:list, p:list, k:str) -> None: 
+	def compute_accuracy(self, g: list, p: list, k: str) -> None:
 		"""
-		Compute accuracy of predictions list of items, againtst gold list of items.
+		Compute accuracy of predictions list of items, against gold list of items.
 		:g: gold list
 		:p: predicted list
 		:k: name detail of accuracy
@@ -162,20 +162,20 @@ class Evaluation:
 		self.fill_output(f"{k}_accuracy", accuracy_score(g, p) )
 		self.fill_output(f"{k}_gold_count", len(g) )
 		self.fill_output(f"{k}_pred_count", len(p) )
-		
-	def classif_report(self, g:list, p:list, key:str) -> None:
+
+	def classif_report(self, g: list, p: list, key: str) -> None:
 		"""
 		Compute Precision, Recall and f-score for each instances of gold list.
 		"""
 		stats_dict = classification_report(g, p, labels=sorted(set(g)), zero_division=0.0, output_dict=True)
-		self.fill_output(f'{key}_classification_report', stats_dict )
+		self.fill_output(f'{key}_classification_report', stats_dict)
 
 	def print_results(self) -> None:
 		"""
 		Print dict of saved results.
 		"""
-		#for k in self.output.keys():
-		#	print(f">> {k} : {self.output[k]}")
+		# for k in self.output.keys():
+		# print(f">> {k} : {self.output[k]}")
 
 		print(json.dumps(self.output, indent=4))
 
@@ -190,13 +190,13 @@ class RelationsEvaluation(Evaluation):
 	"""
 
 	HEADER = "doc\tunit1_toks\tunit2_toks\tunit1_txt\tunit2_txt\tu1_raw\tu2_raw\ts1_toks\ts2_toks\tunit1_sent\tunit2_sent\tdir\trel_type\torig_label\tlabel"
-	#HEADER_23 = "doc\tunit1_toks\tunit2_toks\tunit1_txt\tunit2_txt\ts1_toks\ts2_toks\tunit1_sent\tunit2_sent\tdir\torig_label\tlabel"
+	# HEADER_23 = "doc\tunit1_toks\tunit2_toks\tunit1_txt\tunit2_txt\ts1_toks\ts2_toks\tunit1_sent\tunit2_sent\tdir\torig_label\tlabel"
 
 	LABEL_ID = -1
 	TYPE_ID = -3
 	DISRPT_TYPES = ['Implicit', 'Explicit', 'AltLex', 'AltLexC', 'Hypophora']
 
-	def __init__(self, name:str, gold_path:str, pred_path:str, str_i=False, rel_type=False) -> None:
+	def __init__(self, name: str, gold_path: str, pred_path: str, str_i=False, rel_type=False) -> None:
 		super().__init__(name)
 		"""
 		:param gold_file: Gold shared task file
@@ -209,7 +209,7 @@ class RelationsEvaluation(Evaluation):
 		self.p_path = pred_path
 		self.opt_str_i = str_i
 		self.opt_rel_t = rel_type
-		self.key = "labels" if rel_type==False else "types"
+		self.key = "labels" if rel_type == False else "types"
 
 		self.fill_output("options", {"s": self.opt_str_i, "rt": self.opt_rel_t})
 
@@ -225,14 +225,14 @@ class RelationsEvaluation(Evaluation):
 		self.compute_accuracy(gold_labels, pred_labels, self.key)
 		self.classif_report(gold_labels, pred_labels, self.key)
 
-		if self.opt_rel_t == True:
+		if self.opt_rel_t:
 			self.get_types_scores(gold_labels, pred_labels)
 
-	def get_types_scores(self, g:list, p:list) -> None:
+	def get_types_scores(self, g: list, p: list) -> None:
 		"""
-		This fonction is to obtain scores of predictions against gold labels, by types of relations.
+		This function is to obtain scores of predictions against gold labels, by types of relations.
 		"""
-	
+
 		for t in self.DISRPT_TYPES:
 			gold_t = []
 			pred_t = []
@@ -245,7 +245,7 @@ class RelationsEvaluation(Evaluation):
 
 			self.compute_accuracy(gold_t, pred_t, f"types_{t}")
 
-	def parse_rels_data(self, path:str, str_i:bool, rel_t:bool) -> tuple[list[str], list[str]]:
+	def parse_rels_data(self, path: str, str_i: bool, rel_t: bool) -> tuple[list[str], list[str]]:
 		"""
 		Rels format from DISRPT = header, then one relation classification instance per line. 
 		:LREC_2024_header = 15 columns.
@@ -255,13 +255,12 @@ class RelationsEvaluation(Evaluation):
 		assert header == self.HEADER, "Unrecognized .rels header."
 		column_ID = self.TYPE_ID if rel_t == True else self.LABEL_ID
 
-
 		rels = data.split("\n")[1:]
 		labels = [line.split("\t")[column_ID] for line in rels] ######## .lower()
 		units = [" ".join(line.split("\t")[:3]) for line in rels]
 
 		return units, labels
-		
+
 
 class ConnectivesEvaluation(Evaluation):
 	"""
@@ -269,9 +268,9 @@ class ConnectivesEvaluation(Evaluation):
 	:parse conllu-style data
 	:eval upon strict connectives spans
 	"""
-	LAB_CONN_B = "Conn=B-conn"		#"Seg=B-Conn" 	#
-	LAB_CONN_I = "Conn=I-conn"		#"Seg=I-Conn" 	#
-	LAB_CONN_O = "Conn=O"			#"_"	#
+	LAB_CONN_B = "Conn=B-conn"		# "Seg=B-Conn" 	#
+	LAB_CONN_I = "Conn=I-conn"		# "Seg=I-Conn" 	#
+	LAB_CONN_O = "Conn=O"			# "_"	#
 
 	def __init__(self, name:str, gold_path:str, pred_path:str, str_i=False) -> None:
 		super().__init__(name)
@@ -303,7 +302,7 @@ class ConnectivesEvaluation(Evaluation):
 		tp, fp, fn = self.compare_spans(gold_spans, pred_spans)
 		self.compute_PRF_metrics(tp, fp, fn)
 
-	def compare_spans(self, gold_spans:tuple, pred_spans:tuple)  -> tuple[int, int, int]:
+	def compare_spans(self, gold_spans: tuple, pred_spans: tuple) -> tuple[int, int, int]:
 		"""
 		Compare exact spans.
 		"""
@@ -323,7 +322,7 @@ class ConnectivesEvaluation(Evaluation):
 
 		return true_positive, false_positive, false_negative
 
-	def parse_conn_data(self, path:str, str_i:bool) -> tuple[list, list, list]: 
+	def parse_conn_data(self, path:str, str_i:bool) -> tuple[list, list, list]:
 		"""
 		LABEL = in last column
 		"""
@@ -334,16 +333,16 @@ class ConnectivesEvaluation(Evaluation):
 		counter = 0
 		span_start = -1
 		span_end = -1
-		for line in data.split("\n"): # this loop is same than version 1
-			if line.startswith("#") or line=="":
+		for line in data.split("\n"):  # this loop is same than version 1
+			if line.startswith("#") or line == "":
 				continue
 			else:
 				fields = line.split("\t") # Token
 				label = fields[-1]
-				if "-" in fields[0] or "." in fields[0]: # Multi-Word Expression or Ellips : No pred shall be there....
+				if "-" in fields[0] or "." in fields[0]:  # Multi-Word Expression or Ellips : No pred shall be there....
 					continue
 				elif self.LAB_CONN_B in label:
-					if span_start > -1: # add span
+					if span_start > -1:  # add span
 						if span_end == -1:
 							span_end = span_start
 						spans.append((span_start,span_end))
@@ -364,14 +363,14 @@ class ConnectivesEvaluation(Evaluation):
 
 				tokens.append(fields[1])
 				labels.append(label)
-				counter +=1
-		
+				counter += 1
+
 		if span_start > -1 and span_end > -1:  # Add last span
 			spans.append((span_start,span_end))
 
 		if not self.LAB_CONN_B in labels:
 			exit(f"Unrecognized labels. Expecting: {self.LAB_CONN_B}, {self.LAB_CONN_I}, {self.LAB_CONN_O}...")
-			
+
 		return tokens, labels, spans
 
 
@@ -381,10 +380,10 @@ class SegmentationEvaluation(Evaluation):
 	:parse conllu-style data
 	:eval upon first token identification
 	"""
-	LAB_SEG_B = "Seg=B-seg"		#"BeginSeg=Yes"
-	LAB_SEG_I = "Seg=O"			#"_" 
+	LAB_SEG_B = "Seg=B-seg"		# "BeginSeg=Yes"
+	LAB_SEG_I = "Seg=O"			# "_"
 
-	def __init__(self, name:str, gold_path:str, pred_path:str, str_i=False, no_b=False) -> None:
+	def __init__(self, name: str, gold_path: str, pred_path: str, str_i=False, no_b=False) -> None:
 		super().__init__(name)
 		"""
 		:param gold_file: Gold shared task file
@@ -396,7 +395,7 @@ class SegmentationEvaluation(Evaluation):
 		self.g_path = gold_path
 		self.p_path = pred_path
 		self.opt_str_i = str_i
-		self.no_b = True if "conllu" in gold_path.split(os.sep)[-1] and no_b==True else False # relevant only in conllu
+		self.no_b = True if "conllu" in gold_path.split(os.sep)[-1] and no_b == True else False  # relevant only in conllu
 
 		self.fill_output('seg_type', self.seg_type)
 		self.fill_output("options", {"s": self.opt_str_i})
@@ -415,7 +414,7 @@ class SegmentationEvaluation(Evaluation):
 		tp, fp, fn = self.compare_labels(gold_labels, pred_labels)
 		self.compute_PRF_metrics(tp, fp, fn)
 
-	def compare_labels(self, gold_labels:list, pred_labels:list) -> tuple[int, int, int]:
+	def compare_labels(self, gold_labels: list, pred_labels: list) -> tuple[int, int, int]:
 		"""
 		
 		"""
@@ -438,10 +437,10 @@ class SegmentationEvaluation(Evaluation):
 						false_positive += 1
 					else:  # I-Conn/B-Conn mismatch ?
 						false_positive +=1
-			
+
 		return true_positive, false_positive, false_negative
 
-	def parse_edu_data(self, path:str, str_i:bool, no_b:bool) -> tuple[list, list, list]:
+	def parse_edu_data(self, path: str, str_i: bool, no_b: bool) -> tuple[list, list, list]:
 		"""
 		LABEL = in last column
 		"""
@@ -452,39 +451,38 @@ class SegmentationEvaluation(Evaluation):
 		counter = 0
 		span_start = -1
 		span_end = -1
-		for line in data.split("\n"): # this loop is same than version 1
-			if line.startswith("#") or line=="":
+		for line in data.split("\n"):  # this loop is same than version 1
+			if line.startswith("#") or line == "":
 				continue
 			else:
-				fields = line.split("\t") # Token
+				fields = line.split("\t")  # Token
 				label = fields[-1]
-				if "-" in fields[0] or "." in fields[0]: # Multi-Word Expression or Ellips : No pred shall be there....
+				if "-" in fields[0] or "." in fields[0]:  # Multi-Word Expression or Ellipsis : No pred shall be there....
 					continue
-				elif no_b==True and fields[0]=="1":
+				elif no_b == True and fields[0] == "1":
 					label = "_"
 				elif self.LAB_SEG_B in label:
 					label = self.LAB_SEG_B
 				else:
-					label = "_" # 🚩
+					label = "_"  # 🚩
 					if span_start > -1:  # Add span
 						if span_end == -1:
 							span_end = span_start
-						spans.append((span_start,span_end))
+						spans.append((span_start, span_end))
 						span_start = -1
 						span_end = -1
 
 				tokens.append(fields[1])
 				labels.append(label)
-				counter +=1
+				counter += 1
 
 		if span_start > -1 and span_end > -1:  # Add last span
-			spans.append((span_start,span_end))
+			spans.append((span_start, span_end))
 
 		if not self.LAB_SEG_B in labels:
 			exit(f"Unrecognized labels. Expecting: {self.LAB_SEG_B}, {self.LAB_SEG_I}...")
 
 		return tokens, labels, spans
-
 
 
 if __name__ == "__main__":
@@ -493,15 +491,14 @@ if __name__ == "__main__":
 	p.add_argument("-g", "--goldfile", required=True, help="Shared task gold file in .tok or .conll or .rels format.")
 	p.add_argument("-p", "--predfile", required=True, help="Corresponding file with system predictions.")
 	p.add_argument("-t", "--task", required=True, choices=['S', 'C', 'R'], help="Choose one of the three options: S (EDUs Segmentation), C (Connectives Detection), R (Relations Classification)")
-	p.add_argument("-s","--string_input",action="store_true",help="Whether inputs are file names or strings.")
+	p.add_argument("-s", "--string_input",action="store_true",help="Whether inputs are file names or strings.")
 	p.add_argument("-nb", "--no_boundary_edu", default=False, action='store_true', help="Does not count EDU that starts at beginning of sentence.")
 	p.add_argument("-rt", "--rel_type", default=False, action='store_true', help="Eval relations types instead of label.")
 
-	#help(Evaluation)
-	#help(SegmentationEvaluation)
-	#help(ConnectivesEvaluation)
-	#help(RelationsEvaluation)
-
+	# help(Evaluation)
+	# help(SegmentationEvaluation)
+	# help(ConnectivesEvaluation)
+	# help(RelationsEvaluation)
 
 	opts = p.parse_args()
 
@@ -513,7 +510,6 @@ if __name__ == "__main__":
 		my_eval = ConnectivesEvaluation(name, opts.goldfile, opts.predfile, opts.string_input)
 	elif opts.task == "S":
 		my_eval = SegmentationEvaluation(name, opts.goldfile, opts.predfile, opts.string_input, opts.no_boundary_edu)
-		
+
 	my_eval.compute_scores()
 	my_eval.print_results()
-
