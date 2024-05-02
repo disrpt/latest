@@ -76,7 +76,6 @@ from sklearn.metrics import accuracy_score, classification_report
 # documentation (automatic generation ?)
 # testunitaire
 
-
 class Evaluation:
 	"""
 	Generic class for evaluation between 2 files.
