@@ -62,7 +62,7 @@ Arguments:
 - faire une classe Eval et transformer les 2 en Eval en sous-classes
 """
 
-__author__ = "Amir Zeldes, Laura Rivière"
+__author__ = "Amir Zeldes, Janet Liu, Laura Rivière"
 __license__ = "Apache 2.0"
 __version__ = "2.0.0"
 
