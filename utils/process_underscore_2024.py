@@ -586,6 +586,9 @@ def restore_GUM_dep_files(files, text_dict) -> dict:
 	# on va remplir un dict: 'docname': {id_tok: token} without contracted forms of MWE
 	# 
 	# 
+ 
+	patches = ['16	____	_	X	IN	_	15	goeswith	15:goeswith	CorrectForm=_|XML=</sic>|Seg=O', '6	_______	_	X	VBG	_	5	goeswith	5:goeswith	CorrectForm=_|XML=</sic>|Seg=O']
+
 	my_dict = {}
 
 	for file_ in files:
@@ -634,19 +637,23 @@ def restore_GUM_dep_files(files, text_dict) -> dict:
 					
 				elif "." in fields[0]: # ellips in GUM ==> useless cause no case of ellips in reddit (2024/04/04)
 					pass
+
 				else:
 
 					tid += 1
 
 					# get token and lemma
 					if len(re.sub("_", "", fields[1])) > 0: # if not underscored
-						fields[2] = compute_lemma(fields[1], fields[2])
+
+						fields[2] = compute_lemma(fields[1], fields[2]) #--------------------------------
 						output.append("\t".join(fields))
 
 					else:
 						fields[1] = fill_text_with_char(cid, text_dict[docname], fields[1])
-						fields[2] = compute_lemma(fields[1], fields[2])
+						fields[2] = compute_lemma(fields[1], fields[2]) # -----------------------------
+						fields[2] = "_" if line in patches else fields[2]
 						output.append("\t".join(fields))
+
 
 					# define cid depending on mwe status
 					if mwe_status == 1:
