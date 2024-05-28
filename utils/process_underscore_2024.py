@@ -23,26 +23,17 @@ __version__ = "3.0.0"
 
 
 
-"""
-TODO:
-- add colum TYPE in .rels => Readic !!!
-- relace underscore in new columns of raw text for MWE
-- redo with pandas
-"""
-
-
-
-
 from argparse import ArgumentParser
 from collections import defaultdict
 import sys, os, io, re
 from glob import glob
 
-HEADER_rels = "doc\tunit1_toks\tunit2_toks\tunit1_txt\tunit2_txt\tu1_raw\tu2_raw\ts1_toks\ts2_toks\tunit1_sent\tunit2_sent\tdir\trel_type\torig_label\tlabel" #####---------------
+
+DATA_DIR = "data"
+HEADER_rels = "doc\tunit1_toks\tunit2_toks\tunit1_txt\tunit2_txt\tu1_raw\tu2_raw\ts1_toks\ts2_toks\tunit1_sent\tunit2_sent\tdir\trel_type\torig_label\tlabel"
 META_DOCID = "# newdoc_id = "
 META_TEXT = "# text = "
-
-gum_docs = {
+GUM_DOCS = {
 	"GUM_reddit_macroeconomics": [
 		{"year": "2017", "month": "09", "id": "6zm74h", "type": "post","source":"undef"},
 		{"year": "2017", "month": "09", "id": "dmwwqlt", "type":"comment","source":"undef"}
@@ -244,7 +235,7 @@ gum_docs = {
 	]
 }
 
-def get_proxy_data():
+def get_proxy_data() -> dict:
 	import requests
 	out_posts = {}
 	tab_delim = requests.get("https://corpling.uis.georgetown.edu/gum/fetch_text_proxy.py").text
@@ -254,13 +245,13 @@ def get_proxy_data():
 			out_posts[post] = text
 	return out_posts
 
-def get_no_space_strings(cache_dict):
+def get_no_space_strings(cache_dict) -> dict:
 	import ast
 
 	no_space_docs = defaultdict(str)
 
-	for doc in gum_docs:
-		for post in gum_docs[doc]:
+	for doc in GUM_DOCS:
+		for post in GUM_DOCS[doc]:
 			if post["id"] in cache_dict:
 				json_result = cache_dict[post["id"]]
 			parsed = ast.literal_eval(json_result)[0]
@@ -315,22 +306,29 @@ def get_no_space_strings(cache_dict):
 
 	return no_space_docs
 
+def get_list_of_corpus_files(name: str) -> list: 
+	""" Get list of datasets files from name of corpus.
+	:in: name of corpus
+	:out: list of datasets 
+	"""
+	corpus_files = glob(os.sep.join(["..",DATA_DIR, name, f"{name}*.conllu"])) + \
+				   glob(os.sep.join(["..",DATA_DIR, name, f"{name}*.tok"])) + \
+				   glob(os.sep.join(["..", DATA_DIR, name, f"{name}*.rels"]))
 
-def get_list_of_corpus_files(name) -> list: # SHORT_NAMES[short_name]
-	#corpus_files = glob(os.sep.join(["..","data",name,"*.conllu"])) + \
-	#			   glob(os.sep.join(["..","data",name,"*.tok"])) + \
-	#			   glob(os.sep.join(["..", "data", name, "*.rels"]))
-
-	corpus_files = glob(os.sep.join(["..","data_test", name, f"{name}*.conllu"])) + \
-				   glob(os.sep.join(["..","data_test", name, f"{name}*.tok"])) + \
-				   glob(os.sep.join(["..", "data_test", name, f"{name}*.rels"]))
-
-	sys.stderr.write("o Found " + str(len(corpus_files)) + " files in " + os.sep.join(["..","data_test"]) + "\n")
-	print(corpus_files)
+	sys.stderr.write("Found " + str(len(corpus_files)) + " files in " + os.sep.join(["..",DATA_DIR, name]) + "\n")
+	
 	return corpus_files
 
-def underscore_files(files_path_li) -> None: # TODO Refactor ?
-	def underscore_rel_field(text) :
+def underscore_files(files_path_li: list) -> None: # TODO Refactor ?
+	""" Mask text with underscores in specific files and leave cues for reconstruction.
+	:in: list of paths
+	"""
+
+	def underscore_rel_field(text: str) -> str:
+		""" Replace characters by underscore in a text while keeping discontonuous markers.
+		:in: text
+		:out: string of unsercores/spaces and disc. markers
+		"""
 		blanked = []
 		text = text.replace("<*>","❤")
 		for c in text:
@@ -351,17 +349,17 @@ def underscore_files(files_path_li) -> None: # TODO Refactor ?
 				for l, line in enumerate(lines):
 					line = line.strip()
 					if "\t" in line and l > 0:
-						doc, unit1_toks, unit2_toks, unit1_txt, unit2_txt, u1_raw, u2_raw, s1_toks, s2_toks, unit1_sent, unit2_sent, direction, rel_type, orig_label, label = line.split("\t") #######-------------
+						doc, unit1_toks, unit2_toks, unit1_txt, unit2_txt, u1_raw, u2_raw, s1_toks, s2_toks, unit1_sent, unit2_sent, direction, rel_type, orig_label, label = line.split("\t")
 						if "GUM" in doc and "reddit" not in doc:
 							output.append(line)
 							continue
 						unit1_txt = underscore_rel_field(unit1_txt)
 						unit2_txt = underscore_rel_field(unit2_txt)
-						u1_raw = underscore_rel_field(u1_raw) #######-------------	
-						u2_raw = underscore_rel_field(u2_raw) #######-------------
+						u1_raw = underscore_rel_field(u1_raw) 
+						u2_raw = underscore_rel_field(u2_raw) 
 						unit1_sent = underscore_rel_field(unit1_sent)
 						unit2_sent = underscore_rel_field(unit2_sent)
-						fields = doc, unit1_toks, unit2_toks, unit1_txt, unit2_txt, u1_raw, u2_raw, s1_toks, s2_toks, unit1_sent, unit2_sent, direction, rel_type, orig_label, label #######-------------	
+						fields = doc, unit1_toks, unit2_toks, unit1_txt, unit2_txt, u1_raw, u2_raw, s1_toks, s2_toks, unit1_sent, unit2_sent, direction, rel_type, orig_label, label	
 						line = "\t".join(fields)
 					output.append(line)
 			else:
@@ -379,6 +377,7 @@ def underscore_files(files_path_li) -> None: # TODO Refactor ?
 							line = m.group(1) + re.sub(r'[^\s]','_',m.group(2))
 							output.append(line)
 					elif "\t" in line:
+						#print(line)
 						fields = line.split("\t")
 						tok_col, lemma_col = fields[1:3]
 						if lemma_col == tok_col:  # Delete lemma if identical to token
@@ -399,74 +398,69 @@ def underscore_files(files_path_li) -> None: # TODO Refactor ?
 						output.append(line)
 			fout.write('\n'.join(output) + "\n")
 
-def harvest_text(files):# -> dict:
+def harvest_text(files: list) -> dict:
 	"""
 	:param files: LDC files containing raw text data
 	:return: Dictionary of document base names (e.g. wsj_0013) to string of non-whitespace characters in the document
 	"""
 	docs = {}
 	for file_ in files:
-		#docname = os.path.basename(file_)
 		docname = os.path.basename(file_).split(".")[0]
-		#print(docname)
-		#if "." in docname:
-		#	docname = docname.split(".")[0]
 		try:
 			text = io.open(file_,encoding="utf8").read()
 		except:
 			text = io.open(file_,encoding="Latin1").read()  # e.g. wsj_0142
+
 		text = text.replace(".START","")  # Remove PDTB .START codes
 		text = re.sub(r'\s','', text)  # Remove all whitespace
 		docs[docname] = text # = soupe de characters
-		#print(f"{docname}:::::: {docs[docname][:50]}")
+		
 	return docs
 
-def restore_GUM_docs(path_to_underscores, text_dict):
+def restore_GUM_docs(path_to_underscores: str, text_dict: dict) -> None:
 	"""
 	Specific methods for GUM because it is partially underscored and has ellipsea.
+	:path_to_underscores: path to corpus folder
+	:text_dict: dict as Dict[docname] = allcharacterswithoutspace
+	TODO : factorisation/fusion with def restore_docs.
 	"""
 	dep_files = glob(path_to_underscores+os.sep+"*.conllu")
 	tok_files = glob(path_to_underscores+os.sep+"*.tok") 
 	rel_files = glob(path_to_underscores+os.sep+"*.rels")
 	
 	idx_tok_dict = restore_GUM_dep_files(dep_files, text_dict)
-	rebuild_GUM_tok_files_from_dep_files(tok_files, dep_files)
+	rebuild_GUM_tok_files_from_dep_files(tok_files)
 	restore_GUM_rel_files(rel_files, idx_tok_dict)
 
-
-def restore_docs(path_to_underscores, text_dict): # text_dict: Dict[doc_id]=text no space
+def restore_docs(path_to_underscores: str, text_dict: dict) -> None: # text_dict: Dict[doc_id]=text no space
+	""" Main method to unmasking.
+	:path_to_underscores: path to corpus folder
+	:text_dict: dict as Dict[docname] = allcharacterswithoutspace
+	"""
 
 	dep_files = glob(path_to_underscores+os.sep+"*.conllu")
 	tok_files = glob(path_to_underscores+os.sep+"*.tok") 
 	rel_files = glob(path_to_underscores+os.sep+"*.rels")
 	
 	idx_tok_dict = restore_dep_files(dep_files, text_dict)
-
-	#restore_tok_files(tok_files, text_dict)
-	#restore_rel_files(rel_files, text_dict)
-
-	#print(idx_tok_dict['00006131'])
-
-	rebuild_tok_files_from_dep_files(tok_files, dep_files)
-
-	#raw_dict = get_raw_text_from_tok()
-	
+	rebuild_tok_files_from_dep_files(tok_files)
 	restore_rel_files(rel_files, idx_tok_dict)
 
-def rebuild_GUM_tok_files_from_dep_files(files, dep_files) -> None:
+def rebuild_GUM_tok_files_from_dep_files(files: list) -> None:
+	""" From dep files, get token, lemmas, labels and compute ID for tok files
+	:files: tok_files .toks
+	:dep_files: .conllu
+	"""
 
 	for file_ in files:
 		print(f"restore {file_}")
-		#print(f"restaoring: {file_}.tok")
 		dep_file = re.sub(".tok", ".conllu", file_)
-		lines = open(f"{dep_file}_refactor.conll", 'r', encoding='utf-8').readlines()
+		lines = open(f"{dep_file}", 'r', encoding='utf-8').readlines()
 		output = []
-
 		tokid = 0
 
 		for i, line in enumerate(lines):
 			line = line.strip()
-
 			if line.startswith("#"):
 				if line.startswith(META_DOCID) and i == 0:
 					output.append(line)
@@ -478,7 +472,6 @@ def rebuild_GUM_tok_files_from_dep_files(files, dep_files) -> None:
 					continue
 			elif line == "":
 				continue
-			
 			else: 
 				fields = line.split("\t")
 				if "." in fields[0]: # ellips not display in .tok => for coherence, keep ID n.m and label = "_"
@@ -500,26 +493,24 @@ def rebuild_GUM_tok_files_from_dep_files(files, dep_files) -> None:
 					new_fields = [str(tokid), fields[1], "_", "_", "_", "_", "_", "_", "_", label]
 					output.append("\t".join(new_fields))    ### NOT FIELDS 0 !!
 
-
-		with open(f"{file_}_refactor.tokk", 'w', encoding='utf-8') as fo:
+		with open(f"{file_}", 'w', encoding='utf-8') as fo:
 			fo.write("\n".join(output) + "\n")
 
+def rebuild_tok_files_from_dep_files(files: list) -> None:
+	""" From dep files, get token, lemmas, labels and compute ID for tok files
+	:files: tok_files .toks
+	:dep_files: .conllu
+	"""
 
-def rebuild_tok_files_from_dep_files(files, dep_files) -> None:
-
-	#for file_ in dep_files: #### --------------------------------------
 	for file_ in files:
 		print(f">>> Processing for tok {file_}...")
-		#print(f"restaoring: {file_}.tok")
 		dep_file = re.sub(".tok", ".conllu", file_)
-		lines = open(f"{dep_file}_refactor.conll", 'r', encoding='utf-8').readlines()
+		lines = open(f"{dep_file}", 'r', encoding='utf-8').readlines()
 		output = []
-
 		tokid = 0
 
 		for i, line in enumerate(lines):
 			line = line.strip()
-
 			if line.startswith("#"):
 				if line.startswith(META_DOCID) and i == 0:
 					output.append(line)
@@ -531,7 +522,6 @@ def rebuild_tok_files_from_dep_files(files, dep_files) -> None:
 					continue
 			elif line == "":
 				continue
-			
 			else: 
 				fields = line.split("\t")
 				if "." in fields[0]: # ellips not display in .tok TODO change that ? (only GUM now)
@@ -547,12 +537,15 @@ def rebuild_tok_files_from_dep_files(files, dep_files) -> None:
 					new_fields = [str(tokid), fields[1], "_", "_", "_", "_", "_", "_", "_", label]
 					output.append("\t".join(new_fields))    ### NOT FIELDS 0 !!
 
-		#tok_file = re.sub(".conllu", ".tok", file_)
-		with open(f"{file_}_refactor.tokk", 'w', encoding='utf-8') as fo:
-			print(f"{file_}_refactor.tokk")
+		with open(f"{file_}", 'w', encoding='utf-8') as fo:
 			fo.write("\n".join(output) + "\n")
 
-def get_mweid(tokid, conllid):
+def get_mweid(tokid: int, conllid) -> str:
+	""" Define IDs of MWE (contracted form) document-based for tok from sentence-based from dep.
+	:tokid: current token count, document-based.
+	:conllid: current token count, sentence-based.
+	:out: MWE ID shaped as n-m with n and m document-based.
+	"""
 	n = compute_mwe_status(conllid) # number of word in the MWE
 	if n == 3:
 		pass
@@ -561,33 +554,31 @@ def get_mweid(tokid, conllid):
 	return mweid
 
 def get_tok_label_from_dep_label(label:str) -> str:
-	"""WARNING: spe cases "ellips" (gum), "MWE" ===> TODO verif label vide or / "_"
-		PDTB: "Conn=O" / "Conn=B-conn" / "Conn=I-conn"
-		RST/SDRT/DEP: "Seg=O" / "Seg=B-seg"
+	""" Get clean label for tok file from dep file where label column may have multiple unrelated labels.
 	"""
 	options = ["Conn=O","Conn=B-conn","Conn=I-conn","Seg=O","Seg=B-seg"] # "_" (MWE-contracted), "Conn=O" (ellips)
 	newlabel = "_"
 
-	if label == "_": # ellips ?
+	if label == "_": # ellips ? => "_"
 		newlabel = label
 	
 	for it in options:
 		if it in label:
 			newlabel = it
 
-	# verif
-	#if newlabel == None:
-	#	msg = f"unknow label: {label}"
-	#	exit(msg)
-
 	return newlabel
 
 def restore_GUM_dep_files(files, text_dict) -> dict:
-	# on va remplir un dict: 'docname': {id_tok: token} without contracted forms of MWE
-	# 
-	# 
- 
+	""" This fonction read and write dep files, with replacement of underscores by corresponding text.
+		In the mean time, a dictionary is filled as: Dict[docname][token id document based]="token string" without contracted forms of MWE. Will be used to fill syntactical text in .rels.
+	:files: list of dep files path
+	:text_dict: dictionary of text as Dict[docname]="full doc as one string without space"
+	:return Dict of (syntactical) tokens
+	"""
+	# specific GOESWITH patches
 	patches = ['16	____	_	X	IN	_	15	goeswith	15:goeswith	CorrectForm=_|XML=</sic>|Seg=O', '6	_______	_	X	VBG	_	5	goeswith	5:goeswith	CorrectForm=_|XML=</sic>|Seg=O']
+	patches.append('16	____	_	X	IN	_	15	goeswith	15:goeswith	CorrectForm=_|XML=</sic>|Conn=O')
+	patches.append('6	_______	_	X	VBG	_	5	goeswith	5:goeswith	CorrectForm=_|XML=</sic>|Conn=O')
 
 	my_dict = {}
 
@@ -595,9 +586,6 @@ def restore_GUM_dep_files(files, text_dict) -> dict:
 		print(f"restore {file_}")
 		lines = open(file_, 'r', encoding='utf-8').readlines()
 		output = []
-
-		
-	
 
 		tid = 0 # token ID document-based
 		cid = 0 # character ID deocument-based
@@ -668,14 +656,18 @@ def restore_GUM_dep_files(files, text_dict) -> dict:
 					my_dict[docname][int(tid)] = fields[1]
 
 
-		with open(f"{file_}_refactor.conll", 'w', encoding='utf-8') as fo:
+		with open(f"{file_}", 'w', encoding='utf-8') as fo:
 			fo.write("\n".join(output) + "\n")
 	return my_dict
 
-def restore_dep_files(files, text_dict) -> dict:
-	# on va remplir un dict: 'docname': {id_tok: token} without contracted forms of MWE
-	# 
-	# 
+def restore_dep_files(files: list, text_dict) -> dict:
+	""" This fonction read and write dep files, with replacement of underscores by corresponding text.
+		In the mean time, a dictionary is filled as: Dict[docname][token id document based]="token string" without contracted forms of MWE. Will be used to fill syntactical text in .rels.
+	:files: list of dep files path
+	:text_dict: dictionary of text as Dict[docname]="full doc as one string without space"
+	:return Dict of (syntactical) tokens
+	"""
+
 	my_dict = {}
 
 	for file_ in files:
@@ -683,11 +675,8 @@ def restore_dep_files(files, text_dict) -> dict:
 		lines = open(file_, 'r', encoding='utf-8').readlines()
 		output = []
 
-		
-	
-
 		tid = 0 # token ID document-based
-		cid = 0 # character ID deocument-based
+		cid = 0 # character ID document-based
 		cid_delay_mwe = 0 # variable to adjust CID while MWE
 		mwe_status = 0
 
@@ -701,9 +690,6 @@ def restore_dep_files(files, text_dict) -> dict:
 				tid = 0
 				cid = 0
 				output.append(line)
-
-			#elif "GUM" in docname and "reddit" not in docname:
-			#	output.append(line)
 
 			elif line.startswith(META_TEXT):
 				masked = re.sub(META_TEXT, "", line)
@@ -721,7 +707,7 @@ def restore_dep_files(files, text_dict) -> dict:
 					cid_delay_mwe = cid + len(fields[1])
 					mwe_status = compute_mwe_status(fields[0])
 					
-				elif "." in fields[0]: # ellips in GUM
+				elif "." in fields[0]: # ellips in GUM # TODO something more factorized and cleaner ><
 					pass
 				else:
 
@@ -731,7 +717,6 @@ def restore_dep_files(files, text_dict) -> dict:
 					if len(re.sub("_", "", fields[1])) > 0: # if not underscored
 						fields[2] = compute_lemma(fields[1], fields[2])
 						output.append("\t".join(fields))
-
 					else:
 						fields[1] = fill_text_with_char(cid, text_dict[docname], fields[1])
 						fields[2] = compute_lemma(fields[1], fields[2])
@@ -750,12 +735,18 @@ def restore_dep_files(files, text_dict) -> dict:
 					my_dict[docname][int(tid)] = fields[1]
 
 
-		with open(f"{file_}_refactor.conll", 'w', encoding='utf-8') as fo:
+		with open(f"{file_}", 'w', encoding='utf-8') as fo:
 			fo.write("\n".join(output) + "\n")
 			#print(my_dict.keys())
 	return my_dict
 
-def fill_text_with_char(cid, text_doc, masked):
+def fill_text_with_char(cid: int, text_doc: str, masked: str) -> str :
+	""" This method get text string from characters span IDS. 
+	:cid: first character ID 
+	:text_doc: full doc text no space
+	:masked: string of underscores to replace with character 
+	:out: span of text
+	"""
 	unmasked = ""
 	for c in masked:
 		if c == "_":
@@ -765,7 +756,12 @@ def fill_text_with_char(cid, text_doc, masked):
 			unmasked = unmasked + c
 	return unmasked
 
-def compute_lemma(f1, f2):
+def compute_lemma(f1: str, f2: str) -> str:
+	""" This fonction compute lemma from cues in masked files.
+	:f1: unmasked text of token
+	:f2: masked lemma
+	:out: unmasked lemma
+	"""
 	lemma = ""
 	if f2 == "_":
 		lemma = f1
@@ -775,109 +771,98 @@ def compute_lemma(f1, f2):
 		lemma = f2
 	return lemma
 
-def compute_mwe_status(f0):
+def compute_mwe_status(f0: int) -> int:
+	""" This fonction compute if current token are inside a MWE or not.
+	:f0: status in
+	:status:  status out
+	"""
 	nbs = f0.split("-")
 	status = int(nbs[1]) - int(nbs[0]) + 1 # number of extended forms
 	return status
 
-def get_mwe_status(status):
+def get_mwe_status(status: int) -> int:
+	""" This fonction compute if current token are inside a MWE or not.
+	:in: status in
+	:out:  status out
+	"""
 	if status > 0 : # current token is part of MWE
 		status -= 1
 	elif status == 0:
 		status = 0
 	return status
 
-def restore_GUM_rel_files(files, idx_dict):
-	""" option MWE: par default on build avec mwe. 
-		si on veut text raw: implémenter build_rels_with_raw_text.py TODO ?
-		rappel: dans les rels, les span basés sur les id de token 1-based
+def restore_GUM_rel_files(files: list, idx_dict: dict) -> None:
+	""" Reconstruction of text in rels files, using dicts and IDs 1-document-based.
+	:files: list of rels files masked
+	:idx_dict:	dict of syntactical tokens as Dict[docname][ID] = token string
 	"""
-
-	
 
 	for file_ in files:
 		print(f"restore {file_}")
 		#store toks
-		tok_path = re.sub(".rels",".tok_refactor.tokk", file_)
-		tok_dict = get_raw_text(tok_path) # pour tout le file.tok ==> TODO change : not raw text, but full tok text. relevant to get 1-based id document based.
-
-
+		tok_path = re.sub(".rels",".tok", file_)
+		tok_dict = get_tokenized_text(tok_path) # pour tout le file.tok . relevant to get 1-based id document based.
 
 		#store rels
-		print(f"processing :::::: {file_}\n")
 		lines = open(file_, 'r', encoding='utf-8').readlines()
 		output = [] # List of new lines
 
 		for line in lines:
 			line = line.strip()
 			if line != "" and not line.startswith(HEADER_rels)  :
-
 				doc, unit1_toks, unit2_toks, unit1_txt, unit2_txt, u1_raw, u2_raw, s1_toks, s2_toks, unit1_sent, unit2_sent, direction, rel_type, orig_label, label = line.split("\t")
-				
-
 				if "reddit" in doc:
-
 					unit1_txt = get_span_from_idx(unit1_toks, idx_dict[doc]) # my_dict[docname][tid] = fields[1]
 					unit2_txt = get_span_from_idx(unit2_toks, idx_dict[doc])
 					u1_raw = get_raw_span_from_idx(unit1_toks, tok_dict[doc])
 					u2_raw = get_raw_span_from_idx(unit2_toks, tok_dict[doc])
 					unit1_sent = get_span_from_idx(s1_toks, idx_dict[doc])
 					unit2_sent = get_span_from_idx(s2_toks, idx_dict[doc])
-
 				output.append("\t".join([doc, unit1_toks, unit2_toks, unit1_txt, unit2_txt, u1_raw, u2_raw, s1_toks, s2_toks, unit1_sent, unit2_sent, direction, rel_type, orig_label, label]))
-
 			else:
 				output.append(line)
 
-		with open(f"{file_}_refactor.relss", 'w', encoding='utf-8') as fo:
+		with open(f"{file_}", 'w', encoding='utf-8') as fo:
 			fo.write("\n".join(output) + "\n")
 
-
-def restore_rel_files(files, idx_dict):
-	""" option MWE: par default on build avec mwe. 
-		si on veut text raw: implémenter build_rels_with_raw_text.py TODO ?
-		rappel: dans les rels, les span basés sur les id de token 1-based
+def restore_rel_files(files: list, idx_dict: dict) -> None:
+	""" Reconstruction of text in rels files, using dicts and IDs 1-document-based.
+	:files: list of rels files masked
+	:idx_dict:	dict of syntactical tokens as Dict[docname][ID] = token string
 	"""
-	#print(idx_dict.keys())
 
 	for file_ in files:
 		print(f">>> Processing for rels {file_}...")
 		#store toks
-		tok_path = re.sub(".rels",".tok_refactor.tokk", file_)
-		tok_dict = get_raw_text(tok_path) # pour tout le file.tok
-
-
+		tok_path = re.sub(".rels",".tok", file_)
+		tok_dict = get_tokenized_text(tok_path) # pour tout le file.tok
 
 		#store rels
-		print(f"processing :::::: {file_}\n")
 		lines = open(file_, 'r', encoding='utf-8').readlines()
 		output = [] # List of new lines
 
 		for line in lines:
 			line = line.strip()
 			if line != "" and not line.startswith(HEADER_rels):
-
 				doc, unit1_toks, unit2_toks, unit1_txt, unit2_txt, u1_raw, u2_raw, s1_toks, s2_toks, unit1_sent, unit2_sent, direction, rel_type, orig_label, label = line.split("\t")
-				
 				unit1_txt = get_span_from_idx(unit1_toks, idx_dict[doc]) # my_dict[docname][tid] = fields[1]
 				unit2_txt = get_span_from_idx(unit2_toks, idx_dict[doc])
-
-
-
 				u1_raw = get_raw_span_from_idx(unit1_toks, tok_dict[doc])
 				u2_raw = get_raw_span_from_idx(unit2_toks, tok_dict[doc])
 				unit1_sent = get_span_from_idx(s1_toks, idx_dict[doc])
 				unit2_sent = get_span_from_idx(s2_toks, idx_dict[doc])
-
 				output.append("\t".join([doc, unit1_toks, unit2_toks, unit1_txt, unit2_txt, u1_raw, u2_raw, s1_toks, s2_toks, unit1_sent, unit2_sent, direction, rel_type, orig_label, label]))
-
 			else:
 				output.append(line)
 
-		with open(f"{file_}_refactor.relss", 'w', encoding='utf-8') as fo:
+		with open(f"{file_}", 'w', encoding='utf-8') as fo:
 			fo.write("\n".join(output) + "\n")
 
-def get_raw_text(path):# -> dict:
+def get_tokenized_text(path: str) -> dict:
+	""" This fonction harvest all tokens full lines but ellipsis of a .tok file. Relevant to get 1-based token IDs document-based.
+	:in: path to the file
+	:out: Dict[docname] = List of tokens lines
+	"""
 	
 	tok_dict = {}
 	with open(path, "r", encoding="utf-8") as ft:
@@ -888,41 +873,38 @@ def get_raw_text(path):# -> dict:
 		line =line.strip()
 		if line.startswith("# newdoc_id") and i == 0:
 			k = re.sub("# newdoc_id = ", "", line)
-			#print(line)
 		elif line.startswith("# newdoc_id"): ### redondant ----------------- ??
 			k = re.sub("# newdoc_id = ", "", line)
 		elif line == "" :
-			#print(f"vide: {i}- {line}")
 			tok_dict[k] = v
 			v = []
 		elif i == len(t_data)-1:
-			#print(f"vide: {i}- {line}")
 			v.append(line)
 			tok_dict[k] = v
 			v = []
 		elif line.startswith("#"):
 			continue
-		elif re.match(r"^\d+\.\d", line): # no need for ellips un raw text
+		elif re.match(r"^\d+\.\d", line): # no need for ellips in raw text
 			continue
 		else:
 			v.append(line)
-	#print(tok_dict.keys())
 
 	return tok_dict
 
-def get_span_from_idx(unit, doc_dict) -> str:
-	"""
-    unit_toks : "x-y, n"
-    txt : blabla <*> blablabla
+def get_span_from_idx(unit: str, doc_dict: dict) -> str:
+	""" Rebuild text from span of tokens IDs document-based of shape "n-m, p"
+    :unit: unit a span IDs
+    :doc_dict: from dep_file, Dict[token IDs] = token : only syntactical IDs/tokens (no MWE contracted forms)  
+	:out: corresponding text sequence, with discontinuity marker if any as "blabla <*> blablabla"
     """
 
 	text = ""
 
-	if re.search(",", unit): # discontinu
+	if re.search(",", unit): # discontinuity
 		units = unit.split(",")
 		texts = []
 		for un in units:
-			if re.search("-", un): # intervll
+			if re.search("-", un): # multi tokens span
 				txt = []
 				segs = un.split("-")
 				a = int(segs[0])
@@ -939,13 +921,11 @@ def get_span_from_idx(unit, doc_dict) -> str:
 				texts.append(txt)
 			text = " <*> ".join(texts)
 	else:
-		if re.search("-", unit): # intervll
+		if re.search("-", unit): # multi tokens span
 			txt = []
 			segs = unit.split("-")
 			a = int(segs[0])
 			b = int(segs[1])
-			#print(f"unit {unit}") # ------------------------------------
-			#print(doc_dict) # ----------------------------------------------
 			txt.append(doc_dict[a])
 			i = a + 1
 			while i <= b:
@@ -957,34 +937,30 @@ def get_span_from_idx(unit, doc_dict) -> str:
 
 	return text
 
-def get_raw_span_from_idx(unit, doc_dict_tok) -> str:
-	#print(f"get_raw_span_from_idx:::: {type(doc_dict_tok)}")
-	#print(len(doc_dict_tok))
-	#def build_text(self, idx):
-	"""
-	"""
+def get_raw_span_from_idx(unit: str, doc_dict_tok: dict) -> str:
+	""" Rebuild text from span of tokens IDs document-based of shape "n-m, p"
+    :unit: unit a span IDs
+    :doc_dict_tok: from tok_file, Dict[token IDs] = token : only raw/natural IDs/tokens (no MWTs extended forms)  
+	:out: corresponding text sequence, with discontinuity marker if any as "blabla <*> blablabla"
+    """
+	
 	idx = unit
-	#print("build text")
 	text = ""
-
-	parts = idx.split(",")
+	parts = idx.split(",") # marker of discontinuity
 	if len(parts) == 1:
-
-		if len(parts[0].split("-")) > 1:
+		if len(parts[0].split("-")) > 1: # interval
 			s = parts[0].split("-")[0]
 			e = parts[0].split("-")[1]
 			segment_text = get_segment(doc_dict_tok, s, e)
 			text = segment_text
-		else:
+		else: # unique token
 			s = parts[0].split("-")[0]
 			e = ""
 			segment_text = get_segment(doc_dict_tok, s, e)
 			text = segment_text
-
 	elif len(parts) > 1:
 		texts = []
 		for it in parts:
-
 			if len(it.split("-")) > 1:
 				s = it.split("-")[0]
 				e = it.split("-")[1]
@@ -995,39 +971,38 @@ def get_raw_span_from_idx(unit, doc_dict_tok) -> str:
 				e = ""
 				segment_text = get_segment(doc_dict_tok, s, e)
 				texts.append(segment_text)
-
 		text = " <*> ".join(texts)
+
 	return text
 	
-def get_segment(doc_dict_tok, s, e=""):
-	#print(f"s={s}, e={e}")
-	#print("get segment")
-	#data_doc = self.tok[self.doc]
-	#print(type(doc_dict_tok))
+def get_segment(doc_dict_tok: dict, s: str, e="") -> str:
+	""" Get span of raw text.
+	:in: interval {s,e} or uniq {s} ID(s). 
+	:doc_dict_tok: Dict[ID] = token from tok file (so with contracted form of MWE)
+	:out: string of tokens with spaces in between.
+	"""
+	
 	data_doc = doc_dict_tok
-	#print(type(data_doc))
 	words_li = []
 
-	if e == "": #-------------???
+	if e == "": # cas of unique token
 		i = 0
 		while i < len(data_doc):
 			id = data_doc[i].split("\t")[0]
 			word = data_doc[i].split("\t")[1]
-			if id.split("-")[0] == s: # start of segment
+			if id.split("-")[0] == s: # start of segment ## !!! inutile ?? TODO verif
 				words_li.append(word)
 				break
 			else:
 				i += 1
 	else:
 		i=0
-		while i < len(data_doc):
-			#print(i)
+		while i < len(data_doc):	
 			id = data_doc[i].split("\t")[0]
 			word = data_doc[i].split("\t")[1]
 
 			if id.split("-")[0] == s: # start of segment
 				words_li.append(word)
-
 				if "-" in id: # contracted form can be > 2 forms !!!!!
 					nb = get_nb_of_words(id)
 					i = i + nb + 1 # ---------------------------------------------- e-s !
@@ -1036,7 +1011,6 @@ def get_segment(doc_dict_tok, s, e=""):
 			elif id.split("-")[0] == e: # end of segment
 				words_li.append(word)
 				break
-
 			elif len(words_li) > 0: # on est dans le segment
 				words_li.append(word)
 				if "-" in id: # contracted form can be > 2 forms !!!!!
@@ -1044,14 +1018,16 @@ def get_segment(doc_dict_tok, s, e=""):
 					i = i + nb + 1 # ---------------------------------------------- e-s !
 				else:
 					i += 1
-
 			else:
 				i += 1
 	
 	return " ".join(words_li)
 	
 def get_nb_of_words(id:str) -> int:
-	#print(type(id))
+	""" Compute how many tokens are hidden in a Multi-Words Expression.
+	:in: ID of MWE
+	:out: number
+	"""
 	first_word = int(id.split("-")[0])
 	last_word = int(id.split("-")[1])
 	nb = last_word - first_word + 1
@@ -1062,57 +1038,45 @@ def get_nb_of_words(id:str) -> int:
 if __name__ == "__main__":
 
 	p = ArgumentParser()
-	p.add_argument("-c","--corpus",action="store",choices=["rstdt","pdtb","cdtb","tdb","gum","gumpdtb","all"],default="all",help="Name of the corpus to process or 'all'")
+	p.add_argument("-c","--corpus",action="store",choices=["eng.rst.rstdt","eng.pdtb.pdtb","zho.pdtb.cdtb","tur.pdtb.tdb","eng.rst.gum","eng.pdtb.gum","all"],default="all",help="Name of the corpus to process or 'all'")
 	p.add_argument("-m","--mode",action="store",choices=["add","del"],default="add",help="Use 'add' to restore data and 'del' to replace text with underscores")
 	opts = p.parse_args()
-
-
-	SHORT_NAMES = { # TODO : supprimer les shorts names
-		"rstdt": "eng.rst.rstdt",
-		"pdtb": "eng.pdtb.pdtb",
-		"cdtb": "zho.pdtb.cdtb",
-		"tdb": "tur.pdtb.tdb",
-		"gum": "eng.rst.gum",
-		"gumpdtb": "eng.pdtb.gum"
-	}
 
 
 	# DEL MODE - MAKE UNDERSCORES
 	if opts.mode == "del":  # Remove text from resources that need to be underscored for distribution
 		files = []
-		if opts.corpus == "rstdt" or opts.corpus == "all":
-			files += get_list_of_corpus_files(SHORT_NAMES["rstdt"])
-		if opts.corpus == "pdtb" or opts.corpus == "all":
-			files += get_list_of_corpus_files(SHORT_NAMES["pdtb"])
-		if opts.corpus == "cdtb" or opts.corpus == "all":
-			files += get_list_of_corpus_files(SHORT_NAMES["cdtb"])
-		if opts.corpus == "tdb" or opts.corpus == "all":
-			files += get_list_of_corpus_files(SHORT_NAMES["tdb"])
-		if opts.corpus == "gum" or opts.corpus == "all":
-			files += get_list_of_corpus_files(SHORT_NAMES["gum"])
-		if opts.corpus == "gumpdtb" or opts.corpus == "all":
-			files += get_list_of_corpus_files(SHORT_NAMES["gumpdtb"])
+		if opts.corpus == "eng.rst.rstdt" or opts.corpus == "all":
+			files += get_list_of_corpus_files("eng.rst.rstdt")
+		if opts.corpus == "eng.pdtb.pdtb" or opts.corpus == "all":
+			files += get_list_of_corpus_files("eng.pdtb.pdtb")
+		if opts.corpus == "zho.pdtb.cdtb" or opts.corpus == "all":
+			files += get_list_of_corpus_files("zho.pdtb.cdtb")
+		if opts.corpus == "tur.pdtb.tdb" or opts.corpus == "all":
+			files += get_list_of_corpus_files("tur.pdtb.tdb")
+		if opts.corpus == "eng.rst.gum" or opts.corpus == "all":
+			files += get_list_of_corpus_files("eng.rst.gum")
+		if opts.corpus == "eng.pdtb.gum" or opts.corpus == "all":
+			files += get_list_of_corpus_files("eng.pdtb.gum")
 			
-
 		underscore_files(files)
-		#sys.stderr.write("o Replaced text with underscores in " + str(len(files)) + " files\n")
-		#sys.exit(1)
+		
 
 	# ADD MODE - RESTORE TEXT
 	elif opts.mode == "add":
 
 		# Prompt user for corpus folders
-		if opts.corpus == "rstdt" or opts.corpus == "all":
+		if opts.corpus == "eng.rst.rstdt" or opts.corpus == "all":
 			rstdt_path = input("Enter path for LDC RST-DT data/ folder:\n> ")
 			if not os.path.isdir(rstdt_path):
 				sys.stderr.write("Can't find directory at: " + rstdt_path + "\n")
 				sys.exit(0)
 			files = glob(os.sep.join([rstdt_path,"RSTtrees-WSJ-main-1.0","TRAINING","*.edus"])) + glob(os.sep.join([rstdt_path,"RSTtrees-WSJ-main-1.0","TEST","*.edus"]))
 			docs2text = harvest_text(files)
-			restore_docs(os.sep.join(["..","data_test","eng.rst.rstdt"]),docs2text)
+			restore_docs(os.sep.join(["..",DATA_DIR,"eng.rst.rstdt"]),docs2text)
 
 
-		if opts.corpus == "pdtb" or opts.corpus == "all":
+		if opts.corpus == "eng.pdtb.pdtb" or opts.corpus == "all":
 			pdtb_path = input("Enter path for LDC Treebank 2 raw/wsj/ folder:\n> ")
 			if not os.path.isdir(pdtb_path):
 				sys.stderr.write("Can't find directory at: " + pdtb_path + "\n")
@@ -1122,31 +1086,30 @@ if __name__ == "__main__":
 				dir_name = str(i) if i > 9 else "0" + str(i)
 				files += glob(os.sep.join([pdtb_path,dir_name,"wsj_*"]))
 			docs2text = harvest_text(files)
-			restore_docs(os.sep.join(["..","data_test","eng.pdtb.pdtb"]),docs2text)
+			restore_docs(os.sep.join(["..",DATA_DIR,"eng.pdtb.pdtb"]),docs2text)
 
 
-		if opts.corpus == "cdtb" or opts.corpus == "all":
+		if opts.corpus == "zho.pdtb.cdtb" or opts.corpus == "all":
 			cdtb_path = input("Enter path for LDC Chinese Discourse Treebank 0.5 raw/ folder:\n> ")
 			if not os.path.isdir(cdtb_path):
 				sys.stderr.write("Can't find directory at: " + cdtb_path + "\n")
 				sys.exit(0)
 			files = glob(os.sep.join([cdtb_path,"*.raw"]))
 			docs2text = harvest_text(files)
-			restore_docs(os.sep.join(["..","data_test","zho.pdtb.cdtb"]),docs2text)
+			restore_docs(os.sep.join(["..",DATA_DIR,"zho.pdtb.cdtb"]),docs2text)
 		
 
-		if opts.corpus == "tdb" or opts.corpus == "all":
+		if opts.corpus == "tur.pdtb.tdb" or opts.corpus == "all":
 			tdb_path = input("Enter path for Turkish Discourse Bank 1.0 raw/01/ folder:\n> ")
 			if not os.path.isdir(tdb_path):
 				sys.stderr.write("Can't find directory at: " + tdb_path + "\n")
 				sys.exit(0)
 			files = glob(os.sep.join([tdb_path,"*.txt"]))
 			docs2text = harvest_text(files)
-			restore_docs(os.sep.join(["..","data_test", "tur.pdtb.tdb"]),docs2text)
+			restore_docs(os.sep.join(["..",DATA_DIR, "tur.pdtb.tdb"]),docs2text)
 
 
-
-		if opts.corpus == "gum" or opts.corpus == "all":
+		if opts.corpus == "eng.rst.gum" or opts.corpus == "all":
 			response = input("Do you want to try downloading reddit data from an available server?\n"+
 							"Confirm: you are solely responsible for downloading reddit data and "+
 							"may only use it for non-commercial purposes:\n[Y]es/[N]o> ")
@@ -1157,10 +1120,10 @@ if __name__ == "__main__":
 			else:
 				sys.stderr.write("Aborting\n")
 				sys.exit(0)
-			restore_GUM_docs(os.sep.join(["..","data_test","eng.rst.gum"]),docs2text)
+			restore_GUM_docs(os.sep.join(["..",DATA_DIR,"eng.rst.gum"]),docs2text)
 
 
-		if opts.corpus == "gumpdtb" or opts.corpus == "all":
+		if opts.corpus == "eng.pdtb.gum" or opts.corpus == "all":
 			response = input("Do you want to try downloading reddit data from an available server?\n"+
 							"Confirm: you are solely responsible for downloading reddit data and "+
 							"may only use it for non-commercial purposes:\n[Y]es/[N]o> ")
@@ -1171,4 +1134,4 @@ if __name__ == "__main__":
 			else:
 				sys.stderr.write("Aborting\n")
 				sys.exit(0)
-			restore_GUM_docs(os.sep.join(["..","data_test","eng.pdtb.gum"]),docs2text)
+			restore_GUM_docs(os.sep.join(["..",DATA_DIR,"eng.pdtb.gum"]),docs2text)

@@ -78,8 +78,8 @@ See the README files in individual data directories for more details on each dat
 * `process_underscore_2024.py` - text reconstruction of datasets under specific licenses.
     * Usage from `utils/`: `python process_underscore_2024.py -c {CORPUS,all} -m add`
     * Arguments required:
-        * -c/--corpus {CORPUS,all} ..................... name of the corpus in the shape `LANG.FRAMEWORK.CORPUS` or 'all'
-        * -m/--mode {add,del} ......................... chose 'add' to replace underscores by text
+        * -c/--corpus {CORPUS,all} .... *Name of the corpus in the shape `LANG.FRAMEWORK.CORPUS` or 'all'(default).*
+        * -m/--mode {add,del} .... *Chose 'add'(default) to replace underscores by text.*
 
 
 
@@ -88,13 +88,13 @@ See the README files in individual data directories for more details on each dat
 * `disrpt_eval_2024.py` - evaluation of 1 predictions file against 1 gold file.
     * Usage from `utils/`: `python disrpt_eval_2024.py [-h] -g GOLDFILE -p PREDFILE -t {S,C,R} [-s] [-nb] [-rt]`
     * Arguments required: 
-        * -g/--goldfile GOLDFILE ................. Path to gold file
-        * -p/--predfile PREDFILE ................. Path to predictions file
-        * -t/--task {S,C,R} ...................... Task to evaluate. S = "Discourse Unit Segmentation", C = "Connectives Identification", R = "Relations Classification"
+        * -g/--goldfile GOLDFILE .... *Path to gold file.*
+        * -p/--predfile PREDFILE .... *Path to predictions file.*
+        * -t/--task {S,C,R} .... *Task to evaluate. S = "Discourse Unit Segmentation", C = "Connectives Identification", R = "Relations Classification".*
     * Options:
-        * -s/--string_input ...................... If inputs are strings instead of file path
-        * -nb/--no_boundary_edu .................. Does not count EDU that starts at beginning of sentence, relevant for task S and format CONLLU only
-        * -rt/--rel_type ......................... Evaluate relation type instead of label, relevant for task R only
+        * -s/--string_input .... *If inputs are strings instead of file path.*
+        * -nb/--no_boundary_edu .... *Does not count EDU that starts at beginning of sentence, relevant for task S and format CONLLU only.*
+        * -rt/--rel_type .... *Evaluate relation type instead of label, relevant for task R only.*
     * Output:
         * Results are print directly as STDout.
 
@@ -103,16 +103,14 @@ See the README files in individual data directories for more details on each dat
 * `evaluation_main.sh` - evaluation of all predictions files organized in same directories structure than gold files: ...data/LANG.FRAMEWORK.CORPUS/LANG.FRAMEWORK.CORPUS_DIV.EXTENSION
     * Usage from `utils/`: `bash evaluation_main.sh -g GOLDDIR -p PREDDIR -o OUTDIR [-d] [-b] [-y] [-s]`
     * Arguments required:
-        * -g/--gold_dir GOLDDIR ................... Path to parent gold directory (...latest/data).
-        * -p/--pred_dir PREDDIR ................... Path to parent predictions directory (.../data).
-        * -o/--out_eval_dir OUTDIR ................ Path to output directory to print results files.
+        * -g/--gold_dir GOLDDIR .... *Path to parent gold directory (...latest/data).*
+        * -p/--pred_dir PREDDIR .... *Path to parent predictions directory (.../data).*
+        * -o/--out_eval_dir OUTDIR .... Path to output directory to print results files.*
     * Options:
-        * -d/--division_set ....................... Datasets division to evaluate to 'dev. Default='test' (DIV).
-        * -b/--no_boundary_edu .................... Option for TASK-1/.conllu. Evaluate only intra-sentential EDUs.
-        * -y/--rel_type ........................... Option for TASK-3. Evaluate TYPES instead of LABELS (cf.PDTB) plus metrics for each type.
-        * -s, --string_input ...................... Whether inputs are strings instead of file names.
+        * -d/--division_set .... *Datasets division to evaluate to 'dev. Default='test' (DIV).*
+        * -b/--no_boundary_edu .... *Option for TASK-1/.conllu. Evaluate only intra-sentential EDUs.*
+        * -y/--rel_type .... *Option for TASK-3. Evaluate TYPES instead of LABELS (cf.PDTB) plus metrics for each type.*
+        * -s, --string_input .... *Whether inputs are strings instead of file names.*
     * Output:
         * For each file evaluated, results are print into a file following this name convention : .../OUTDIR/LANG.FRAMEWORK.CORPUS_DIV.EXTENSION_eval
 
-
-## TODO: ajouter tous les readme 

@@ -8655,7 +8655,7 @@
 1148	salınışına	_	_	_	_	_	_	_	Conn=O
 1149	aldırmadan	_	_	_	_	_	_	_	Conn=O
 1150	uyanık	_	_	_	_	_	_	_	Conn=O
-1151-1152	olmalıymış	_	_	_	_	_	_	_	_
+1151-1153	olmalıymış	_	_	_	_	_	_	_	_
 1151	olma	_	_	_	_	_	_	_	Conn=O
 1152	lı	_	_	_	_	_	_	_	Conn=O
 1153	ymış	_	_	_	_	_	_	_	Conn=O
@@ -10980,7 +10980,7 @@
 809	bırakan	_	_	_	_	_	_	_	Conn=O
 810	görüntüsünden	_	_	_	_	_	_	_	Conn=O
 811	çok	_	_	_	_	_	_	_	Conn=O
-812-813	farklıydı	_	_	_	_	_	_	_	_
+812-814	farklıydı	_	_	_	_	_	_	_	_
 812	fark	_	_	_	_	_	_	_	Conn=O
 813	lı	_	_	_	_	_	_	_	Conn=O
 814	ydı	_	_	_	_	_	_	_	Conn=O
@@ -16417,7 +16417,7 @@
 1123	bir	_	_	_	_	_	_	_	Conn=O
 1124	de	_	_	_	_	_	_	_	Conn=O
 1125	kedilere	_	_	_	_	_	_	_	Conn=O
-1126-1127	meraklıydı	_	_	_	_	_	_	_	_
+1126-1128	meraklıydı	_	_	_	_	_	_	_	_
 1126	merak	_	_	_	_	_	_	_	Conn=O
 1127	lı	_	_	_	_	_	_	_	Conn=O
 1128	ydı	_	_	_	_	_	_	_	Conn=O
@@ -27295,7 +27295,7 @@
 2201	ıgenişletere	_	_	_	_	_	_	_	Conn=O
 2202	kçokkap	_	_	_	_	_	_	_	Conn=O
 2203	s	_	_	_	_	_	_	_	Conn=O
-2204-2205	amlıbirge	_	_	_	_	_	_	_	_
+2204-2206	amlıbirge	_	_	_	_	_	_	_	_
 2204	AKP	_	_	_	_	_	_	_	Conn=O
 2205	'li	_	_	_	_	_	_	_	Conn=O
 2206	ler	_	_	_	_	_	_	_	Conn=O
@@ -32886,7 +32886,7 @@
 3	lideri	_	_	_	_	_	_	_	Conn=O
 4	Cem	_	_	_	_	_	_	_	Conn=O
 5	:	_	_	_	_	_	_	_	Conn=O
-6-7	Üretimsizlik	_	_	_	_	_	_	_	_
+6-8	Üretimsizlik	_	_	_	_	_	_	_	_
 6	Üretim	_	_	_	_	_	_	_	Conn=O
 7	siz	_	_	_	_	_	_	_	Conn=O
 8	lik	_	_	_	_	_	_	_	Conn=O
@@ -33258,7 +33258,7 @@
 367	seslenen	_	_	_	_	_	_	_	Conn=O
 368	Cem	_	_	_	_	_	_	_	Conn=O
 369	,	_	_	_	_	_	_	_	Conn=O
-370-371	''Üretimsizlik	_	_	_	_	_	_	_	_
+370-372	''Üretimsizlik	_	_	_	_	_	_	_	_
 370	''Üretim	_	_	_	_	_	_	_	Conn=O
 371	siz	_	_	_	_	_	_	_	Conn=O
 372	lik	_	_	_	_	_	_	_	Conn=O
@@ -33490,7 +33490,7 @@
 595	sevinçle	_	_	_	_	_	_	_	Conn=O
 596	karşılanırken	_	_	_	_	_	_	_	Conn=O
 597	bazı	_	_	_	_	_	_	_	Conn=O
-598-599	CHP'liler	_	_	_	_	_	_	_	_
+598-600	CHP'liler	_	_	_	_	_	_	_	_
 598	Chp	_	_	_	_	_	_	_	Conn=O
 599	'li	_	_	_	_	_	_	_	Conn=O
 600	ler	_	_	_	_	_	_	_	Conn=O
@@ -33527,7 +33527,7 @@
 630	olduğuna	_	_	_	_	_	_	_	Conn=O
 631	dikkat	_	_	_	_	_	_	_	Conn=O
 632	çeken	_	_	_	_	_	_	_	Conn=O
-633-634	CHP'liler	_	_	_	_	_	_	_	_
+633-635	CHP'liler	_	_	_	_	_	_	_	_
 633	Chp	_	_	_	_	_	_	_	Conn=O
 634	'li	_	_	_	_	_	_	_	Conn=O
 635	ler	_	_	_	_	_	_	_	Conn=O
@@ -34144,7 +34144,7 @@
 1238	saptan	_	_	_	_	_	_	_	Conn=O
 1239	dı	_	_	_	_	_	_	_	Conn=O
 1240	.	_	_	_	_	_	_	_	Conn=O
-1241-1242	AKP'liler	_	_	_	_	_	_	_	_
+1241-1243	AKP'liler	_	_	_	_	_	_	_	_
 1241	AKp	_	_	_	_	_	_	_	Conn=O
 1242	'li	_	_	_	_	_	_	_	Conn=O
 1243	ler	_	_	_	_	_	_	_	Conn=O
@@ -34375,7 +34375,7 @@
 1467	'nu	_	_	_	_	_	_	_	Conn=O
 1468	TBMM'ye	_	_	_	_	_	_	_	Conn=O
 1469	gönderen	_	_	_	_	_	_	_	Conn=O
-1470-1471	DYP'liler	_	_	_	_	_	_	_	_
+1470-1472	DYP'liler	_	_	_	_	_	_	_	_
 1470	DYp	_	_	_	_	_	_	_	Conn=O
 1471	'li	_	_	_	_	_	_	_	Conn=O
 1472	ler	_	_	_	_	_	_	_	Conn=O
@@ -34456,7 +34456,7 @@
 1544	söz	_	_	_	_	_	_	_	Conn=O
 1545	konusu	_	_	_	_	_	_	_	Conn=O
 1546	.	_	_	_	_	_	_	_	Conn=O
-1547-1548	SP'liler	_	_	_	_	_	_	_	_
+1547-1549	SP'liler	_	_	_	_	_	_	_	_
 1547	Sp	_	_	_	_	_	_	_	Conn=O
 1548	'li	_	_	_	_	_	_	_	Conn=O
 1549	ler	_	_	_	_	_	_	_	Conn=O
@@ -34465,7 +34465,7 @@
 1552	diye	_	_	_	_	_	_	_	Conn=O
 1553	konuştu	_	_	_	_	_	_	_	Conn=O
 1554	.	_	_	_	_	_	_	_	Conn=O
-1555-1556	SP'liler	_	_	_	_	_	_	_	_
+1555-1557	SP'liler	_	_	_	_	_	_	_	_
 1555	Sp	_	_	_	_	_	_	_	Conn=O
 1556	'li	_	_	_	_	_	_	_	Conn=O
 1557	ler	_	_	_	_	_	_	_	Conn=O
@@ -47978,7 +47978,7 @@
 420	biliyorlar	_	_	_	_	_	_	_	Conn=O
 421	.	_	_	_	_	_	_	_	Conn=O
 422	Kararlarına	_	_	_	_	_	_	_	Conn=O
-423-424	saygılıyım	_	_	_	_	_	_	_	_
+423-425	saygılıyım	_	_	_	_	_	_	_	_
 423	saygı	_	_	_	_	_	_	_	Conn=O
 424	lı	_	_	_	_	_	_	_	Conn=O
 425	yım	_	_	_	_	_	_	_	Conn=O
@@ -48062,7 +48062,7 @@
 502	söyledi	_	_	_	_	_	_	_	Conn=O
 503	.	_	_	_	_	_	_	_	Conn=O
 504	Bankaların	_	_	_	_	_	_	_	Conn=O
-505-506	kârlılık	_	_	_	_	_	_	_	_
+505-507	kârlılık	_	_	_	_	_	_	_	_
 505	kâr	_	_	_	_	_	_	_	Conn=O
 506	lı	_	_	_	_	_	_	_	Conn=O
 507	lık	_	_	_	_	_	_	_	Conn=O
