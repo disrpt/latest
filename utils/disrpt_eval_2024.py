@@ -208,7 +208,7 @@ class RelationsEvaluation(Evaluation):
 		self.p_path = pred_path
 		self.opt_str_i = str_i
 		self.opt_rel_t = rel_type
-		self.key = "labels" if rel_type == False else "types"
+		self.key = "labels"
 
 		self.fill_output("options", {"s": self.opt_str_i, "rt": self.opt_rel_t})
 
@@ -216,8 +216,8 @@ class RelationsEvaluation(Evaluation):
 		"""
 		Get lists of data to compare, compute metrics.
 		"""
-		gold_units, gold_labels = self.parse_rels_data(self.g_path, self.opt_str_i, self.opt_rel_t)
-		pred_units, pred_labels = self.parse_rels_data(self.p_path, self.opt_str_i, self.opt_rel_t)
+		gold_units, gold_labels, gold_types = self.parse_rels_data(self.g_path, self.opt_str_i, self.opt_rel_t)
+		pred_units, pred_labels, pred_types = self.parse_rels_data(self.p_path, self.opt_str_i, self.opt_rel_t)
 		self.check_tokens_number(gold_labels, pred_labels)
 		self.check_identical_tokens(gold_units, pred_units)
 
@@ -225,9 +225,9 @@ class RelationsEvaluation(Evaluation):
 		self.classif_report(gold_labels, pred_labels, self.key)
 
 		if self.opt_rel_t:
-			self.get_types_scores(gold_labels, pred_labels)
+			self.get_types_scores(gold_labels, pred_labels, gold_types)
 
-	def get_types_scores(self, g: list, p: list) -> None:
+	def get_types_scores(self, g: list, p: list, tg: list) -> None:
 		"""
 		This function is to obtain scores of predictions against gold labels, by types of relations.
 		"""
@@ -235,10 +235,9 @@ class RelationsEvaluation(Evaluation):
 		for t in self.DISRPT_TYPES:
 			gold_t = []
 			pred_t = []
-			j = 0
 			for i, _ in enumerate(g):
-				if g[i] == t.lower():
-					j += 1
+
+				if tg[i] == t.lower():
 					gold_t.append(g[i])
 					pred_t.append(p[i])
 
@@ -252,13 +251,16 @@ class RelationsEvaluation(Evaluation):
 		data = self.get_data(path, str_i)
 		header = data.split("\n")[0]
 		assert header == self.HEADER, "Unrecognized .rels header."
-		column_ID = self.TYPE_ID if rel_t == True else self.LABEL_ID
+		#column_ID = self.TYPE_ID if rel_t == True else self.LABEL_ID
 
 		rels = data.split("\n")[1:]
-		labels = [line.split("\t")[column_ID] for line in rels] ######## .lower()
+		labels = [line.split("\t")[self.LABEL_ID] for line in rels] ######## .lower()
 		units = [" ".join(line.split("\t")[:3]) for line in rels]
+		types = [line.split("\t")[self.TYPE_ID] for line in rels] if rel_t == True else []
 
-		return units, labels
+
+
+		return units, labels, types
 
 
 class ConnectivesEvaluation(Evaluation):
