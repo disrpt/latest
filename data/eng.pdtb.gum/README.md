@@ -7,7 +7,7 @@ To cite this corpus, please refer to the following article:
 Zeldes, Amir (2017) "The GUM Corpus: Creating Multilayer Resources in the Classroom". 
 Language Resources and Evaluation 51(3), 581–612.
 
-```
+```bibtex
 @Article{Zeldes2017,
    author    = {Amir Zeldes},
    title     = {The {GUM} {C}orpus: Creating Multilayer Resources in the Classroom},
@@ -50,7 +50,7 @@ For more details see: https://gucorpling.org/gum
 For the DISRPT 2023 shared task on elementary discourse unit segmentation, 
 only 11 open text genres were included with plain text, while the remaining twelfth genre, 
 containing Reddit forum discussions, **must be reconstructed** using the script 
-in `utils/process_underscores.py` (see main repository README).  
+in `utils/process_underscore_2024.py` (see main repository README).  
 Following the 2023 shared task, four more genres were added (court, essay, letter and 
 podcast were not included in 2023).
 
