@@ -1,4 +1,4 @@
-# newdoc_id = GENTLE_dictionary_next
+# newdoc id = GENTLE_dictionary_next
 1	next	_	_	_	_	_	_	_	Seg=B-seg
 2	English	_	_	_	_	_	_	_	Seg=B-seg
 3	Alternative	_	_	_	_	_	_	_	Seg=B-seg
@@ -256,7 +256,6 @@
 255	Wednesday	_	_	_	_	_	_	_	Seg=O
 256	next	_	_	_	_	_	_	_	Seg=O
 257	,	_	_	_	_	_	_	_	Seg=O
-258-259	I'm	_	_	_	_	_	_	_	_
 258	I	_	_	_	_	_	_	_	Seg=O
 259	'm	_	_	_	_	_	_	_	Seg=O
 260	going	_	_	_	_	_	_	_	Seg=O
@@ -391,7 +390,6 @@
 389	to	_	_	_	_	_	_	_	Seg=B-seg
 390	meet	_	_	_	_	_	_	_	Seg=O
 391	.	_	_	_	_	_	_	_	Seg=O
-392-393	I'll	_	_	_	_	_	_	_	_
 392	I	_	_	_	_	_	_	_	Seg=B-seg
 393	'll	_	_	_	_	_	_	_	Seg=O
 394	know	_	_	_	_	_	_	_	Seg=O
@@ -524,7 +522,6 @@
 521	closest	_	_	_	_	_	_	_	Seg=O
 522	house	_	_	_	_	_	_	_	Seg=O
 523	.	_	_	_	_	_	_	_	Seg=O
-524-525	It's	_	_	_	_	_	_	_	_
 524	It	_	_	_	_	_	_	_	Seg=B-seg
 525	's	_	_	_	_	_	_	_	Seg=O
 526	the	_	_	_	_	_	_	_	Seg=O
@@ -591,7 +588,6 @@
 587	next	_	_	_	_	_	_	_	Seg=O
 588	meet	_	_	_	_	_	_	_	Seg=O
 589	,	_	_	_	_	_	_	_	Seg=O
-590-591	you'll	_	_	_	_	_	_	_	_
 590	you	_	_	_	_	_	_	_	Seg=B-seg
 591	'll	_	_	_	_	_	_	_	Seg=O
 592	be	_	_	_	_	_	_	_	Seg=O
@@ -636,7 +632,6 @@
 631	,	_	_	_	_	_	_	_	Seg=O
 632	please	_	_	_	_	_	_	_	Seg=O
 633	,	_	_	_	_	_	_	_	Seg=O
-634-635	don't	_	_	_	_	_	_	_	_
 634	do	_	_	_	_	_	_	_	Seg=B-seg
 635	n't	_	_	_	_	_	_	_	Seg=O
 636	hold	_	_	_	_	_	_	_	Seg=O
@@ -653,7 +648,6 @@
 647	the	_	_	_	_	_	_	_	Seg=B-seg
 648	next	_	_	_	_	_	_	_	Seg=O
 649	she	_	_	_	_	_	_	_	Seg=O
-650-651	wasn't	_	_	_	_	_	_	_	_
 650	was	_	_	_	_	_	_	_	Seg=O
 651	n't	_	_	_	_	_	_	_	Seg=O
 652	.	_	_	_	_	_	_	_	Seg=O
@@ -662,7 +656,7 @@
 655	after	_	_	_	_	_	_	_	Seg=O
 656	next	_	_	_	_	_	_	_	Seg=O
 
-# newdoc_id = GENTLE_dictionary_school
+# newdoc id = GENTLE_dictionary_school
 1	school	_	_	_	_	_	_	_	Seg=B-seg
 2	English	_	_	_	_	_	_	_	Seg=B-seg
 3	Pronunciation	_	_	_	_	_	_	_	Seg=B-seg
@@ -1370,7 +1364,6 @@
 705	educational	_	_	_	_	_	_	_	Seg=O
 706	institution	_	_	_	_	_	_	_	Seg=O
 707	.	_	_	_	_	_	_	_	Seg=O
-708-709	I'll	_	_	_	_	_	_	_	_
 708	I	_	_	_	_	_	_	_	Seg=B-seg
 709	'll	_	_	_	_	_	_	_	Seg=O
 710	see	_	_	_	_	_	_	_	Seg=O
@@ -1579,7 +1572,6 @@
 913	or	_	_	_	_	_	_	_	Seg=O
 914	compose	_	_	_	_	_	_	_	Seg=O
 915	,	_	_	_	_	_	_	_	Seg=O
-916-917	one's	_	_	_	_	_	_	_	_
 916	one	_	_	_	_	_	_	_	Seg=O
 917	's	_	_	_	_	_	_	_	Seg=O
 918	expression	_	_	_	_	_	_	_	Seg=O
@@ -1601,7 +1593,7 @@
 934	feelings	_	_	_	_	_	_	_	Seg=O
 935	.	_	_	_	_	_	_	_	Seg=O
 
-# newdoc_id = GENTLE_dictionary_trust
+# newdoc id = GENTLE_dictionary_trust
 1	trust	_	_	_	_	_	_	_	Seg=B-seg
 2	English	_	_	_	_	_	_	_	Seg=B-seg
 3	Etymology	_	_	_	_	_	_	_	Seg=B-seg
@@ -1651,7 +1643,6 @@
 47	,	_	_	_	_	_	_	_	Seg=O
 48	and	_	_	_	_	_	_	_	Seg=B-seg
 49	now	_	_	_	_	_	_	_	Seg=O
-50-51	it's	_	_	_	_	_	_	_	_
 50	it	_	_	_	_	_	_	_	Seg=O
 51	's	_	_	_	_	_	_	_	Seg=O
 52	considered	_	_	_	_	_	_	_	Seg=O
@@ -1989,7 +1980,6 @@
 384	house	_	_	_	_	_	_	_	Seg=O
 385	into	_	_	_	_	_	_	_	Seg=O
 386	my	_	_	_	_	_	_	_	Seg=O
-387-388	sister's	_	_	_	_	_	_	_	_
 387	sister	_	_	_	_	_	_	_	Seg=O
 388	's	_	_	_	_	_	_	_	Seg=O
 389	trust	_	_	_	_	_	_	_	Seg=O
@@ -2164,7 +2154,6 @@
 558	in	_	_	_	_	_	_	_	Seg=O
 559	.	_	_	_	_	_	_	_	Seg=O
 560	We	_	_	_	_	_	_	_	Seg=B-seg
-561-562	cannot	_	_	_	_	_	_	_	_
 561	can	_	_	_	_	_	_	_	Seg=O
 562	not	_	_	_	_	_	_	_	Seg=O
 563	trust	_	_	_	_	_	_	_	Seg=O
@@ -2268,7 +2257,6 @@
 661	,	_	_	_	_	_	_	_	Seg=O
 662	as	_	_	_	_	_	_	_	Seg=O
 663	to	_	_	_	_	_	_	_	Seg=O
-664-665	one's	_	_	_	_	_	_	_	_
 664	one	_	_	_	_	_	_	_	Seg=O
 665	's	_	_	_	_	_	_	_	Seg=O
 666	care	_	_	_	_	_	_	_	Seg=O
@@ -2439,11 +2427,10 @@
 831	trust	_	_	_	_	_	_	_	Seg=O
 832	.	_	_	_	_	_	_	_	Seg=O
 
-# newdoc_id = GENTLE_esports_fifa
+# newdoc id = GENTLE_esports_fifa
 1	Now	_	_	_	_	_	_	_	Seg=B-seg
 2	after	_	_	_	_	_	_	_	Seg=O
 3	last	_	_	_	_	_	_	_	Seg=O
-4-5	episodes's	_	_	_	_	_	_	_	_
 4	episodes	_	_	_	_	_	_	_	Seg=O
 5	's	_	_	_	_	_	_	_	Seg=O
 6	amazing	_	_	_	_	_	_	_	Seg=O
@@ -2484,12 +2471,10 @@
 41	Manchester	_	_	_	_	_	_	_	Seg=O
 42	City	_	_	_	_	_	_	_	Seg=O
 43	,	_	_	_	_	_	_	_	Seg=O
-44-45	today's	_	_	_	_	_	_	_	_
 44	today	_	_	_	_	_	_	_	Seg=B-seg
 45	's	_	_	_	_	_	_	_	Seg=O
 46	episode	_	_	_	_	_	_	_	Seg=O
 47	is	_	_	_	_	_	_	_	Seg=O
-48-49	gonna	_	_	_	_	_	_	_	_
 48	gon	_	_	_	_	_	_	_	Seg=O
 49	na	_	_	_	_	_	_	_	Seg=O
 50	start	_	_	_	_	_	_	_	Seg=O
@@ -2500,7 +2485,6 @@
 55	that	_	_	_	_	_	_	_	Seg=B-seg
 56	you	_	_	_	_	_	_	_	Seg=B-seg
 57	know	_	_	_	_	_	_	_	Seg=O
-58-59	aren't	_	_	_	_	_	_	_	_
 58	are	_	_	_	_	_	_	_	Seg=B-seg
 59	n't	_	_	_	_	_	_	_	Seg=O
 60	as	_	_	_	_	_	_	_	Seg=O
@@ -2511,7 +2495,6 @@
 65	couple	_	_	_	_	_	_	_	Seg=O
 66	of	_	_	_	_	_	_	_	Seg=O
 67	matches	_	_	_	_	_	_	_	Seg=O
-68-69	we've	_	_	_	_	_	_	_	_
 68	we	_	_	_	_	_	_	_	Seg=B-seg
 69	've	_	_	_	_	_	_	_	Seg=O
 70	had	_	_	_	_	_	_	_	Seg=O
@@ -2547,10 +2530,8 @@
 100	the	_	_	_	_	_	_	_	Seg=O
 101	hardest	_	_	_	_	_	_	_	Seg=O
 102	games	_	_	_	_	_	_	_	Seg=O
-103-104	I'm	_	_	_	_	_	_	_	_
 103	I	_	_	_	_	_	_	_	Seg=B-seg
 104	'm	_	_	_	_	_	_	_	Seg=O
-105-106	gonna	_	_	_	_	_	_	_	_
 105	gon	_	_	_	_	_	_	_	Seg=O
 106	na	_	_	_	_	_	_	_	Seg=O
 107	be	_	_	_	_	_	_	_	Seg=O
@@ -2582,7 +2563,6 @@
 133	we	_	_	_	_	_	_	_	Seg=O
 134	're	_	_	_	_	_	_	_	Seg=O
 135	just	_	_	_	_	_	_	_	Seg=O
-136-137	gonna	_	_	_	_	_	_	_	_
 136	gon	_	_	_	_	_	_	_	Seg=O
 137	na	_	_	_	_	_	_	_	Seg=O
 138	start	_	_	_	_	_	_	_	Seg=O
@@ -2597,7 +2577,6 @@
 147	.	_	_	_	_	_	_	_	Seg=O
 148	We	_	_	_	_	_	_	_	Seg=B-seg
 149	're	_	_	_	_	_	_	_	Seg=O
-150-151	gonna	_	_	_	_	_	_	_	_
 150	gon	_	_	_	_	_	_	_	Seg=O
 151	na	_	_	_	_	_	_	_	Seg=O
 152	play	_	_	_	_	_	_	_	Seg=O
@@ -2618,7 +2597,6 @@
 167	this	_	_	_	_	_	_	_	Seg=B-seg
 168	episode	_	_	_	_	_	_	_	Seg=O
 169	.	_	_	_	_	_	_	_	Seg=O
-170-171	We've	_	_	_	_	_	_	_	_
 170	We	_	_	_	_	_	_	_	Seg=B-seg
 171	've	_	_	_	_	_	_	_	Seg=O
 172	got	_	_	_	_	_	_	_	Seg=O
@@ -2649,7 +2627,6 @@
 197	card	_	_	_	_	_	_	_	Seg=O
 198	.	_	_	_	_	_	_	_	Seg=O
 199	Now	_	_	_	_	_	_	_	Seg=B-seg
-200-201	I've	_	_	_	_	_	_	_	_
 200	I	_	_	_	_	_	_	_	Seg=O
 201	've	_	_	_	_	_	_	_	Seg=O
 202	mentioned	_	_	_	_	_	_	_	Seg=O
@@ -2682,7 +2659,6 @@
 229	The	_	_	_	_	_	_	_	Seg=B-seg
 230	Scudetto	_	_	_	_	_	_	_	Seg=O
 231	was	_	_	_	_	_	_	_	Seg=O
-232-233	gonna	_	_	_	_	_	_	_	_
 232	gon	_	_	_	_	_	_	_	Seg=O
 233	na	_	_	_	_	_	_	_	Seg=O
 234	be	_	_	_	_	_	_	_	Seg=O
@@ -2690,7 +2666,6 @@
 236	all	_	_	_	_	_	_	_	Seg=O
 237	the	_	_	_	_	_	_	_	Seg=O
 238	time	_	_	_	_	_	_	_	Seg=O
-239-240	you've	_	_	_	_	_	_	_	_
 239	you	_	_	_	_	_	_	_	Seg=B-seg
 240	've	_	_	_	_	_	_	_	Seg=O
 241	as	_	_	_	_	_	_	_	Seg=O
@@ -2707,7 +2682,6 @@
 252	coming	_	_	_	_	_	_	_	Seg=B-seg
 253	up	_	_	_	_	_	_	_	Seg=O
 254	and	_	_	_	_	_	_	_	Seg=B-seg
-255-256	I'm	_	_	_	_	_	_	_	_
 255	I	_	_	_	_	_	_	_	Seg=O
 256	'm	_	_	_	_	_	_	_	Seg=O
 257	going	_	_	_	_	_	_	_	Seg=O
@@ -2717,13 +2691,11 @@
 261	this	_	_	_	_	_	_	_	Seg=O
 262	match	_	_	_	_	_	_	_	Seg=O
 263	because	_	_	_	_	_	_	_	Seg=B-seg
-264-265	it's	_	_	_	_	_	_	_	_
 264	it	_	_	_	_	_	_	_	Seg=O
 265	's	_	_	_	_	_	_	_	Seg=O
 266	at	_	_	_	_	_	_	_	Seg=O
 267	home	_	_	_	_	_	_	_	Seg=O
 268	.	_	_	_	_	_	_	_	Seg=O
-269-270	I'd	_	_	_	_	_	_	_	_
 269	I	_	_	_	_	_	_	_	Seg=B-seg
 270	'd	_	_	_	_	_	_	_	Seg=O
 271	like	_	_	_	_	_	_	_	Seg=O
@@ -2746,10 +2718,8 @@
 288	scored	_	_	_	_	_	_	_	Seg=O
 289	Jović	_	_	_	_	_	_	_	Seg=O
 290	so	_	_	_	_	_	_	_	Seg=B-seg
-291-292	I'm	_	_	_	_	_	_	_	_
 291	I	_	_	_	_	_	_	_	Seg=O
 292	'm	_	_	_	_	_	_	_	Seg=O
-293-294	gonna	_	_	_	_	_	_	_	_
 293	gon	_	_	_	_	_	_	_	Seg=O
 294	na	_	_	_	_	_	_	_	Seg=O
 295	continue	_	_	_	_	_	_	_	Seg=O
@@ -2760,7 +2730,6 @@
 300	this	_	_	_	_	_	_	_	Seg=O
 301	game	_	_	_	_	_	_	_	Seg=O
 302	.	_	_	_	_	_	_	_	Seg=O
-303-304	He's	_	_	_	_	_	_	_	_
 303	He	_	_	_	_	_	_	_	Seg=B-seg
 304	's	_	_	_	_	_	_	_	Seg=O
 305	up	_	_	_	_	_	_	_	Seg=O
@@ -2777,13 +2746,11 @@
 316	and	_	_	_	_	_	_	_	Seg=B-seg
 317	then	_	_	_	_	_	_	_	Seg=O
 318	just	_	_	_	_	_	_	_	Seg=O
-319-320	hasn't	_	_	_	_	_	_	_	_
 319	has	_	_	_	_	_	_	_	Seg=O
 320	n't	_	_	_	_	_	_	_	Seg=O
 321	scored	_	_	_	_	_	_	_	Seg=O
 322	.	_	_	_	_	_	_	_	Seg=O
 323	I	_	_	_	_	_	_	_	Seg=B-seg
-324-325	don't	_	_	_	_	_	_	_	_
 324	do	_	_	_	_	_	_	_	Seg=O
 325	n't	_	_	_	_	_	_	_	Seg=O
 326	know	_	_	_	_	_	_	_	Seg=O
@@ -2792,7 +2759,6 @@
 329	thought	_	_	_	_	_	_	_	Seg=O
 330	he	_	_	_	_	_	_	_	Seg=B-seg
 331	was	_	_	_	_	_	_	_	Seg=O
-332-333	gonna	_	_	_	_	_	_	_	_
 332	gon	_	_	_	_	_	_	_	Seg=O
 333	na	_	_	_	_	_	_	_	Seg=O
 334	be	_	_	_	_	_	_	_	Seg=O
@@ -2802,7 +2768,6 @@
 338	future	_	_	_	_	_	_	_	Seg=O
 339	star	_	_	_	_	_	_	_	Seg=O
 340	but	_	_	_	_	_	_	_	Seg=B-seg
-341-342	he's	_	_	_	_	_	_	_	_
 341	he	_	_	_	_	_	_	_	Seg=O
 342	's	_	_	_	_	_	_	_	Seg=O
 343	still	_	_	_	_	_	_	_	Seg=O
@@ -2853,17 +2818,14 @@
 388	Scudetto	_	_	_	_	_	_	_	Seg=O
 389	if	_	_	_	_	_	_	_	Seg=B-seg
 390	it	_	_	_	_	_	_	_	Seg=O
-391-392	wasn't	_	_	_	_	_	_	_	_
 391	was	_	_	_	_	_	_	_	Seg=O
 392	n't	_	_	_	_	_	_	_	Seg=O
-393-394	gonna	_	_	_	_	_	_	_	_
 393	gon	_	_	_	_	_	_	_	Seg=O
 394	na	_	_	_	_	_	_	_	Seg=O
 395	be	_	_	_	_	_	_	_	Seg=O
 396	this	_	_	_	_	_	_	_	Seg=O
 397	season	_	_	_	_	_	_	_	Seg=O
 398	,	_	_	_	_	_	_	_	Seg=O
-399-400	I'm	_	_	_	_	_	_	_	_
 399	I	_	_	_	_	_	_	_	Seg=B-seg
 400	'm	_	_	_	_	_	_	_	Seg=O
 401	pushing	_	_	_	_	_	_	_	Seg=O
@@ -2880,7 +2842,6 @@
 412	think	_	_	_	_	_	_	_	Seg=O
 413	we	_	_	_	_	_	_	_	Seg=B-seg
 414	're	_	_	_	_	_	_	_	Seg=O
-415-416	gonna	_	_	_	_	_	_	_	_
 415	gon	_	_	_	_	_	_	_	Seg=O
 416	na	_	_	_	_	_	_	_	Seg=O
 417	have	_	_	_	_	_	_	_	Seg=O
@@ -2929,7 +2890,6 @@
 460	by	_	_	_	_	_	_	_	Seg=O
 461	Paquetá	_	_	_	_	_	_	_	Seg=O
 462	.	_	_	_	_	_	_	_	Seg=O
-463-464	Here's	_	_	_	_	_	_	_	_
 463	Here	_	_	_	_	_	_	_	Seg=B-seg
 464	's	_	_	_	_	_	_	_	Seg=O
 465	Paquetá	_	_	_	_	_	_	_	Seg=O
@@ -2967,10 +2927,8 @@
 497	Luca	_	_	_	_	_	_	_	Seg=O
 498	Jović	_	_	_	_	_	_	_	Seg=O
 499	,	_	_	_	_	_	_	_	Seg=O
-500-501	he's	_	_	_	_	_	_	_	_
 500	he	_	_	_	_	_	_	_	Seg=B-seg
 501	's	_	_	_	_	_	_	_	Seg=O
-502-503	gonna	_	_	_	_	_	_	_	_
 502	gon	_	_	_	_	_	_	_	Seg=O
 503	na	_	_	_	_	_	_	_	Seg=O
 504	touch	_	_	_	_	_	_	_	Seg=O
@@ -2982,7 +2940,6 @@
 510	it	_	_	_	_	_	_	_	Seg=O
 511	.	_	_	_	_	_	_	_	Seg=O
 512	I	_	_	_	_	_	_	_	Seg=B-seg
-513-514	didn't	_	_	_	_	_	_	_	_
 513	did	_	_	_	_	_	_	_	Seg=O
 514	n't	_	_	_	_	_	_	_	Seg=O
 515	ah	_	_	_	_	_	_	_	Seg=O
@@ -3071,7 +3028,6 @@
 598	like	_	_	_	_	_	_	_	Seg=O
 599	it	_	_	_	_	_	_	_	Seg=O
 600	was	_	_	_	_	_	_	_	Seg=O
-601-602	gonna	_	_	_	_	_	_	_	_
 601	gon	_	_	_	_	_	_	_	Seg=O
 602	na	_	_	_	_	_	_	_	Seg=O
 603	be	_	_	_	_	_	_	_	Seg=O
@@ -3146,7 +3102,6 @@
 672	times	_	_	_	_	_	_	_	Seg=O
 673	is	_	_	_	_	_	_	_	Seg=O
 674	he	_	_	_	_	_	_	_	Seg=O
-675-676	gonna	_	_	_	_	_	_	_	_
 675	gon	_	_	_	_	_	_	_	Seg=O
 676	na	_	_	_	_	_	_	_	Seg=O
 677	get	_	_	_	_	_	_	_	Seg=O
@@ -3166,7 +3121,6 @@
 691	my	_	_	_	_	_	_	_	Seg=O
 692	field	_	_	_	_	_	_	_	Seg=O
 693	and	_	_	_	_	_	_	_	Seg=B-seg
-694-695	cannot	_	_	_	_	_	_	_	_
 694	can	_	_	_	_	_	_	_	Seg=O
 695	not	_	_	_	_	_	_	_	Seg=O
 696	finish	_	_	_	_	_	_	_	Seg=O
@@ -3181,7 +3135,6 @@
 705	a	_	_	_	_	_	_	_	Seg=O
 706	moment	_	_	_	_	_	_	_	Seg=O
 707	,	_	_	_	_	_	_	_	Seg=O
-708-709	I'm	_	_	_	_	_	_	_	_
 708	I	_	_	_	_	_	_	_	Seg=B-seg
 709	'm	_	_	_	_	_	_	_	Seg=O
 710	going	_	_	_	_	_	_	_	Seg=O
@@ -3206,7 +3159,6 @@
 729	,	_	_	_	_	_	_	_	Seg=O
 730	how	_	_	_	_	_	_	_	Seg=O
 731	we	_	_	_	_	_	_	_	Seg=O
-732-733	didn't	_	_	_	_	_	_	_	_
 732	did	_	_	_	_	_	_	_	Seg=O
 733	n't	_	_	_	_	_	_	_	Seg=O
 734	score	_	_	_	_	_	_	_	Seg=O
@@ -3229,7 +3181,6 @@
 751	City	_	_	_	_	_	_	_	Seg=O
 752	,	_	_	_	_	_	_	_	Seg=O
 753	who	_	_	_	_	_	_	_	Seg=B-seg
-754-755	today's	_	_	_	_	_	_	_	_
 754	today	_	_	_	_	_	_	_	Seg=O
 755	's	_	_	_	_	_	_	_	Seg=O
 756	ah	_	_	_	_	_	_	_	Seg=O
@@ -3252,19 +3203,15 @@
 773	,	_	_	_	_	_	_	_	Seg=O
 774	but	_	_	_	_	_	_	_	Seg=B-seg
 775	because	_	_	_	_	_	_	_	Seg=B-seg
-776-777	I'm	_	_	_	_	_	_	_	_
 776	I	_	_	_	_	_	_	_	Seg=O
 777	'm	_	_	_	_	_	_	_	Seg=O
-778-779	gonna	_	_	_	_	_	_	_	_
 778	gon	_	_	_	_	_	_	_	Seg=O
 779	na	_	_	_	_	_	_	_	Seg=O
 780	simulate	_	_	_	_	_	_	_	Seg=O
 781	this	_	_	_	_	_	_	_	Seg=O
 782	,	_	_	_	_	_	_	_	Seg=O
-783-784	it's	_	_	_	_	_	_	_	_
 783	it	_	_	_	_	_	_	_	Seg=B-seg
 784	's	_	_	_	_	_	_	_	Seg=O
-785-786	gonna	_	_	_	_	_	_	_	_
 785	gon	_	_	_	_	_	_	_	Seg=O
 786	na	_	_	_	_	_	_	_	Seg=O
 787	make	_	_	_	_	_	_	_	Seg=O
@@ -3291,11 +3238,9 @@
 808	back	_	_	_	_	_	_	_	Seg=O
 809	line	_	_	_	_	_	_	_	Seg=O
 810	but	_	_	_	_	_	_	_	Seg=B-seg
-811-812	that's	_	_	_	_	_	_	_	_
 811	that	_	_	_	_	_	_	_	Seg=O
 812	's	_	_	_	_	_	_	_	Seg=O
 813	what	_	_	_	_	_	_	_	Seg=O
-814-815	I'm	_	_	_	_	_	_	_	_
 814	I	_	_	_	_	_	_	_	Seg=O
 815	'm	_	_	_	_	_	_	_	Seg=O
 816	going	_	_	_	_	_	_	_	Seg=O
@@ -3319,16 +3264,13 @@
 834	on	_	_	_	_	_	_	_	Seg=O
 835	Ibrahimovic	_	_	_	_	_	_	_	Seg=O
 836	so	_	_	_	_	_	_	_	Seg=B-seg
-837-838	he's	_	_	_	_	_	_	_	_
 837	he	_	_	_	_	_	_	_	Seg=O
 838	's	_	_	_	_	_	_	_	Seg=O
-839-840	gonna	_	_	_	_	_	_	_	_
 839	gon	_	_	_	_	_	_	_	Seg=O
 840	na	_	_	_	_	_	_	_	Seg=O
 841	be	_	_	_	_	_	_	_	Seg=O
 842	tired	_	_	_	_	_	_	_	Seg=O
 843	.	_	_	_	_	_	_	_	Seg=O
-844-845	It's	_	_	_	_	_	_	_	_
 844	It	_	_	_	_	_	_	_	Seg=B-seg
 845	's	_	_	_	_	_	_	_	Seg=O
 846	a	_	_	_	_	_	_	_	Seg=O
@@ -3405,7 +3347,7 @@
 917	did	_	_	_	_	_	_	_	Seg=O
 918	.	_	_	_	_	_	_	_	Seg=O
 
-# newdoc_id = GENTLE_esports_fortnite
+# newdoc id = GENTLE_esports_fortnite
 1	As	_	_	_	_	_	_	_	Seg=B-seg
 2	in	_	_	_	_	_	_	_	Seg=O
 3	the	_	_	_	_	_	_	_	Seg=O
@@ -3475,7 +3417,6 @@
 67	the	_	_	_	_	_	_	_	Seg=O
 68	screen	_	_	_	_	_	_	_	Seg=O
 69	,	_	_	_	_	_	_	_	Seg=O
-70-71	there's	_	_	_	_	_	_	_	_
 70	there	_	_	_	_	_	_	_	Seg=B-seg
 71	's	_	_	_	_	_	_	_	Seg=O
 72	your	_	_	_	_	_	_	_	Seg=O
@@ -3655,10 +3596,8 @@
 246	million	_	_	_	_	_	_	_	Seg=O
 247	dollars	_	_	_	_	_	_	_	Seg=O
 248	,	_	_	_	_	_	_	_	Seg=O
-249-250	he's	_	_	_	_	_	_	_	_
 249	he	_	_	_	_	_	_	_	Seg=B-seg
 250	's	_	_	_	_	_	_	_	Seg=O
-251-252	gonna	_	_	_	_	_	_	_	_
 251	gon	_	_	_	_	_	_	_	Seg=O
 252	na	_	_	_	_	_	_	_	Seg=O
 253	walk	_	_	_	_	_	_	_	Seg=O
@@ -3669,7 +3608,6 @@
 258	I	_	_	_	_	_	_	_	Seg=B-seg
 259	quit	_	_	_	_	_	_	_	Seg=O
 260	,	_	_	_	_	_	_	_	Seg=O
-261-262	can't	_	_	_	_	_	_	_	_
 261	ca	_	_	_	_	_	_	_	Seg=B-seg
 262	n't	_	_	_	_	_	_	_	Seg=O
 263	wait	_	_	_	_	_	_	_	Seg=O
@@ -3692,7 +3630,6 @@
 280	,	_	_	_	_	_	_	_	Seg=O
 281	his	_	_	_	_	_	_	_	Seg=B-seg
 282	parents	_	_	_	_	_	_	_	Seg=O
-283-284	gonna	_	_	_	_	_	_	_	_
 283	gon	_	_	_	_	_	_	_	Seg=O
 284	na	_	_	_	_	_	_	_	Seg=O
 285	ask	_	_	_	_	_	_	_	Seg=O
@@ -3703,10 +3640,8 @@
 290	trash	_	_	_	_	_	_	_	Seg=O
 291	out	_	_	_	_	_	_	_	Seg=O
 292	and	_	_	_	_	_	_	_	Seg=B-seg
-293-294	he's	_	_	_	_	_	_	_	_
 293	he	_	_	_	_	_	_	_	Seg=O
 294	's	_	_	_	_	_	_	_	Seg=O
-295-296	gonna	_	_	_	_	_	_	_	_
 295	gon	_	_	_	_	_	_	_	Seg=O
 296	na	_	_	_	_	_	_	_	Seg=O
 297	laugh	_	_	_	_	_	_	_	Seg=O
@@ -3845,7 +3780,6 @@
 430	,	_	_	_	_	_	_	_	Seg=O
 431	right	_	_	_	_	_	_	_	Seg=O
 432	?	_	_	_	_	_	_	_	Seg=O
-433-434	Which's	_	_	_	_	_	_	_	_
 433	Which	_	_	_	_	_	_	_	Seg=B-seg
 434	's	_	_	_	_	_	_	_	Seg=O
 435	good	_	_	_	_	_	_	_	Seg=O
@@ -3875,7 +3809,6 @@
 459	of	_	_	_	_	_	_	_	Seg=O
 460	it	_	_	_	_	_	_	_	Seg=O
 461	.	_	_	_	_	_	_	_	Seg=O
-462-463	He's	_	_	_	_	_	_	_	_
 462	He	_	_	_	_	_	_	_	Seg=B-seg
 463	's	_	_	_	_	_	_	_	Seg=O
 464	just	_	_	_	_	_	_	_	Seg=O
@@ -3889,7 +3822,6 @@
 472	from	_	_	_	_	_	_	_	Seg=O
 473	Zayt	_	_	_	_	_	_	_	Seg=O
 474	,	_	_	_	_	_	_	_	Seg=O
-475-476	doesn't	_	_	_	_	_	_	_	_
 475	does	_	_	_	_	_	_	_	Seg=B-seg
 476	n't	_	_	_	_	_	_	_	Seg=O
 477	want	_	_	_	_	_	_	_	Seg=O
@@ -3908,7 +3840,6 @@
 490	very	_	_	_	_	_	_	_	Seg=O
 491	early	_	_	_	_	_	_	_	Seg=O
 492	.	_	_	_	_	_	_	_	Seg=O
-493-494	That's	_	_	_	_	_	_	_	_
 493	That	_	_	_	_	_	_	_	Seg=B-seg
 494	's	_	_	_	_	_	_	_	Seg=O
 495	a	_	_	_	_	_	_	_	Seg=O
@@ -3988,7 +3919,6 @@
 569	and	_	_	_	_	_	_	_	Seg=O
 570	engage	_	_	_	_	_	_	_	Seg=O
 571	.	_	_	_	_	_	_	_	Seg=O
-572-573	What's	_	_	_	_	_	_	_	_
 572	What	_	_	_	_	_	_	_	Seg=B-seg
 573	's	_	_	_	_	_	_	_	Seg=O
 574	up	_	_	_	_	_	_	_	Seg=O
@@ -4069,7 +3999,6 @@
 649	player	_	_	_	_	_	_	_	Seg=O
 650	down	_	_	_	_	_	_	_	Seg=O
 651	below	_	_	_	_	_	_	_	Seg=O
-652-653	gonna	_	_	_	_	_	_	_	_
 652	gon	_	_	_	_	_	_	_	Seg=O
 653	na	_	_	_	_	_	_	_	Seg=O
 654	see	_	_	_	_	_	_	_	Seg=O
@@ -4085,7 +4014,6 @@
 664	.	_	_	_	_	_	_	_	Seg=O
 665	Tchub	_	_	_	_	_	_	_	Seg=B-seg
 666	was	_	_	_	_	_	_	_	Seg=O
-667-668	gonna	_	_	_	_	_	_	_	_
 667	gon	_	_	_	_	_	_	_	Seg=O
 668	na	_	_	_	_	_	_	_	Seg=O
 669	roll	_	_	_	_	_	_	_	Seg=O
@@ -4097,7 +4025,6 @@
 675	like	_	_	_	_	_	_	_	Seg=O
 676	no	_	_	_	_	_	_	_	Seg=O
 677	engagement	_	_	_	_	_	_	_	Seg=O
-678-679	gonna	_	_	_	_	_	_	_	_
 678	gon	_	_	_	_	_	_	_	Seg=O
 679	na	_	_	_	_	_	_	_	Seg=O
 680	happen	_	_	_	_	_	_	_	Seg=O
@@ -4122,7 +4049,6 @@
 699	of	_	_	_	_	_	_	_	Seg=O
 700	times	_	_	_	_	_	_	_	Seg=O
 701	,	_	_	_	_	_	_	_	Seg=O
-702-703	gonna	_	_	_	_	_	_	_	_
 702	gon	_	_	_	_	_	_	_	Seg=B-seg
 703	na	_	_	_	_	_	_	_	Seg=O
 704	go	_	_	_	_	_	_	_	Seg=O
@@ -4160,7 +4086,6 @@
 736	that	_	_	_	_	_	_	_	Seg=O
 737	will	_	_	_	_	_	_	_	Seg=O
 738	end	_	_	_	_	_	_	_	Seg=O
-739-740	JarkoS'	_	_	_	_	_	_	_	_
 739	JarkoS	_	_	_	_	_	_	_	Seg=O
 740	'	_	_	_	_	_	_	_	Seg=O
 741	Fortnite	_	_	_	_	_	_	_	Seg=O
@@ -4173,7 +4098,6 @@
 748	earlier	_	_	_	_	_	_	_	Seg=O
 749	on	_	_	_	_	_	_	_	Seg=O
 750	.	_	_	_	_	_	_	_	Seg=O
-751-752	We'll	_	_	_	_	_	_	_	_
 751	We	_	_	_	_	_	_	_	Seg=B-seg
 752	'll	_	_	_	_	_	_	_	Seg=O
 753	see	_	_	_	_	_	_	_	Seg=O
@@ -4188,7 +4112,6 @@
 762	this	_	_	_	_	_	_	_	Seg=O
 763	lobby	_	_	_	_	_	_	_	Seg=O
 764	when	_	_	_	_	_	_	_	Seg=B-seg
-765-766	it's	_	_	_	_	_	_	_	_
 765	it	_	_	_	_	_	_	_	Seg=O
 766	's	_	_	_	_	_	_	_	Seg=O
 767	all	_	_	_	_	_	_	_	Seg=O
@@ -4218,7 +4141,6 @@
 791	.	_	_	_	_	_	_	_	Seg=O
 792	Well	_	_	_	_	_	_	_	Seg=B-seg
 793	,	_	_	_	_	_	_	_	Seg=O
-794-795	I've	_	_	_	_	_	_	_	_
 794	I	_	_	_	_	_	_	_	Seg=O
 795	've	_	_	_	_	_	_	_	Seg=O
 796	said	_	_	_	_	_	_	_	Seg=O
@@ -4291,7 +4213,6 @@
 863	at	_	_	_	_	_	_	_	Seg=O
 864	Megamall	_	_	_	_	_	_	_	Seg=O
 865	is	_	_	_	_	_	_	_	Seg=B-seg
-866-867	gonna	_	_	_	_	_	_	_	_
 866	gon	_	_	_	_	_	_	_	Seg=O
 867	na	_	_	_	_	_	_	_	Seg=O
 868	push	_	_	_	_	_	_	_	Seg=O
@@ -4388,7 +4309,6 @@
 959	.	_	_	_	_	_	_	_	Seg=O
 960	He	_	_	_	_	_	_	_	Seg=B-seg
 961	,	_	_	_	_	_	_	_	Seg=O
-962-963	that's	_	_	_	_	_	_	_	_
 962	that	_	_	_	_	_	_	_	Seg=O
 963	's	_	_	_	_	_	_	_	Seg=O
 964	unbelievable	_	_	_	_	_	_	_	Seg=O
@@ -4429,7 +4349,6 @@
 999	for	_	_	_	_	_	_	_	Seg=O
 1000	me	_	_	_	_	_	_	_	Seg=O
 1001	,	_	_	_	_	_	_	_	Seg=O
-1002-1003	I'll	_	_	_	_	_	_	_	_
 1002	I	_	_	_	_	_	_	_	Seg=B-seg
 1003	'll	_	_	_	_	_	_	_	Seg=O
 1004	just	_	_	_	_	_	_	_	Seg=O
@@ -4469,7 +4388,6 @@
 1038	like	_	_	_	_	_	_	_	Seg=O
 1039	the	_	_	_	_	_	_	_	Seg=O
 1040	aggression	_	_	_	_	_	_	_	Seg=O
-1041-1042	doesn't	_	_	_	_	_	_	_	_
 1041	does	_	_	_	_	_	_	_	Seg=O
 1042	n't	_	_	_	_	_	_	_	Seg=O
 1043	end	_	_	_	_	_	_	_	Seg=O
@@ -4509,7 +4427,6 @@
 1077	that	_	_	_	_	_	_	_	Seg=O
 1078	same	_	_	_	_	_	_	_	Seg=O
 1079	tactic	_	_	_	_	_	_	_	Seg=O
-1080-1081	you've	_	_	_	_	_	_	_	_
 1080	you	_	_	_	_	_	_	_	Seg=B-seg
 1081	've	_	_	_	_	_	_	_	Seg=O
 1082	seen	_	_	_	_	_	_	_	Seg=O
@@ -4547,7 +4464,6 @@
 1114	of	_	_	_	_	_	_	_	Seg=O
 1115	loot	_	_	_	_	_	_	_	Seg=O
 1116	.	_	_	_	_	_	_	_	Seg=O
-1117-1118	He's	_	_	_	_	_	_	_	_
 1117	He	_	_	_	_	_	_	_	Seg=B-seg
 1118	's	_	_	_	_	_	_	_	Seg=O
 1119	trying	_	_	_	_	_	_	_	Seg=O
@@ -4567,7 +4483,6 @@
 1133	These	_	_	_	_	_	_	_	Seg=B-seg
 1134	two	_	_	_	_	_	_	_	Seg=O
 1135	players	_	_	_	_	_	_	_	Seg=O
-1136-1137	gonna	_	_	_	_	_	_	_	_
 1136	gon	_	_	_	_	_	_	_	Seg=O
 1137	na	_	_	_	_	_	_	_	Seg=O
 1138	end	_	_	_	_	_	_	_	Seg=O
@@ -4596,7 +4511,6 @@
 1161	sniper	_	_	_	_	_	_	_	Seg=O
 1162	rifle	_	_	_	_	_	_	_	Seg=O
 1163	.	_	_	_	_	_	_	_	Seg=O
-1164-1165	That's	_	_	_	_	_	_	_	_
 1164	That	_	_	_	_	_	_	_	Seg=B-seg
 1165	's	_	_	_	_	_	_	_	Seg=O
 1166	end	_	_	_	_	_	_	_	Seg=O
@@ -4606,7 +4520,6 @@
 1170	.	_	_	_	_	_	_	_	Seg=O
 1171	Okay	_	_	_	_	_	_	_	Seg=B-seg
 1172	.	_	_	_	_	_	_	_	Seg=O
-1173-1174	He's	_	_	_	_	_	_	_	_
 1173	He	_	_	_	_	_	_	_	Seg=B-seg
 1174	's	_	_	_	_	_	_	_	Seg=O
 1175	looking	_	_	_	_	_	_	_	Seg=O
@@ -4667,7 +4580,7 @@
 1230	push	_	_	_	_	_	_	_	Seg=O
 1231	.	_	_	_	_	_	_	_	Seg=O
 
-# newdoc_id = GENTLE_legal_abortion
+# newdoc id = GENTLE_legal_abortion
 1	Roe	_	_	_	_	_	_	_	Seg=B-seg
 2	v.	_	_	_	_	_	_	_	Seg=O
 3	Wade	_	_	_	_	_	_	_	Seg=O
@@ -4751,7 +4664,6 @@
 81	of	_	_	_	_	_	_	_	Seg=B-seg
 82	saving	_	_	_	_	_	_	_	Seg=O
 83	the	_	_	_	_	_	_	_	Seg=O
-84-85	mother's	_	_	_	_	_	_	_	_
 84	mother	_	_	_	_	_	_	_	Seg=O
 85	's	_	_	_	_	_	_	_	Seg=O
 86	life	_	_	_	_	_	_	_	Seg=O
@@ -4819,7 +4731,6 @@
 148	impairment	_	_	_	_	_	_	_	Seg=O
 149	of	_	_	_	_	_	_	_	Seg=O
 150	the	_	_	_	_	_	_	_	Seg=O
-151-152	wife's	_	_	_	_	_	_	_	_
 151	wife	_	_	_	_	_	_	_	Seg=O
 152	's	_	_	_	_	_	_	_	Seg=O
 153	health	_	_	_	_	_	_	_	Seg=O
@@ -4882,7 +4793,6 @@
 210	overbroadly	_	_	_	_	_	_	_	Seg=O
 211	infringing	_	_	_	_	_	_	_	Seg=O
 212	those	_	_	_	_	_	_	_	Seg=O
-213-214	plaintiffs'	_	_	_	_	_	_	_	_
 213	plaintiffs	_	_	_	_	_	_	_	Seg=O
 214	'	_	_	_	_	_	_	_	Seg=O
 215	Ninth	_	_	_	_	_	_	_	Seg=O
@@ -4895,7 +4805,6 @@
 222	court	_	_	_	_	_	_	_	Seg=O
 223	ruled	_	_	_	_	_	_	_	Seg=O
 224	the	_	_	_	_	_	_	_	Seg=O
-225-226	Does'	_	_	_	_	_	_	_	_
 225	Does	_	_	_	_	_	_	_	Seg=O
 226	'	_	_	_	_	_	_	_	Seg=O
 227	complaint	_	_	_	_	_	_	_	Seg=O
@@ -4921,7 +4830,6 @@
 247	from	_	_	_	_	_	_	_	Seg=O
 248	the	_	_	_	_	_	_	_	Seg=O
 249	District	_	_	_	_	_	_	_	Seg=O
-250-251	Court's	_	_	_	_	_	_	_	_
 250	Court	_	_	_	_	_	_	_	Seg=O
 251	's	_	_	_	_	_	_	_	Seg=O
 252	grant	_	_	_	_	_	_	_	Seg=O
@@ -5016,7 +4924,6 @@
 341	(a)	_	_	_	_	_	_	_	Seg=B-seg
 342	Contrary	_	_	_	_	_	_	_	Seg=O
 343	to	_	_	_	_	_	_	_	Seg=O
-344-345	appellee's	_	_	_	_	_	_	_	_
 344	appellee	_	_	_	_	_	_	_	Seg=O
 345	's	_	_	_	_	_	_	_	Seg=O
 346	contention	_	_	_	_	_	_	_	Seg=O
@@ -5025,7 +4932,6 @@
 349	natural	_	_	_	_	_	_	_	Seg=O
 350	termination	_	_	_	_	_	_	_	Seg=O
 351	of	_	_	_	_	_	_	_	Seg=O
-352-353	Roe's	_	_	_	_	_	_	_	_
 352	Roe	_	_	_	_	_	_	_	Seg=O
 353	's	_	_	_	_	_	_	_	Seg=O
 354	pregnancy	_	_	_	_	_	_	_	Seg=O
@@ -5141,7 +5047,6 @@
 464	.	_	_	_	_	_	_	_	Seg=O
 465	(c)	_	_	_	_	_	_	_	Seg=B-seg
 466	The	_	_	_	_	_	_	_	Seg=O
-467-468	Does'	_	_	_	_	_	_	_	_
 467	Does	_	_	_	_	_	_	_	Seg=O
 468	'	_	_	_	_	_	_	_	Seg=O
 469	complaint	_	_	_	_	_	_	_	Seg=O
@@ -5202,7 +5107,6 @@
 524	procedure	_	_	_	_	_	_	_	Seg=O
 525	on	_	_	_	_	_	_	_	Seg=O
 526	the	_	_	_	_	_	_	_	Seg=O
-527-528	mother's	_	_	_	_	_	_	_	_
 527	mother	_	_	_	_	_	_	_	Seg=O
 528	's	_	_	_	_	_	_	_	Seg=O
 529	behalf	_	_	_	_	_	_	_	Seg=O
@@ -5240,7 +5144,6 @@
 561	,	_	_	_	_	_	_	_	Seg=O
 562	including	_	_	_	_	_	_	_	Seg=B-seg
 563	a	_	_	_	_	_	_	_	Seg=O
-564-565	woman's	_	_	_	_	_	_	_	_
 564	woman	_	_	_	_	_	_	_	Seg=O
 565	's	_	_	_	_	_	_	_	Seg=O
 566	qualified	_	_	_	_	_	_	_	Seg=O
@@ -5253,7 +5156,6 @@
 573	Though	_	_	_	_	_	_	_	Seg=B-seg
 574	the	_	_	_	_	_	_	_	Seg=O
 575	State	_	_	_	_	_	_	_	Seg=O
-576-577	cannot	_	_	_	_	_	_	_	_
 576	can	_	_	_	_	_	_	_	Seg=O
 577	not	_	_	_	_	_	_	_	Seg=O
 578	override	_	_	_	_	_	_	_	Seg=O
@@ -5269,7 +5171,6 @@
 588	both	_	_	_	_	_	_	_	Seg=O
 589	the	_	_	_	_	_	_	_	Seg=O
 590	pregnant	_	_	_	_	_	_	_	Seg=O
-591-592	woman's	_	_	_	_	_	_	_	_
 591	woman	_	_	_	_	_	_	_	Seg=O
 592	's	_	_	_	_	_	_	_	Seg=O
 593	health	_	_	_	_	_	_	_	Seg=O
@@ -5297,7 +5198,6 @@
 615	stages	_	_	_	_	_	_	_	Seg=O
 616	of	_	_	_	_	_	_	_	Seg=O
 617	the	_	_	_	_	_	_	_	Seg=O
-618-619	woman's	_	_	_	_	_	_	_	_
 618	woman	_	_	_	_	_	_	_	Seg=O
 619	's	_	_	_	_	_	_	_	Seg=O
 620	approach	_	_	_	_	_	_	_	Seg=O
@@ -5339,7 +5239,6 @@
 656	of	_	_	_	_	_	_	_	Seg=O
 657	the	_	_	_	_	_	_	_	Seg=O
 658	pregnant	_	_	_	_	_	_	_	Seg=O
-659-660	woman's	_	_	_	_	_	_	_	_
 659	woman	_	_	_	_	_	_	_	Seg=O
 660	's	_	_	_	_	_	_	_	Seg=O
 661	attending	_	_	_	_	_	_	_	Seg=O
@@ -5528,7 +5427,6 @@
 844	fully	_	_	_	_	_	_	_	Seg=O
 845	recognize	_	_	_	_	_	_	_	Seg=O
 846	the	_	_	_	_	_	_	_	Seg=O
-847-848	Court's	_	_	_	_	_	_	_	_
 847	Court	_	_	_	_	_	_	_	Seg=O
 848	's	_	_	_	_	_	_	_	Seg=O
 849	ruling	_	_	_	_	_	_	_	Seg=O
@@ -5653,7 +5551,7 @@
 968	116	_	_	_	_	_	_	_	Seg=O
 969	]	_	_	_	_	_	_	_	Seg=O
 
-# newdoc_id = GENTLE_legal_service
+# newdoc id = GENTLE_legal_service
 1	Exhibit	_	_	_	_	_	_	_	Seg=B-seg
 2	1.2	_	_	_	_	_	_	_	Seg=O
 3	SERVICES	_	_	_	_	_	_	_	Seg=B-seg
@@ -5820,7 +5718,6 @@
 164	account	_	_	_	_	_	_	_	Seg=O
 165	on	_	_	_	_	_	_	_	Seg=O
 166	the	_	_	_	_	_	_	_	Seg=O
-167-168	Company's	_	_	_	_	_	_	_	_
 167	Company	_	_	_	_	_	_	_	Seg=O
 168	's	_	_	_	_	_	_	_	Seg=O
 169	website	_	_	_	_	_	_	_	Seg=O
@@ -6083,7 +5980,6 @@
 426	based	_	_	_	_	_	_	_	Seg=B-seg
 427	on	_	_	_	_	_	_	_	Seg=O
 428	the	_	_	_	_	_	_	_	Seg=O
-429-430	Company's	_	_	_	_	_	_	_	_
 429	Company	_	_	_	_	_	_	_	Seg=O
 430	's	_	_	_	_	_	_	_	Seg=O
 431	net	_	_	_	_	_	_	_	Seg=O
@@ -6092,7 +5988,6 @@
 434	c)	_	_	_	_	_	_	_	Seg=B-seg
 435	Transaction	_	_	_	_	_	_	_	Seg=O
 436	Fees	_	_	_	_	_	_	_	Seg=O
-437-438	Company's	_	_	_	_	_	_	_	_
 437	Company	_	_	_	_	_	_	_	Seg=B-seg
 438	's	_	_	_	_	_	_	_	Seg=O
 439	transaction	_	_	_	_	_	_	_	Seg=O
@@ -6415,7 +6310,6 @@
 756	;	_	_	_	_	_	_	_	Seg=O
 757	ii)	_	_	_	_	_	_	_	Seg=B-seg
 758	If	_	_	_	_	_	_	_	Seg=O
-759-760	Company's	_	_	_	_	_	_	_	_
 759	Company	_	_	_	_	_	_	_	Seg=O
 760	's	_	_	_	_	_	_	_	Seg=O
 761	agent	_	_	_	_	_	_	_	Seg=O
@@ -6595,7 +6489,6 @@
 935	duration	_	_	_	_	_	_	_	Seg=O
 936	of	_	_	_	_	_	_	_	Seg=O
 937	the	_	_	_	_	_	_	_	Seg=O
-938-939	Company's	_	_	_	_	_	_	_	_
 938	Company	_	_	_	_	_	_	_	Seg=O
 939	's	_	_	_	_	_	_	_	Seg=O
 940	Offering	_	_	_	_	_	_	_	Seg=O
@@ -6643,7 +6536,6 @@
 982	i)	_	_	_	_	_	_	_	Seg=B-seg
 983	The	_	_	_	_	_	_	_	Seg=O
 984	other	_	_	_	_	_	_	_	Seg=O
-985-986	party's	_	_	_	_	_	_	_	_
 985	party	_	_	_	_	_	_	_	Seg=O
 986	's	_	_	_	_	_	_	_	Seg=O
 987	material	_	_	_	_	_	_	_	Seg=O
@@ -6675,7 +6567,7 @@
 1013	due	_	_	_	_	_	_	_	Seg=O
 1014	hereunder	_	_	_	_	_	_	_	Seg=O
 1015	,	_	_	_	_	_	_	_	Seg=O
-1016	15	_	_	_	_	_	_	_	Seg=O
+1016	15	_	_	_	_	_	_	_	Seg=B-seg
 1017	days	_	_	_	_	_	_	_	Seg=O
 1018	and	_	_	_	_	_	_	_	Seg=B-seg
 1019	(B)	_	_	_	_	_	_	_	Seg=O
@@ -6837,7 +6729,6 @@
 1175	effect	_	_	_	_	_	_	_	Seg=O
 1176	upon	_	_	_	_	_	_	_	Seg=O
 1177	a	_	_	_	_	_	_	_	Seg=O
-1178-1179	party's	_	_	_	_	_	_	_	_
 1178	party	_	_	_	_	_	_	_	Seg=O
 1179	's	_	_	_	_	_	_	_	Seg=O
 1180	ability	_	_	_	_	_	_	_	Seg=O
@@ -6851,7 +6742,6 @@
 1188	Agreement	_	_	_	_	_	_	_	Seg=O
 1189	or	_	_	_	_	_	_	_	Seg=O
 1190	a	_	_	_	_	_	_	_	Seg=O
-1191-1192	party's	_	_	_	_	_	_	_	_
 1191	party	_	_	_	_	_	_	_	Seg=O
 1192	's	_	_	_	_	_	_	_	Seg=O
 1193	costs	_	_	_	_	_	_	_	Seg=O
@@ -6894,7 +6784,6 @@
 1230	performance	_	_	_	_	_	_	_	Seg=O
 1231	of	_	_	_	_	_	_	_	Seg=O
 1232	such	_	_	_	_	_	_	_	Seg=O
-1233-1234	party's	_	_	_	_	_	_	_	_
 1233	party	_	_	_	_	_	_	_	Seg=O
 1234	's	_	_	_	_	_	_	_	Seg=O
 1235	rights	_	_	_	_	_	_	_	Seg=O
@@ -6983,7 +6872,7 @@
 1318	Marks	_	_	_	_	_	_	_	Seg=O
 1319	CEO	_	_	_	_	_	_	_	Seg=B-seg
 
-# newdoc_id = GENTLE_medical_anemia
+# newdoc id = GENTLE_medical_anemia
 1	Description	_	_	_	_	_	_	_	Seg=B-seg
 2	:	_	_	_	_	_	_	_	Seg=O
 3	Chronic	_	_	_	_	_	_	_	Seg=B-seg
@@ -7468,7 +7357,7 @@
 482	week	_	_	_	_	_	_	_	Seg=O
 483	.	_	_	_	_	_	_	_	Seg=O
 
-# newdoc_id = GENTLE_medical_hiv
+# newdoc id = GENTLE_medical_hiv
 1	Description	_	_	_	_	_	_	_	Seg=B-seg
 2	:	_	_	_	_	_	_	_	Seg=O
 3	Human	_	_	_	_	_	_	_	Seg=B-seg
@@ -7967,7 +7856,7 @@
 496	psychologist	_	_	_	_	_	_	_	Seg=O
 497	.	_	_	_	_	_	_	_	Seg=O
 
-# newdoc_id = GENTLE_medical_screw
+# newdoc id = GENTLE_medical_screw
 1	Description	_	_	_	_	_	_	_	Seg=B-seg
 2	:	_	_	_	_	_	_	_	Seg=O
 3	Followup	_	_	_	_	_	_	_	Seg=B-seg
@@ -8497,7 +8386,7 @@
 527	foot	_	_	_	_	_	_	_	Seg=O
 528	.	_	_	_	_	_	_	_	Seg=O
 
-# newdoc_id = GENTLE_medical_transplant
+# newdoc id = GENTLE_medical_transplant
 1	Description	_	_	_	_	_	_	_	Seg=B-seg
 2	:	_	_	_	_	_	_	_	Seg=O
 3	Posttransplant	_	_	_	_	_	_	_	Seg=B-seg
@@ -9155,7 +9044,7 @@
 655	him	_	_	_	_	_	_	_	Seg=O
 656	.	_	_	_	_	_	_	_	Seg=O
 
-# newdoc_id = GENTLE_poetry_annabel
+# newdoc id = GENTLE_poetry_annabel
 1	ANNABEL	_	_	_	_	_	_	_	Seg=B-seg
 2	LEE	_	_	_	_	_	_	_	Seg=O
 3	.	_	_	_	_	_	_	_	Seg=O
@@ -9505,7 +9394,7 @@
 347	sea	_	_	_	_	_	_	_	Seg=O
 348	.	_	_	_	_	_	_	_	Seg=O
 
-# newdoc_id = GENTLE_poetry_death
+# newdoc id = GENTLE_poetry_death
 1	Because	_	_	_	_	_	_	_	Seg=B-seg
 2	I	_	_	_	_	_	_	_	Seg=O
 3	could	_	_	_	_	_	_	_	Seg=O
@@ -9655,7 +9544,6 @@
 147	first	_	_	_	_	_	_	_	Seg=O
 148	surmised	_	_	_	_	_	_	_	Seg=O
 149	the	_	_	_	_	_	_	_	Seg=B-seg
-150-151	Horses'	_	_	_	_	_	_	_	_
 150	Horses	_	_	_	_	_	_	_	Seg=O
 151	'	_	_	_	_	_	_	_	Seg=O
 152	Heads	_	_	_	_	_	_	_	Seg=O
@@ -9664,7 +9552,7 @@
 155	Eternity	_	_	_	_	_	_	_	Seg=O
 156	—	_	_	_	_	_	_	_	Seg=O
 
-# newdoc_id = GENTLE_poetry_flower
+# newdoc id = GENTLE_poetry_flower
 1	I	_	_	_	_	_	_	_	Seg=B-seg
 2	HIDE	_	_	_	_	_	_	_	Seg=O
 3	myself	_	_	_	_	_	_	_	Seg=O
@@ -9718,7 +9606,7 @@
 51	loneliness	_	_	_	_	_	_	_	Seg=O
 52	.	_	_	_	_	_	_	_	Seg=O
 
-# newdoc_id = GENTLE_poetry_raven
+# newdoc id = GENTLE_poetry_raven
 1	THE	_	_	_	_	_	_	_	Seg=B-seg
 2	RAVEN	_	_	_	_	_	_	_	Seg=O
 3	.	_	_	_	_	_	_	_	Seg=O
@@ -10310,7 +10198,6 @@
 589	is	_	_	_	_	_	_	_	Seg=O
 590	on	_	_	_	_	_	_	_	Seg=O
 591	the	_	_	_	_	_	_	_	Seg=O
-592-593	Night's	_	_	_	_	_	_	_	_
 592	Night	_	_	_	_	_	_	_	Seg=O
 593	's	_	_	_	_	_	_	_	Seg=O
 594	Plutonian	_	_	_	_	_	_	_	Seg=O
@@ -10349,7 +10236,6 @@
 627	;	_	_	_	_	_	_	_	Seg=O
 628	For	_	_	_	_	_	_	_	Seg=B-seg
 629	we	_	_	_	_	_	_	_	Seg=O
-630-631	cannot	_	_	_	_	_	_	_	_
 630	can	_	_	_	_	_	_	_	Seg=O
 631	not	_	_	_	_	_	_	_	Seg=O
 632	help	_	_	_	_	_	_	_	Seg=O
@@ -10630,7 +10516,6 @@
 907	burned	_	_	_	_	_	_	_	Seg=O
 908	into	_	_	_	_	_	_	_	Seg=O
 909	my	_	_	_	_	_	_	_	Seg=O
-910-911	bosom's	_	_	_	_	_	_	_	_
 910	bosom	_	_	_	_	_	_	_	Seg=O
 911	's	_	_	_	_	_	_	_	Seg=O
 912	core	_	_	_	_	_	_	_	Seg=O
@@ -10650,7 +10535,6 @@
 926	reclining	_	_	_	_	_	_	_	Seg=B-seg
 927	On	_	_	_	_	_	_	_	Seg=O
 928	the	_	_	_	_	_	_	_	Seg=O
-929-930	cushion's	_	_	_	_	_	_	_	_
 929	cushion	_	_	_	_	_	_	_	Seg=O
 930	's	_	_	_	_	_	_	_	Seg=O
 931	velvet	_	_	_	_	_	_	_	Seg=O
@@ -10962,7 +10846,6 @@
 1237	tempest	_	_	_	_	_	_	_	Seg=O
 1238	and	_	_	_	_	_	_	_	Seg=O
 1239	the	_	_	_	_	_	_	_	Seg=O
-1240-1241	Night's	_	_	_	_	_	_	_	_
 1240	Night	_	_	_	_	_	_	_	Seg=O
 1241	's	_	_	_	_	_	_	_	Seg=O
 1242	Plutonian	_	_	_	_	_	_	_	Seg=O
@@ -11057,7 +10940,6 @@
 1331	seeming	_	_	_	_	_	_	_	Seg=O
 1332	of	_	_	_	_	_	_	_	Seg=O
 1333	a	_	_	_	_	_	_	_	Seg=O
-1334-1335	demon's	_	_	_	_	_	_	_	_
 1334	demon	_	_	_	_	_	_	_	Seg=O
 1335	's	_	_	_	_	_	_	_	Seg=O
 1336	that	_	_	_	_	_	_	_	Seg=B-seg
@@ -11098,7 +10980,7 @@
 1371	nevermore	_	_	_	_	_	_	_	Seg=O
 1372	!	_	_	_	_	_	_	_	Seg=O
 
-# newdoc_id = GENTLE_poetry_road
+# newdoc id = GENTLE_poetry_road
 1	Two	_	_	_	_	_	_	_	Seg=B-seg
 2	roads	_	_	_	_	_	_	_	Seg=O
 3	diverged	_	_	_	_	_	_	_	Seg=O
@@ -11262,7 +11144,7 @@
 161	difference	_	_	_	_	_	_	_	Seg=O
 162	.	_	_	_	_	_	_	_	Seg=O
 
-# newdoc_id = GENTLE_proof_five
+# newdoc id = GENTLE_proof_five
 1	Proof	_	_	_	_	_	_	_	Seg=B-seg
 2	The	_	_	_	_	_	_	_	Seg=B-seg
 3	proof	_	_	_	_	_	_	_	Seg=O
@@ -11871,7 +11753,7 @@
 606	5	_	_	_	_	_	_	_	Seg=O
 607	.	_	_	_	_	_	_	_	Seg=O
 
-# newdoc_id = GENTLE_proof_square
+# newdoc id = GENTLE_proof_square
 1	Proof	_	_	_	_	_	_	_	Seg=B-seg
 2	Let	_	_	_	_	_	_	_	Seg=B-seg
 3	AB	_	_	_	_	_	_	_	Seg=O
@@ -12567,7 +12449,7 @@
 693	.	_	_	_	_	_	_	_	Seg=O
 694	■	_	_	_	_	_	_	_	Seg=O
 
-# newdoc_id = GENTLE_proof_wosets
+# newdoc id = GENTLE_proof_wosets
 1	Proof	_	_	_	_	_	_	_	Seg=B-seg
 2	If	_	_	_	_	_	_	_	Seg=B-seg
 3	the	_	_	_	_	_	_	_	Seg=O
@@ -13374,7 +13256,7 @@
 804	.	_	_	_	_	_	_	_	Seg=O
 805	■	_	_	_	_	_	_	_	Seg=O
 
-# newdoc_id = GENTLE_syllabus_opensource
+# newdoc id = GENTLE_syllabus_opensource
 1	CSCI-4470-01	_	_	_	_	_	_	_	Seg=B-seg
 2	Open	_	_	_	_	_	_	_	Seg=B-seg
 3	Source	_	_	_	_	_	_	_	Seg=O
@@ -14385,7 +14267,6 @@
 1008	must	_	_	_	_	_	_	_	Seg=B-seg
 1009	represent	_	_	_	_	_	_	_	Seg=O
 1010	the	_	_	_	_	_	_	_	Seg=O
-1011-1012	student’s	_	_	_	_	_	_	_	_
 1011	student	_	_	_	_	_	_	_	Seg=O
 1012	’s	_	_	_	_	_	_	_	Seg=O
 1013	own	_	_	_	_	_	_	_	Seg=O
@@ -14513,7 +14394,7 @@
 1135	clarification	_	_	_	_	_	_	_	Seg=O
 1136	.	_	_	_	_	_	_	_	Seg=O
 
-# newdoc_id = GENTLE_syllabus_techtonica
+# newdoc id = GENTLE_syllabus_techtonica
 1	Welcome	_	_	_	_	_	_	_	Seg=B-seg
 2	to	_	_	_	_	_	_	_	Seg=O
 3	the	_	_	_	_	_	_	_	Seg=O
@@ -14628,7 +14509,6 @@
 112	(	_	_	_	_	_	_	_	Seg=B-seg
 113	which	_	_	_	_	_	_	_	Seg=O
 114	you	_	_	_	_	_	_	_	Seg=O
-115-116	won’t	_	_	_	_	_	_	_	_
 115	wo	_	_	_	_	_	_	_	Seg=O
 116	n’t	_	_	_	_	_	_	_	Seg=O
 117	have	_	_	_	_	_	_	_	Seg=O
@@ -14693,7 +14573,6 @@
 176	We	_	_	_	_	_	_	_	Seg=B-seg
 177	’re	_	_	_	_	_	_	_	Seg=O
 178	making	_	_	_	_	_	_	_	Seg=O
-179-180	Techtonica’s	_	_	_	_	_	_	_	_
 179	Techtonica	_	_	_	_	_	_	_	Seg=O
 180	’s	_	_	_	_	_	_	_	Seg=O
 181	program	_	_	_	_	_	_	_	Seg=O
@@ -15812,7 +15691,7 @@
 1294	Project	_	_	_	_	_	_	_	Seg=O
 1295	.	_	_	_	_	_	_	_	Seg=O
 
-# newdoc_id = GENTLE_threat_bolin
+# newdoc id = GENTLE_threat_bolin
 1	Jerry	_	_	_	_	_	_	_	Seg=B-seg
 2	6/25/90	_	_	_	_	_	_	_	Seg=O
 3	Well	_	_	_	_	_	_	_	Seg=B-seg
@@ -15827,7 +15706,6 @@
 12	heard	_	_	_	_	_	_	_	Seg=O
 13	from	_	_	_	_	_	_	_	Seg=O
 14	her	_	_	_	_	_	_	_	Seg=O
-15-16	I'm	_	_	_	_	_	_	_	_
 15	I	_	_	_	_	_	_	_	Seg=O
 16	'm	_	_	_	_	_	_	_	Seg=O
 17	not	_	_	_	_	_	_	_	Seg=O
@@ -15852,7 +15730,6 @@
 36	to	_	_	_	_	_	_	_	Seg=O
 37	say	_	_	_	_	_	_	_	Seg=O
 38	.	_	_	_	_	_	_	_	Seg=O
-39-40	I'm	_	_	_	_	_	_	_	_
 39	I	_	_	_	_	_	_	_	Seg=B-seg
 40	'm	_	_	_	_	_	_	_	Seg=O
 41	only	_	_	_	_	_	_	_	Seg=O
@@ -15878,7 +15755,6 @@
 61	daughter	_	_	_	_	_	_	_	Seg=O
 62	again	_	_	_	_	_	_	_	Seg=O
 63	,	_	_	_	_	_	_	_	Seg=O
-64-65	I'll	_	_	_	_	_	_	_	_
 64	I	_	_	_	_	_	_	_	Seg=B-seg
 65	'll	_	_	_	_	_	_	_	Seg=O
 66	have	_	_	_	_	_	_	_	Seg=O
@@ -15899,12 +15775,10 @@
 81	lucky	_	_	_	_	_	_	_	Seg=O
 82	stars	_	_	_	_	_	_	_	Seg=O
 83	you	_	_	_	_	_	_	_	Seg=B-seg
-84-85	Ashley's	_	_	_	_	_	_	_	_
 84	Ashley	_	_	_	_	_	_	_	Seg=O
 85	's	_	_	_	_	_	_	_	Seg=O
 86	father	_	_	_	_	_	_	_	Seg=O
 87	or	_	_	_	_	_	_	_	Seg=B-seg
-88-89	youd	_	_	_	_	_	_	_	_
 88	you	_	_	_	_	_	_	_	Seg=O
 89	d	_	_	_	_	_	_	_	Seg=O
 90	already	_	_	_	_	_	_	_	Seg=O
@@ -15945,7 +15819,6 @@
 125	you	_	_	_	_	_	_	_	Seg=O
 126	said	_	_	_	_	_	_	_	Seg=O
 127	.	_	_	_	_	_	_	_	Seg=O
-128-129	I'm	_	_	_	_	_	_	_	_
 128	I	_	_	_	_	_	_	_	Seg=B-seg
 129	'm	_	_	_	_	_	_	_	Seg=O
 130	still	_	_	_	_	_	_	_	Seg=O
@@ -15962,7 +15835,6 @@
 141	Buick	_	_	_	_	_	_	_	Seg=O
 142	and	_	_	_	_	_	_	_	Seg=B-seg
 143	if	_	_	_	_	_	_	_	Seg=O
-144-145	it's	_	_	_	_	_	_	_	_
 144	it	_	_	_	_	_	_	_	Seg=O
 145	's	_	_	_	_	_	_	_	Seg=O
 146	1	_	_	_	_	_	_	_	Seg=O
@@ -16026,7 +15898,6 @@
 204	long	_	_	_	_	_	_	_	Seg=O
 205	time	_	_	_	_	_	_	_	Seg=O
 206	ago	_	_	_	_	_	_	_	Seg=O
-207-208	don't	_	_	_	_	_	_	_	_
 207	do	_	_	_	_	_	_	_	Seg=O
 208	n't	_	_	_	_	_	_	_	Seg=O
 209	play	_	_	_	_	_	_	_	Seg=O
@@ -16044,7 +15915,6 @@
 221	person	_	_	_	_	_	_	_	Seg=O
 222	asshole	_	_	_	_	_	_	_	Seg=O
 223	.	_	_	_	_	_	_	_	Seg=O
-224-225	I've	_	_	_	_	_	_	_	_
 224	I	_	_	_	_	_	_	_	Seg=B-seg
 225	've	_	_	_	_	_	_	_	Seg=O
 226	made	_	_	_	_	_	_	_	Seg=O
@@ -16073,7 +15943,6 @@
 249	playing	_	_	_	_	_	_	_	Seg=B-seg
 250	with	_	_	_	_	_	_	_	Seg=O
 251	other	_	_	_	_	_	_	_	Seg=O
-252-253	people's	_	_	_	_	_	_	_	_
 252	people	_	_	_	_	_	_	_	Seg=O
 253	's	_	_	_	_	_	_	_	Seg=O
 254	money	_	_	_	_	_	_	_	Seg=O
@@ -16094,7 +15963,6 @@
 269	done	_	_	_	_	_	_	_	Seg=O
 270	.	_	_	_	_	_	_	_	Seg=O
 271	Everything	_	_	_	_	_	_	_	Seg=B-seg
-272-273	that's	_	_	_	_	_	_	_	_
 272	that	_	_	_	_	_	_	_	Seg=B-seg
 273	's	_	_	_	_	_	_	_	Seg=O
 274	mine	_	_	_	_	_	_	_	Seg=O
@@ -16113,13 +15981,11 @@
 287	VCR	_	_	_	_	_	_	_	Seg=O
 288	,	_	_	_	_	_	_	_	Seg=O
 289	I	_	_	_	_	_	_	_	Seg=O
-290-291	don't	_	_	_	_	_	_	_	_
 290	do	_	_	_	_	_	_	_	Seg=O
 291	n't	_	_	_	_	_	_	_	Seg=O
 292	fucking	_	_	_	_	_	_	_	Seg=O
 293	care	_	_	_	_	_	_	_	Seg=O
 294	if	_	_	_	_	_	_	_	Seg=B-seg
-295-296	it's	_	_	_	_	_	_	_	_
 295	it	_	_	_	_	_	_	_	Seg=O
 296	's	_	_	_	_	_	_	_	Seg=O
 297	a	_	_	_	_	_	_	_	Seg=O
@@ -16207,7 +16073,7 @@
 379	happens	_	_	_	_	_	_	_	Seg=O
 380	.	_	_	_	_	_	_	_	Seg=O
 
-# newdoc_id = GENTLE_threat_dillard
+# newdoc id = GENTLE_threat_dillard
 1	Dr.	_	_	_	_	_	_	_	Seg=B-seg
 2	Means	_	_	_	_	_	_	_	Seg=O
 3	,	_	_	_	_	_	_	_	Seg=O
@@ -16253,7 +16119,6 @@
 43	,	_	_	_	_	_	_	_	Seg=O
 44	quality	_	_	_	_	_	_	_	Seg=B-seg
 45	physicians	_	_	_	_	_	_	_	Seg=O
-46-47	wouldn't	_	_	_	_	_	_	_	_
 46	would	_	_	_	_	_	_	_	Seg=O
 47	n't	_	_	_	_	_	_	_	Seg=O
 48	even	_	_	_	_	_	_	_	Seg=O
@@ -16296,7 +16161,6 @@
 85	.	_	_	_	_	_	_	_	Seg=O
 86	Maybe	_	_	_	_	_	_	_	Seg=B-seg
 87	you	_	_	_	_	_	_	_	Seg=O
-88-89	don't	_	_	_	_	_	_	_	_
 88	do	_	_	_	_	_	_	_	Seg=O
 89	n't	_	_	_	_	_	_	_	Seg=O
 90	realize	_	_	_	_	_	_	_	Seg=O
@@ -16422,7 +16286,6 @@
 210	greater	_	_	_	_	_	_	_	Seg=O
 211	scrutiny	_	_	_	_	_	_	_	Seg=O
 212	than	_	_	_	_	_	_	_	Seg=B-seg
-213-214	you've	_	_	_	_	_	_	_	_
 213	you	_	_	_	_	_	_	_	Seg=O
 214	've	_	_	_	_	_	_	_	Seg=O
 215	ever	_	_	_	_	_	_	_	Seg=O
@@ -16442,7 +16305,6 @@
 229	ethical	_	_	_	_	_	_	_	Seg=O
 230	concerns	_	_	_	_	_	_	_	Seg=O
 231	that	_	_	_	_	_	_	_	Seg=B-seg
-232-233	you've	_	_	_	_	_	_	_	_
 232	you	_	_	_	_	_	_	_	Seg=O
 233	've	_	_	_	_	_	_	_	Seg=O
 234	been	_	_	_	_	_	_	_	Seg=O
@@ -16480,7 +16342,6 @@
 266	abortions	_	_	_	_	_	_	_	Seg=O
 267	when	_	_	_	_	_	_	_	Seg=B-seg
 268	they	_	_	_	_	_	_	_	Seg=O
-269-270	weren't	_	_	_	_	_	_	_	_
 269	were	_	_	_	_	_	_	_	Seg=O
 270	n't	_	_	_	_	_	_	_	Seg=O
 271	good	_	_	_	_	_	_	_	Seg=O
@@ -16538,7 +16399,6 @@
 323	-	_	_	_	_	_	_	_	Seg=O
 324	shedding	_	_	_	_	_	_	_	Seg=O
 325	and	_	_	_	_	_	_	_	Seg=B-seg
-326-327	won't	_	_	_	_	_	_	_	_
 326	wo	_	_	_	_	_	_	_	Seg=O
 327	n't	_	_	_	_	_	_	_	Seg=O
 328	be	_	_	_	_	_	_	_	Seg=O
@@ -16613,7 +16473,6 @@
 397	sleep	_	_	_	_	_	_	_	Seg=O
 398	.	_	_	_	_	_	_	_	Seg=O
 399	You	_	_	_	_	_	_	_	Seg=B-seg
-400-401	can't	_	_	_	_	_	_	_	_
 400	ca	_	_	_	_	_	_	_	Seg=O
 401	n't	_	_	_	_	_	_	_	Seg=O
 402	do	_	_	_	_	_	_	_	Seg=O
@@ -16689,7 +16548,6 @@
 472	26	_	_	_	_	_	_	_	Seg=O
 473	weeks	_	_	_	_	_	_	_	Seg=O
 474	,	_	_	_	_	_	_	_	Seg=O
-475-476	it's	_	_	_	_	_	_	_	_
 475	it	_	_	_	_	_	_	_	Seg=B-seg
 476	's	_	_	_	_	_	_	_	Seg=O
 477	still	_	_	_	_	_	_	_	Seg=O
@@ -16715,7 +16573,6 @@
 497	the	_	_	_	_	_	_	_	Seg=O
 498	Humane	_	_	_	_	_	_	_	Seg=O
 499	Society	_	_	_	_	_	_	_	Seg=O
-500-501	wouldn't	_	_	_	_	_	_	_	_
 500	would	_	_	_	_	_	_	_	Seg=O
 501	n't	_	_	_	_	_	_	_	Seg=O
 502	allow	_	_	_	_	_	_	_	Seg=O
@@ -16817,7 +16674,6 @@
 598	imagine	_	_	_	_	_	_	_	Seg=O
 599	.	_	_	_	_	_	_	_	Seg=O
 600	We	_	_	_	_	_	_	_	Seg=B-seg
-601-602	don't	_	_	_	_	_	_	_	_
 601	do	_	_	_	_	_	_	_	Seg=O
 602	n't	_	_	_	_	_	_	_	Seg=O
 603	want	_	_	_	_	_	_	_	Seg=O
@@ -16862,7 +16718,6 @@
 642	of	_	_	_	_	_	_	_	Seg=O
 643	yours	_	_	_	_	_	_	_	Seg=O
 644	.	_	_	_	_	_	_	_	Seg=O
-645-646	It's	_	_	_	_	_	_	_	_
 645	It	_	_	_	_	_	_	_	Seg=B-seg
 646	's	_	_	_	_	_	_	_	Seg=O
 647	not	_	_	_	_	_	_	_	Seg=O
@@ -16876,7 +16731,7 @@
 655	Angel	_	_	_	_	_	_	_	Seg=B-seg
 656	Dillard	_	_	_	_	_	_	_	Seg=O
 
-# newdoc_id = GENTLE_threat_kelly
+# newdoc id = GENTLE_threat_kelly
 1	Hello	_	_	_	_	_	_	_	Seg=B-seg
 2	,	_	_	_	_	_	_	_	Seg=O
 3	Do	_	_	_	_	_	_	_	Seg=B-seg
@@ -17099,7 +16954,6 @@
 220	time	_	_	_	_	_	_	_	Seg=O
 221	.	_	_	_	_	_	_	_	Seg=O
 222	They	_	_	_	_	_	_	_	Seg=B-seg
-223-224	don't	_	_	_	_	_	_	_	_
 223	do	_	_	_	_	_	_	_	Seg=O
 224	n't	_	_	_	_	_	_	_	Seg=O
 225	give	_	_	_	_	_	_	_	Seg=O
@@ -17109,7 +16963,6 @@
 229	about	_	_	_	_	_	_	_	Seg=O
 230	you	_	_	_	_	_	_	_	Seg=O
 231	.	_	_	_	_	_	_	_	Seg=O
-232-233	I'm	_	_	_	_	_	_	_	_
 232	I	_	_	_	_	_	_	_	Seg=B-seg
 233	'm	_	_	_	_	_	_	_	Seg=O
 234	not	_	_	_	_	_	_	_	Seg=O
@@ -17160,7 +17013,6 @@
 279	me	_	_	_	_	_	_	_	Seg=O
 280	.	_	_	_	_	_	_	_	Seg=O
 281	You	_	_	_	_	_	_	_	Seg=B-seg
-282-283	can't	_	_	_	_	_	_	_	_
 282	ca	_	_	_	_	_	_	_	Seg=O
 283	n't	_	_	_	_	_	_	_	Seg=O
 284	take	_	_	_	_	_	_	_	Seg=O
@@ -17168,7 +17020,6 @@
 286	charge	_	_	_	_	_	_	_	Seg=O
 287	.	_	_	_	_	_	_	_	Seg=O
 288	You	_	_	_	_	_	_	_	Seg=B-seg
-289-290	can't	_	_	_	_	_	_	_	_
 289	ca	_	_	_	_	_	_	_	Seg=O
 290	n't	_	_	_	_	_	_	_	Seg=O
 291	make	_	_	_	_	_	_	_	Seg=O
@@ -17201,7 +17052,6 @@
 318	so	_	_	_	_	_	_	_	Seg=B-seg
 319	if	_	_	_	_	_	_	_	Seg=B-seg
 320	you	_	_	_	_	_	_	_	Seg=O
-321-322	don't	_	_	_	_	_	_	_	_
 321	do	_	_	_	_	_	_	_	Seg=O
 322	n't	_	_	_	_	_	_	_	Seg=O
 323	want	_	_	_	_	_	_	_	Seg=O
@@ -17242,7 +17092,6 @@
 358	the	_	_	_	_	_	_	_	Seg=O
 359	Bitch.	_	_	_	_	_	_	_	Seg=O
 360	I	_	_	_	_	_	_	_	Seg=B-seg
-361-362	can't	_	_	_	_	_	_	_	_
 361	ca	_	_	_	_	_	_	_	Seg=O
 362	n't	_	_	_	_	_	_	_	Seg=O
 363	tell	_	_	_	_	_	_	_	Seg=O
@@ -17327,13 +17176,11 @@
 442	a	_	_	_	_	_	_	_	Seg=O
 443	girl	_	_	_	_	_	_	_	Seg=O
 444	so	_	_	_	_	_	_	_	Seg=B-seg
-445-446	don't	_	_	_	_	_	_	_	_
 445	do	_	_	_	_	_	_	_	Seg=O
 446	n't	_	_	_	_	_	_	_	Seg=O
 447	try	_	_	_	_	_	_	_	Seg=O
 448	me	_	_	_	_	_	_	_	Seg=O
 449	.	_	_	_	_	_	_	_	Seg=O
-450-451	Don't	_	_	_	_	_	_	_	_
 450	Do	_	_	_	_	_	_	_	Seg=B-seg
 451	n't	_	_	_	_	_	_	_	Seg=O
 452	take	_	_	_	_	_	_	_	Seg=O
@@ -17345,7 +17192,7 @@
 458	pissed	_	_	_	_	_	_	_	Seg=O
 459	.	_	_	_	_	_	_	_	Seg=O
 
-# newdoc_id = GENTLE_threat_malik
+# newdoc id = GENTLE_threat_malik
 1	I	_	_	_	_	_	_	_	Seg=B-seg
 2	do	_	_	_	_	_	_	_	Seg=O
 3	not	_	_	_	_	_	_	_	Seg=O
@@ -17413,7 +17260,6 @@
 65	is	_	_	_	_	_	_	_	Seg=O
 66	no	_	_	_	_	_	_	_	Seg=O
 67	joke	_	_	_	_	_	_	_	Seg=O
-68-69	I'm	_	_	_	_	_	_	_	_
 68	I	_	_	_	_	_	_	_	Seg=B-seg
 69	'm	_	_	_	_	_	_	_	Seg=O
 70	know	_	_	_	_	_	_	_	Seg=O
@@ -17435,7 +17281,6 @@
 86	American	_	_	_	_	_	_	_	Seg=O
 87	Jewish	_	_	_	_	_	_	_	Seg=O
 88	Judges	_	_	_	_	_	_	_	Seg=O
-89-90	wanna	_	_	_	_	_	_	_	_
 89	wan	_	_	_	_	_	_	_	Seg=O
 90	na	_	_	_	_	_	_	_	Seg=O
 91	act	_	_	_	_	_	_	_	Seg=O
@@ -17477,7 +17322,6 @@
 127	so	_	_	_	_	_	_	_	Seg=O
 128	become	_	_	_	_	_	_	_	Seg=O
 129	it	_	_	_	_	_	_	_	Seg=O
-130-131	Ii'll	_	_	_	_	_	_	_	_
 130	Ii	_	_	_	_	_	_	_	Seg=B-seg
 131	'll	_	_	_	_	_	_	_	Seg=O
 132	play	_	_	_	_	_	_	_	Seg=O
@@ -17491,7 +17335,6 @@
 140	and	_	_	_	_	_	_	_	Seg=O
 141	Torooh	_	_	_	_	_	_	_	Seg=O
 142	perspective	_	_	_	_	_	_	_	Seg=O
-143-144	thats	_	_	_	_	_	_	_	_
 143	that	_	_	_	_	_	_	_	Seg=B-seg
 144	s	_	_	_	_	_	_	_	Seg=O
 145	an	_	_	_	_	_	_	_	Seg=O
@@ -17633,7 +17476,6 @@
 281	will	_	_	_	_	_	_	_	Seg=O
 282	an	_	_	_	_	_	_	_	Seg=O
 283	see	_	_	_	_	_	_	_	Seg=O
-284-285	won't	_	_	_	_	_	_	_	_
 284	wo	_	_	_	_	_	_	_	Seg=B-seg
 285	n't	_	_	_	_	_	_	_	Seg=O
 286	justice	_	_	_	_	_	_	_	Seg=O
@@ -17657,7 +17499,6 @@
 304	my	_	_	_	_	_	_	_	Seg=O
 305	person	_	_	_	_	_	_	_	Seg=O
 306	is	_	_	_	_	_	_	_	Seg=O
-307-308	gonna	_	_	_	_	_	_	_	_
 307	gon	_	_	_	_	_	_	_	Seg=O
 308	na	_	_	_	_	_	_	_	Seg=O
 309	submit	_	_	_	_	_	_	_	Seg=O
@@ -17706,7 +17547,6 @@
 352	it	_	_	_	_	_	_	_	Seg=O
 353	or	_	_	_	_	_	_	_	Seg=O
 354	not	_	_	_	_	_	_	_	Seg=O
-355-356	thats	_	_	_	_	_	_	_	_
 355	that	_	_	_	_	_	_	_	Seg=B-seg
 356	s	_	_	_	_	_	_	_	Seg=O
 357	up	_	_	_	_	_	_	_	Seg=O
@@ -17762,7 +17602,7 @@
 407	Africanner	_	_	_	_	_	_	_	Seg=O
 408	Europeans	_	_	_	_	_	_	_	Seg=O
 
-# newdoc_id = GENTLE_threat_white
+# newdoc id = GENTLE_threat_white
 1	I	_	_	_	_	_	_	_	Seg=B-seg
 2	understand	_	_	_	_	_	_	_	Seg=O
 3	you	_	_	_	_	_	_	_	Seg=B-seg
@@ -17817,7 +17657,6 @@
 52	the	_	_	_	_	_	_	_	Seg=B-seg
 53	fact	_	_	_	_	_	_	_	Seg=O
 54	that	_	_	_	_	_	_	_	Seg=B-seg
-55-56	I've	_	_	_	_	_	_	_	_
 55	I	_	_	_	_	_	_	_	Seg=O
 56	've	_	_	_	_	_	_	_	Seg=O
 57	obviously	_	_	_	_	_	_	_	Seg=O
@@ -17858,7 +17697,6 @@
 92	;	_	_	_	_	_	_	_	Seg=O
 93	if	_	_	_	_	_	_	_	Seg=B-seg
 94	you	_	_	_	_	_	_	_	Seg=O
-95-96	don't	_	_	_	_	_	_	_	_
 95	do	_	_	_	_	_	_	_	Seg=O
 96	n't	_	_	_	_	_	_	_	Seg=O
 97	,	_	_	_	_	_	_	_	Seg=O
@@ -17964,7 +17802,6 @@
 197	this	_	_	_	_	_	_	_	Seg=O
 198	,	_	_	_	_	_	_	_	Seg=O
 199	as	_	_	_	_	_	_	_	Seg=B-seg
-200-201	I'm	_	_	_	_	_	_	_	_
 200	I	_	_	_	_	_	_	_	Seg=O
 201	'm	_	_	_	_	_	_	_	Seg=O
 202	sure	_	_	_	_	_	_	_	Seg=O
@@ -18009,3 +17846,4 @@
 241	Joan	_	_	_	_	_	_	_	Seg=O
 242	Lefkow	_	_	_	_	_	_	_	Seg=O
 243	.	_	_	_	_	_	_	_	Seg=O
+
