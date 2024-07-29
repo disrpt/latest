@@ -238,7 +238,7 @@ GUM_DOCS = {
 def get_proxy_data() -> dict:
 	import requests
 	out_posts = {}
-	tab_delim = requests.get("https://corpling.uis.georgetown.edu/gum/fetch_text_proxy.py").text
+	tab_delim = requests.get("https://gucorpling.org/gum/fetch_text_proxy.py").text
 	for line in tab_delim.split("\n"):
 		if "\t" in line:
 			post, text = line.split("\t")
@@ -1038,7 +1038,7 @@ def get_nb_of_words(id:str) -> int:
 if __name__ == "__main__":
 
 	p = ArgumentParser()
-	p.add_argument("-c","--corpus",action="store",choices=["eng.rst.rstdt","eng.pdtb.pdtb","zho.pdtb.cdtb","tur.pdtb.tdb","eng.rst.gum","eng.pdtb.gum","all"],default="all",help="Name of the corpus to process or 'all'")
+	p.add_argument("-c","--corpus",action="store",choices=["eng.rst.rstdt","eng.pdtb.pdtb","zho.pdtb.cdtb","tur.pdtb.tdb","eng.erst.gum","eng.pdtb.gum","all"],default="all",help="Name of the corpus to process or 'all'")
 	p.add_argument("-m","--mode",action="store",choices=["add","del"],default="add",help="Use 'add' to restore data and 'del' to replace text with underscores")
 	opts = p.parse_args()
 
@@ -1054,8 +1054,8 @@ if __name__ == "__main__":
 			files += get_list_of_corpus_files("zho.pdtb.cdtb")
 		if opts.corpus == "tur.pdtb.tdb" or opts.corpus == "all":
 			files += get_list_of_corpus_files("tur.pdtb.tdb")
-		if opts.corpus == "eng.rst.gum" or opts.corpus == "all":
-			files += get_list_of_corpus_files("eng.rst.gum")
+		if opts.corpus == "eng.erst.gum" or opts.corpus == "all":
+			files += get_list_of_corpus_files("eng.erst.gum")
 		if opts.corpus == "eng.pdtb.gum" or opts.corpus == "all":
 			files += get_list_of_corpus_files("eng.pdtb.gum")
 			
@@ -1109,7 +1109,7 @@ if __name__ == "__main__":
 			restore_docs(os.sep.join(["..",DATA_DIR, "tur.pdtb.tdb"]),docs2text)
 
 
-		if opts.corpus == "eng.rst.gum" or opts.corpus == "all":
+		if opts.corpus == "eng.erst.gum" or opts.corpus == "all":
 			response = input("Do you want to try downloading reddit data from an available server?\n"+
 							"Confirm: you are solely responsible for downloading reddit data and "+
 							"may only use it for non-commercial purposes:\n[Y]es/[N]o> ")
@@ -1120,7 +1120,7 @@ if __name__ == "__main__":
 			else:
 				sys.stderr.write("Aborting\n")
 				sys.exit(0)
-			restore_GUM_docs(os.sep.join(["..",DATA_DIR,"eng.rst.gum"]),docs2text)
+			restore_GUM_docs(os.sep.join(["..",DATA_DIR,"eng.erst.gum"]),docs2text)
 
 
 		if opts.corpus == "eng.pdtb.gum" or opts.corpus == "all":
