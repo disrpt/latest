@@ -31,7 +31,7 @@ from glob import glob
 
 DATA_DIR = "data"
 HEADER_rels = "doc\tunit1_toks\tunit2_toks\tunit1_txt\tunit2_txt\tu1_raw\tu2_raw\ts1_toks\ts2_toks\tunit1_sent\tunit2_sent\tdir\trel_type\torig_label\tlabel"
-META_DOCID = "# newdoc_id = "
+META_DOCID = "# newdoc id = "
 META_TEXT = "# text = "
 GUM_DOCS = {
 	"GUM_reddit_macroeconomics": [
@@ -366,7 +366,7 @@ def underscore_files(files_path_li: list) -> None: # TODO Refactor ?
 				doc = ""
 				for line in lines:
 					line = line.strip()
-					if line.startswith("# newdoc_id"):
+					if line.startswith("# newdoc id"):
 						doc = line.split("=",maxsplit=1)[1].strip()
 					if "GUM" in doc and "reddit" not in doc:
 						output.append(line)
@@ -380,14 +380,15 @@ def underscore_files(files_path_li: list) -> None: # TODO Refactor ?
 						#print(line)
 						fields = line.split("\t")
 						tok_col, lemma_col = fields[1:3]
-						if lemma_col == tok_col:  # Delete lemma if identical to token
-							fields[2] = '_'
-						elif tok_col.lower() == lemma_col:
-							fields[2] = "*LOWER*"
-						if skiplen < 1:
-							fields[1] = len(tok_col)*'_'
-						else:
-							skiplen -=1
+						if "_reddit" in doc or "eng.erst.gum" not in f_path:
+							if lemma_col == tok_col:  # Delete lemma if identical to token
+								fields[2] = '_'
+							elif tok_col.lower() == lemma_col:
+								fields[2] = "*LOWER*"
+							if skiplen < 1:
+								fields[1] = len(tok_col)*'_'
+							else:
+								skiplen -=1
 						output.append("\t".join(fields))
 						if "-" in fields[0]:  # Multitoken
 							start, end = fields[0].split("-")
@@ -493,7 +494,7 @@ def rebuild_GUM_tok_files_from_dep_files(files: list) -> None:
 					new_fields = [str(tokid), fields[1], "_", "_", "_", "_", "_", "_", "_", label]
 					output.append("\t".join(new_fields))    ### NOT FIELDS 0 !!
 
-		with open(f"{file_}", 'w', encoding='utf-8') as fo:
+		with open(f"{file_}", 'w', encoding='utf-8', newline="\n") as fo:
 			fo.write("\n".join(output) + "\n")
 
 def rebuild_tok_files_from_dep_files(files: list) -> None:
@@ -537,7 +538,7 @@ def rebuild_tok_files_from_dep_files(files: list) -> None:
 					new_fields = [str(tokid), fields[1], "_", "_", "_", "_", "_", "_", "_", label]
 					output.append("\t".join(new_fields))    ### NOT FIELDS 0 !!
 
-		with open(f"{file_}", 'w', encoding='utf-8') as fo:
+		with open(f"{file_}", 'w', encoding='utf-8', newline="\n") as fo:
 			fo.write("\n".join(output) + "\n")
 
 def get_mweid(tokid: int, conllid) -> str:
@@ -569,8 +570,10 @@ def get_tok_label_from_dep_label(label:str) -> str:
 	return newlabel
 
 def restore_GUM_dep_files(files, text_dict) -> dict:
-	""" This fonction read and write dep files, with replacement of underscores by corresponding text.
-		In the mean time, a dictionary is filled as: Dict[docname][token id document based]="token string" without contracted forms of MWE. Will be used to fill syntactical text in .rels.
+	""" This function reads and writes dep files, with replacement of underscores by corresponding text.
+		In the meantime, a dictionary is filled as: Dict[docname][token id document based]="token string"
+		without contracted forms of MWE. Will be used to fill syntactic text in .rels.
+
 	:files: list of dep files path
 	:text_dict: dictionary of text as Dict[docname]="full doc as one string without space"
 	:return Dict of (syntactical) tokens
@@ -623,7 +626,7 @@ def restore_GUM_dep_files(files, text_dict) -> dict:
 					cid_delay_mwe = cid + len(fields[1])
 					mwe_status = compute_mwe_status(fields[0])
 					
-				elif "." in fields[0]: # ellips in GUM ==> useless cause no case of ellips in reddit (2024/04/04)
+				elif "." in fields[0]: # ellipsis in GUM ==> useless cause no case of ellipsis in reddit (2024/04/04)
 					pass
 
 				else:
@@ -656,13 +659,13 @@ def restore_GUM_dep_files(files, text_dict) -> dict:
 					my_dict[docname][int(tid)] = fields[1]
 
 
-		with open(f"{file_}", 'w', encoding='utf-8') as fo:
+		with open(f"{file_}", 'w', encoding='utf-8', newline="\n") as fo:
 			fo.write("\n".join(output) + "\n")
 	return my_dict
 
 def restore_dep_files(files: list, text_dict) -> dict:
-	""" This fonction read and write dep files, with replacement of underscores by corresponding text.
-		In the mean time, a dictionary is filled as: Dict[docname][token id document based]="token string" without contracted forms of MWE. Will be used to fill syntactical text in .rels.
+	""" This fynction read and write dep files, with replacement of underscores by corresponding text.
+		In the meantime, a dictionary is filled as: Dict[docname][token id document based]="token string" without contracted forms of MWE. Will be used to fill syntactical text in .rels.
 	:files: list of dep files path
 	:text_dict: dictionary of text as Dict[docname]="full doc as one string without space"
 	:return Dict of (syntactical) tokens
@@ -735,7 +738,7 @@ def restore_dep_files(files: list, text_dict) -> dict:
 					my_dict[docname][int(tid)] = fields[1]
 
 
-		with open(f"{file_}", 'w', encoding='utf-8') as fo:
+		with open(f"{file_}", 'w', encoding='utf-8', newline="\n") as fo:
 			fo.write("\n".join(output) + "\n")
 			#print(my_dict.keys())
 	return my_dict
@@ -757,7 +760,7 @@ def fill_text_with_char(cid: int, text_doc: str, masked: str) -> str :
 	return unmasked
 
 def compute_lemma(f1: str, f2: str) -> str:
-	""" This fonction compute lemma from cues in masked files.
+	""" This function compute lemma from cues in masked files.
 	:f1: unmasked text of token
 	:f2: masked lemma
 	:out: unmasked lemma
@@ -772,7 +775,7 @@ def compute_lemma(f1: str, f2: str) -> str:
 	return lemma
 
 def compute_mwe_status(f0: int) -> int:
-	""" This fonction compute if current token are inside a MWE or not.
+	""" This function compute if current token are inside a MWE or not.
 	:f0: status in
 	:status:  status out
 	"""
@@ -781,7 +784,7 @@ def compute_mwe_status(f0: int) -> int:
 	return status
 
 def get_mwe_status(status: int) -> int:
-	""" This fonction compute if current token are inside a MWE or not.
+	""" This function compute if current token are inside a MWE or not.
 	:in: status in
 	:out:  status out
 	"""
@@ -822,7 +825,7 @@ def restore_GUM_rel_files(files: list, idx_dict: dict) -> None:
 			else:
 				output.append(line)
 
-		with open(f"{file_}", 'w', encoding='utf-8') as fo:
+		with open(f"{file_}", 'w', encoding='utf-8', newline="\n") as fo:
 			fo.write("\n".join(output) + "\n")
 
 def restore_rel_files(files: list, idx_dict: dict) -> None:
@@ -855,11 +858,11 @@ def restore_rel_files(files: list, idx_dict: dict) -> None:
 			else:
 				output.append(line)
 
-		with open(f"{file_}", 'w', encoding='utf-8') as fo:
+		with open(f"{file_}", 'w', encoding='utf-8', newline="\n") as fo:
 			fo.write("\n".join(output) + "\n")
 
 def get_tokenized_text(path: str) -> dict:
-	""" This fonction harvest all tokens full lines but ellipsis of a .tok file. Relevant to get 1-based token IDs document-based.
+	""" This function harvests all tokens full lines but ellipsis of a .tok file. Relevant to get 1-based token IDs document-based.
 	:in: path to the file
 	:out: Dict[docname] = List of tokens lines
 	"""
@@ -871,10 +874,10 @@ def get_tokenized_text(path: str) -> dict:
 		v =[]
 	for i, line in enumerate(t_data):
 		line =line.strip()
-		if line.startswith("# newdoc_id") and i == 0:
-			k = re.sub("# newdoc_id = ", "", line)
-		elif line.startswith("# newdoc_id"): ### redondant ----------------- ??
-			k = re.sub("# newdoc_id = ", "", line)
+		if line.startswith("# newdoc id") and i == 0:
+			k = re.sub("# newdoc id = ", "", line)
+		elif line.startswith("# newdoc id"): ### redondant ----------------- ??
+			k = re.sub("# newdoc id = ", "", line)
 		elif line == "" :
 			tok_dict[k] = v
 			v = []
