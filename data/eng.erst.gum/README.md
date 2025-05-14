@@ -4,20 +4,28 @@
 
 To cite this corpus, please refer to the following article:
 
-Zeldes, Amir (2017) "The GUM Corpus: Creating Multilayer Resources in the Classroom". 
-Language Resources and Evaluation 51(3), 581–612.
+Amir Zeldes, Tatsuya Aoyama, Yang Janet Liu, Siyao Peng, Debopam Das, and Luke Gessler. 2025. [eRST: A Signaled Graph Theory of Discourse Relations and Organization. Computational Linguistics](https://aclanthology.org/2025.cl-1.3/), 51(1):23–72.
 
 ```bibtex
-@Article{Zeldes2017,
-   author    = {Amir Zeldes},
-   title     = {The {GUM} {C}orpus: Creating Multilayer Resources in the Classroom},
-   journal   = {Language Resources and Evaluation},
-   year      = {2017},
-   volume    = {51},
-   number    = {3},
-   pages     = {581--612},
-   doi       = {http://dx.doi.org/10.1007/s10579-016-9343-x}
- }
+@article{zeldes-etal-2025-erst,
+    title = "e{RST}: A Signaled Graph Theory of Discourse Relations and Organization",
+    author = "Zeldes, Amir  and
+      Aoyama, Tatsuya  and
+      Liu, Yang Janet  and
+      Peng, Siyao  and
+      Das, Debopam  and
+      Gessler, Luke",
+    journal = "Computational Linguistics",
+    volume = "51",
+    number = "1",
+    month = mar,
+    year = "2025",
+    address = "Cambridge, MA",
+    publisher = "MIT Press",
+    url = "https://aclanthology.org/2025.cl-1.3/",
+    doi = "10.1162/coli_a_00538",
+    pages = "23--72",
+}
 ```
 
 ## Introduction
@@ -42,7 +50,7 @@ GUM is a growing corpus of English texts currently covering 16 text types, each 
 - whow - How-to guides from wikiHow
 
 The corpus is created as part of the course LING-4427 (Computational Corpus Linguistics) at Georgetown University. Data is annotated in the enhanced RST (eRST) formalism, described in 
-[this paper](https://arxiv.org/abs/2403.13560). In additional to normal RST relations, the original data contains additional, tree-breaking relations, as well as multiple relations between the same
+[this paper](https://aclanthology.org/2025.cl-1.3/). In additional to normal RST relations, the original data contains additional, tree-breaking relations, as well as multiple relations between the same
 nodes. The eRST formalism also provides information on the signals for each relation, using a taxonomy of 45 subtypes arranged into 8 categories. This data is the basis for the distinction between
 the encoding of the explicit and implicit relation types in the DISRPT .rels data (where explicit means signaling by an explicit discourse marker such as "also" or "on the other hand").
 
